@@ -4,3 +4,4 @@ This is my first serious attempt with a coherent theme for GTK3 and GTK4 (and GT
 
 This theme is based on Adwaita GTK3 and GTK4 (source sasscs!) and built from there. Sources are also available.
 
+This is still an incomplete theme (see [TODO.md](TODO.md)
