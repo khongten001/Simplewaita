@@ -1,0 +1,37 @@
+$window_fg: #241f31;
+$window_bg: #a7a7a7;
+$text_widget_fg: #241f31;
+$text_widget_bg: #908f8d;
+
+$selected_fg: #000000;
+$selected_bg: #386b00;
+
+$button_fg: #241f31;
+$button_bg: #bcbeb9;
+$button_checked_bg: $selected_bg;
+$button_checked_fg: $selected_fg;
+
+
+$disabled_fg: #552222;
+$disabled_bg: #938989;
+
+
+$warningc: #f57900;
+$errorc: #990000;
+$successc: #73d216;
+
+
+$titlebar_active_fg: $selected_fg;
+$titlebar_active_bg: $selected_bg;
+
+$titlebar_backdrop_fg: $window_fg;
+$titlebar_backdrop_bg: $window_bg;
+
+$hint_fg: #002269;
+$hint_bg: #6789b4;
+
+$osd_fg: $hint_fg;
+$osd_bg: $hint_bg;
+
+
+
