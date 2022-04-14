@@ -4,7 +4,7 @@ $text_widget_fg: #241f31;
 $text_widget_bg: #908f8d;
 
 $selected_fg: #000000;
-$selected_bg: #386b00;
+$selected_bg: #b0dd7e;
 
 $button_fg: #241f31;
 $button_bg: #bcbeb9;
@@ -15,7 +15,7 @@ $button_checked_fg: $selected_fg;
 $disabled_fg: #552222;
 $disabled_bg: #938989;
 
-
+//these might have white text on them or window_fg text, bear it in mind when chosing colors.
 $warningc: #f57900;
 $errorc: #990000;
 $successc: #73d216;
