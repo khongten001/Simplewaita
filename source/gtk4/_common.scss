@@ -2466,7 +2466,7 @@ radio {
 
   & {
     // for unchecked
-    $_c: if($variant=='light', white, $bg_color);
+    $_c: $button_bg;//if($variant=='light', white, $bg_color);
 
     @each $state, $t in ("", "normal"),
                         (":hover", "hover"),

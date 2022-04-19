@@ -1,4 +1,4 @@
-/*these might have white text on them or window_fg text, bear it in mind when chosing colors. Usually an automatic fg color should check this value!*/
+/*Usually an automatic fg color on these backgrounds should check this value!*/
 /*************************** Check and Radio buttons * */
 /*************************** Check and Radio buttons * */
 calendar:selected, row:selected, treeview.view:selected:focus, treeview.view:selected, modelbutton.flat:selected, .menuitem.button.flat:selected, spinbutton:not(.vertical) selection, entry selection, flowbox flowboxchild:selected, .view text selection:focus, iconview text selection:focus, .view text selection, iconview text selection, textview text selection:focus, textview text selection, .view:selected:focus, iconview:selected:focus, .view:selected, iconview:selected, .view text:selected:focus, iconview text:selected:focus, textview text:selected:focus, .view text:selected, iconview text:selected, textview text:selected { background-color: #b0dd7e; }
