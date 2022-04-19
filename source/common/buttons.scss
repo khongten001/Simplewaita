@@ -85,8 +85,7 @@ $_default_button_c: $button_bg;
 	// this mixin needs to cover both gtk3 and gtk4 cases in order to work.
 	// gtk4 mixin calls only include $t, $c and $tc, therefore it should be safe to use in both.
 
-	//TODO: gtk3 add cases in common.scss to separate active from checked-active
-
+	
   	$_hilight_color: _button_hilight_color($c);
 	$_button_edge: if($edge == none, none, _widget_edge($edge));
 	$_blank_edge: if($edge == none, none, _widget_edge(transparentize($edge,1)));
@@ -106,6 +105,7 @@ $_default_button_c: $button_bg;
 	
 	color: $tc;
 	background-color: $c;
+	border-color: $tc;
 	outline-color: $focus_border_color;
 	background-image: $button_clickable_image;
 	@include _button_text_shadow($tc, $c);

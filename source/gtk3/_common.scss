@@ -630,7 +630,11 @@ button {
     }
 
     @at-root %button_basic_flat,
-    &.flat { &:backdrop, &:disabled, &:backdrop:disabled { @include button(undecorated); }}
+    &.flat { 
+        &:backdrop, &:disabled, &:backdrop:disabled { @include button(undecorated); }
+        &:disabled, &:backdrop:disabled { background-color: $insensitive_bg_color;}
+    
+    }
 
     &:disabled {
       @include button(insensitive);
@@ -756,6 +760,7 @@ button {
 
       &:disabled {
         @include button(insensitive);
+        background-color: $insensitive_bg_color;
         background-image: none;
         border-color: transparent;
         box-shadow: none;
@@ -772,7 +777,7 @@ button {
   @each $b_type, $b_color in (suggested-action, $suggested_bg_color),
                              (destructive-action, $destructive_color) {
     &.#{$b_type} {
-      @include button(normal, $b_color, white);
+      @include button(normal, $b_color, if(lightness($b_color)>50%, black, white));
 
       &.flat {
         @include button(undecorated);

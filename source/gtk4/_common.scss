@@ -690,7 +690,7 @@ button {
   @each $b_type, $b_color in (suggested-action, $selected_bg_color),
                              (destructive-action, $destructive_color) {
     &.#{$b_type} {
-      @include button(normal, $b_color, white);
+      @include button(normal, $b_color, if(lightness($b_color)>50%, black, white));
       @include focus-ring($fc: $alt_focus_border_color);
 
       &.flat {

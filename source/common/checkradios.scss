@@ -36,6 +36,7 @@
   @if $t==insensitive {
     box-shadow: none;
     color: $insensitive_fg_color;
+    background-image: image($insensitive_bg_color);
   }
 
   @if $t==backdrop {
@@ -47,6 +48,7 @@
   @if $t==backdrop-insensitive {
     box-shadow: none;
     color: $insensitive_fg_color;
+    background-image: image($insensitive_bg_color);
   }
 
   @if $t==menu {
