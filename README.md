@@ -8,7 +8,7 @@ This theme is based on Adwaita GTK3 and GTK4 (source sasscs!) and built from the
 
 GTK2 is based on Clearlooks.
 
-It is a light theme but with gray tones, in order to be easy on the eyes. Accents are bright green, so selected text stays the same color.
+It is a light theme but with gray tones, in order to be easy on the eyes. Accents are bright green, so selected text stays the same color. Disabled elements have a subtle red tint, in order to clearly identify their state.
 
 I still need to implement a way to easily create different color themes for this base (see [TODO.md](TODO.md))
 
