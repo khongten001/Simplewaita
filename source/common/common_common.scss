@@ -42,6 +42,7 @@ $menu_radius: 5px;
     @at-root %selected_items_backdrop,
     &:backdrop {
       color: $backdrop_selected_fg_color;
+      background-color: $backdrop_selected_bg_color;
 
       &:disabled { color: mix($backdrop_selected_fg_color, $selected_bg_color, 30%); }
     }

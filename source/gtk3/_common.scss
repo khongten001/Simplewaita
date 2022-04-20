@@ -543,8 +543,7 @@ treeview entry {
  * Buttons                                            * 
  ******************************************************/
 // stuff for .needs-attention
-$_dot_color: if($variant=='light', $selected_bg_color,
-                                   lighten($selected_bg_color,15%));
+$_dot_color: $warning_color;//if($variant=='light', $selected_bg_color, lighten($selected_bg_color,15%));
 @keyframes needs_attention {
   from {
     background-image: -gtk-gradient(radial,
@@ -3055,7 +3054,7 @@ treeview.view radio:selected { &:focus, & { @extend %radio; }} // This is a work
   // OSD
   .osd & {
     border-color: $osd_borders_color;
-    background-color: transparentize($osd_borders_color, 0.2);
+    background-color: transparentize($osd_borders_color, 0.7);
 
     &:disabled { background-color: $osd_insensitive_bg_color; }
   }
@@ -3488,74 +3487,9 @@ progressbar {
 /*************
  * Level Bar *
  *************/
-levelbar {
-  &.horizontal {
-    block {
-      min-height: 3px;
-    }
 
-    &.discrete block {
-      margin: 0 1px;
-      min-width: 32px;
-    }
-  }
+@import '../common/levelbar.scss';
 
-  &.vertical {
-    block {
-      min-width: 3px;
-    }
-
-    &.discrete block {
-      margin: 1px 0;
-      min-height: 32px;
-    }
-  }
-
-  &:backdrop { transition: $backdrop_transition; }
-
-  trough {
-    border: 1px solid;
-    padding: 1px;
-    border-radius: 3px;
-    @include entry(normal);
-
-    &:backdrop { @include entry(backdrop); }
-  }
-
-  block {
-    border: 1px solid;
-    border-radius: 1px;
-
-    &.low {
-      border-color: if($variant == 'light', darken($warning_color, 20%), $warning_color);
-      background-color: $warning_color;
-
-      &:backdrop { border-color: $warning_color; };
-    }
-
-    &.high,
-    &:not(.empty) {
-      border-color: if($variant == 'light', darken($progress_bg_color, 20%), $progress_bg_color);
-      background-color: $progress_bg_color;
-
-      &:backdrop { border-color: $progress_bg_color; }
-    }
-
-    &.full {
-      border-color: if($variant == 'light', darken($success_color, 20%), $success_color);
-      background-color: $success_color;
-
-      &:backdrop { border-color: $success_color; };
-    }
-
-    &.empty {
-      background-color: transparent;
-      border-color: if($variant == 'light', transparentize($fg_color,0.8), transparentize($fg_color,0.9));
-
-      &:backdrop { border-color: transparentize($backdrop_fg_color,0.85); }
-    }
-  }
-}
 
 
 /****************
