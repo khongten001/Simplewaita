@@ -1,7 +1,9 @@
 # Skewaita
 
-This is my first serious attempt with a coherent theme for GTK3 and GTK4 (and GTK2 with a script for changing colors).
+This is my first serious attempt with a coherent theme for GTK2, GTK3 and GTK4.
 
 This theme is based on Adwaita GTK3 and GTK4 (source sasscs!) and built from there. Sources are also available.
 
-This is still an incomplete theme (see [TODO.md](TODO.md)
+GTK2 is based on Clearlooks.
+
+This is still an incomplete theme (see [TODO.md](TODO.md))
