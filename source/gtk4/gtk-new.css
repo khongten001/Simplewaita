@@ -411,23 +411,23 @@ popover.menu box.circular-buttons button.destructive-action.circular.image-butto
 popover.menu box.circular-buttons button.destructive-action.circular.image-button.model:focus:focus-visible, list > row button.image-button:not(.flat).destructive-action:focus:focus-visible { outline-color: rgba(255, 255, 255, 0.8); outline-width: 2px; outline-offset: -2px; }
 
 /********* Links * */
-button.link, link { color: #3c5529; text-decoration: underline; }
+button.link, link { color: #004B91; text-decoration: underline; }
 
-button.link:visited, link:visited { color: #404540; }
+button.link:visited, link:visited { color: #680091; }
 
-*:selected button.link:visited, *:selected link:visited { color: #1a1c1a; }
+*:selected button.link:visited, *:selected link:visited { color: #2a003a; }
 
-button.link:hover, link:hover { color: #54773a; }
+button.link:hover, link:hover { color: #0065c4; }
 
-*:selected button.link:hover, *:selected link:hover { color: #080c06; }
+*:selected button.link:hover, *:selected link:hover { color: #000a14; }
 
-button.link:active, link:active { color: #3c5529; }
+button.link:active, link:active { color: #004B91; }
 
-*:selected button.link:active, *:selected link:active { color: #0c1108; }
+*:selected button.link:active, *:selected link:active { color: #000f1d; }
 
-button.link:disabled, link:disabled { color: rgba(63, 63, 63, 0.8); }
+button.link:disabled, link:disabled { color: rgba(73, 73, 73, 0.8); }
 
-button.link:selected, *:selected button.link, link:selected, *:selected link { color: #0c1108; }
+button.link:selected, *:selected button.link, link:selected, *:selected link { color: #000f1d; }
 
 link { transition-property: outline, outline-width, outline-offset, outline-color; transition-duration: 300ms; animation-timing-function: ease-in-out; }
 
@@ -737,7 +737,7 @@ menubar { padding: 0px; box-shadow: inset 0 -1px rgba(0, 0, 0, 0.1); }
 
 menubar > item { min-height: 16px; padding: 4px 8px; }
 
-menubar > item:selected { box-shadow: inset 0 -3px #b0dd7e; color: #3c5529; }
+menubar > item:selected { box-shadow: inset 0 -3px #b0dd7e; color: #004B91; }
 
 menubar > item:disabled { color: #552222; box-shadow: none; }
 
