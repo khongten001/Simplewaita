@@ -1675,9 +1675,9 @@ decoration:backdrop { box-shadow: 0 3px 9px 1px transparent, 0 2px 6px 2px rgba(
 
 .maximized decoration, .fullscreen decoration { border-radius: 0; box-shadow: none; }
 
-.tiled decoration, .tiled-top decoration, .tiled-right decoration, .tiled-bottom decoration, .tiled-left decoration { border-radius: 0; box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.18), 0 0 0 20px transparent; }
+.tiled decoration, .tiled-top decoration, .tiled-right decoration, .tiled-bottom decoration, .tiled-left decoration { border-radius: 0; box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.18), 0 2px 6px 2px rgba(0, 0, 0, 0.2), 0 0 0 20px transparent; }
 
-.tiled decoration:backdrop, .tiled-top decoration:backdrop, .tiled-right decoration:backdrop, .tiled-bottom decoration:backdrop, .tiled-left decoration:backdrop { box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.18), 0 0 0 20px transparent; }
+.tiled decoration:backdrop, .tiled-top decoration:backdrop, .tiled-right decoration:backdrop, .tiled-bottom decoration:backdrop, .tiled-left decoration:backdrop { box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.18), 0 2px 6px 2px rgba(0, 0, 0, 0.4), 0 0 0 20px transparent; }
 
 .popup decoration { box-shadow: none; }
 
@@ -1685,15 +1685,15 @@ decoration:backdrop { box-shadow: 0 3px 9px 1px transparent, 0 2px 6px 2px rgba(
 
 .ssd decoration:backdrop { box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.18); }
 
-.csd.popup decoration { border-radius: 5px; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.13); }
+.csd.popup decoration { border-radius: 5px; box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.13); }
 
 tooltip.csd decoration { border-radius: 5px; box-shadow: none; }
 
-messagedialog.csd decoration { border-radius: 8px; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.13); }
+messagedialog.csd decoration { border-radius: 8px; box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.13); }
 
-.solid-csd decoration { margin: 0; padding: 4px; background-color: #797979; border: solid 1px #797979; border-radius: 0; box-shadow: inset 0 0 0 3px #b4b4b4, inset 0 1px rgba(255, 255, 255, 0.8); }
+.solid-csd decoration { margin: 0; padding: 4px; background-color: #797979; border: solid 1px #797979; border-radius: 0; box-shadow: inset 0 0 0 3px #b4b4b4, inset 0 1px rgba(255, 255, 255, 0.8), 0 1px 5px rgba(0, 0, 0, 0.2); }
 
-.solid-csd decoration:backdrop { box-shadow: inset 0 0 0 3px #a7a7a7, inset 0 1px rgba(255, 255, 255, 0.8); }
+.solid-csd decoration:backdrop { box-shadow: inset 0 0 0 3px #a7a7a7, inset 0 1px rgba(255, 255, 255, 0.8), 0 1px 5px rgba(0, 0, 0, 0.2); }
 
 button.titlebutton { text-shadow: 0 1px rgba(255, 255, 255, 0.3); -gtk-icon-shadow: 0 1px rgba(255, 255, 255, 0.3); }
 
