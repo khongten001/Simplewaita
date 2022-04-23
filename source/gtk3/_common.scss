@@ -3105,34 +3105,31 @@ scale {
 
   // the slider is inside the trough, so to have make it bigger there's a negative margin
 
-  slider {
-    min-height: 18px;
-    min-width: 18px;
-    margin: -9px;
-  }
+
 
   // click-and-hold the slider to activate
   &.fine-tune {
-    &.horizontal {
-      padding-top: 9px;
-      padding-bottom: 9px;
-      min-height: 16px;
-    }
+    //&.horizontal {
+    //  padding-top: 9px;
+    //  padding-bottom: 9px;
+    //  min-height: 16px;
+    //}
 
-    &.vertical {
-      padding-left: 9px;
-      padding-right: 9px;
-      min-width: 16px;
-    }
+    //&.vertical {
+    //  padding-left: 9px;
+    //  padding-right: 9px;
+    //  min-width: 16px;
+    //}
 
     // to make the trough grow in fine-tune mode
-    slider { margin: -6px; }
+    //trough {border-color: $success_color;}
+    slider {&, &:active, &:hover, &:focus { background-color: $hint_bg;}}//margin: -6px; }
 
     fill,
     highlight,
     trough {
-      border-radius: 5px;
-      -gtk-outline-radius: 7px;
+      //border-radius: 5px;
+      //-gtk-outline-radius: 7px;
     }
   }
 
@@ -3174,7 +3171,11 @@ scale {
     }
   }
 
-  slider {
+  slider, %slider {
+  
+    min-height: 18px;
+    min-width: 18px;
+    margin: -9px;
     @include button(normal-alt, $edge: $shadow_color);
 
     border: 1px solid darken($alt_borders_color, 3%);
@@ -3250,12 +3251,12 @@ scale {
       }
     }
 
-    &.#{$scale_orient}.fine-tune marks {
-      &.#{$marks_class} {
-        margin-#{$marks_margin}: $_marks_distance;
-        margin-#{$marks_pos}: -($_marks_distance + $_marks_length - 3px);
-      }
-    }
+    //&.#{$scale_orient}.fine-tune marks {
+    //  &.#{$marks_class} {
+    //    margin-#{$marks_margin}: $_marks_distance;
+    //    margin-#{$marks_pos}: -($_marks_distance + $_marks_length - 3px);
+    //  }
+    //}
   }
   
 
@@ -3266,9 +3267,10 @@ scale {
       min-width: 1px;
     }
 
-    &.fine-tune indicator { min-height: ($_marks_length - 3px); }
-    &.marks-after {slider{ border-radius: 5px 5px 100% 100%;}}
-    &.marks-before {slider{ border-radius: 100% 100% 5px 5px;}}
+    //&.fine-tune indicator { min-height: ($_marks_length - 3px); }
+    &.marks-after {
+    	slider{ border-radius: 5px 5px 100% 100%; min-width: 10px; padding: 0; margin-right: 5px; margin-left:5px;}}
+    &.marks-before {slider{ border-radius: 100% 100% 5px 5px;min-width: 10px;padding: 0;margin-right: 5px; margin-left:5px;}}
   }
 
   &.vertical {
@@ -3277,10 +3279,10 @@ scale {
       min-width: $_marks_length;
     }
 
-    &.fine-tune indicator { min-width: ($_marks_length - 3px); }
+    //&.fine-tune indicator { min-width: ($_marks_length - 3px); }
     
-    &.marks-after {slider{ border-radius: 5px 100% 100% 5px;}}
-    &.marks-before {slider{ border-radius: 100% 5px 5px 100%;}}
+    &.marks-after {slider{ border-radius: 5px 100% 100% 5px; min-height: 10px;padding: 0;margin-top: 5px; margin-bottom:5px;}}
+    &.marks-before {slider{ border-radius: 100% 5px 5px 100%; min-height: 10px;padding: 0;margin-top: 5px; margin-bottom:5px;}}
   }
 
 	// Old warning to help locate where this madness used to be. I've used a much saner approach to marked sliders, IMHO, without assets.
@@ -3354,53 +3356,7 @@ scale {
       }
     }
 
-    &.fine-tune {
-      &.horizontal {
-        &:dir(ltr), &:dir(rtl) { // specificity bump
-          padding: 0 0 12px 0;
-
-          trough {
-            padding-bottom: 7px;
-            background-position: 0 -6px;
-          }
-
-          slider {
-            margin-bottom: -15px;
-            margin-top: 6px;
-          }
-        }
-      }
-
-      &.vertical {
-        &:dir(ltr) {
-          padding: 0 0 0 12px;
-
-          trough {
-            padding-left: 7px;
-            background-position: 6px 0;
-          }
-
-          slider {
-            margin-left: -15px;
-            margin-right: 6px;
-          }
-        }
-
-        &:dir(rtl) {
-          padding: 0 12px 0 0;
-
-          trough {
-            padding-right: 7px;
-            background-position: -6px 0;
-          }
-
-          slider {
-            margin-right: -15px;
-            margin-left: 6px;
-          }
-        }
-      }
-    }
+	//removed fine-tune bit
   }
 }
 
@@ -4110,14 +4066,14 @@ tooltip {
   &.background {
     // background-color needs to be set this way otherwise it gets drawn twice
     // see https://bugzilla.gnome.org/show_bug.cgi?id=736155 for details.
-    background-color: transparentize($hint_bg, 0.2);
+    background-color: transparentize($hint_bg, 0.1);
     background-clip: padding-box;
     border: 1px solid $tooltip_borders_color; // this suble border is meant to
                                               // not make the tooltip melt with
                                               // very dark backgrounds
   }
 
-  padding: 4px; /* not working */
+  //padding: 4px; /* not working */
   border-radius: 5px;
   //box-shadow: none; // otherwise it gets inherited by windowframe.csd
   text-shadow: none;
@@ -4126,7 +4082,7 @@ tooltip {
   decoration { background-color: transparent; }
 
   * { // Yeah this is ugly
-    padding: 4px;
+    //padding: 4px;
     background-color: transparent;
     color: $hint_fg;
   }
@@ -4357,7 +4313,7 @@ decoration {
   .tiled-left & {
     border-radius: 0;
     box-shadow: 0 0 0 1px $_wm_border_backdrop,
-    			0 2px 6px 2px transparentize(black, 0.8),
+    			0 2px 6px 2px transparentize(black, 0.3),
                 0 0 0 20px transparent; //transparent control workaround -- #3670
 
     &:backdrop { box-shadow: 0 0 0 1px $_wm_border_backdrop,
@@ -4381,7 +4337,7 @@ decoration {
 
   tooltip.csd & {
     border-radius: 5px;
-    box-shadow: none;
+    box-shadow: 0 3px 4px transparentize(black, 0.3); //none;
   }
 
   messagedialog.csd & {
@@ -4396,9 +4352,9 @@ decoration {
     background-color: $borders_color;
     border: solid 1px $borders_color;
     border-radius: 0;
-    box-shadow: inset 0 0 0 3px $headerbar_color, inset 0 1px $top_hilight, 0 1px 5px transparentize(black, 0.8);
+    box-shadow: inset 0 0 0 3px $headerbar_color, inset 0 1px $top_hilight, 0 3px 5px transparentize(black, 0.3);
 
-    &:backdrop { box-shadow: inset 0 0 0 3px $backdrop_bg_color, inset 0 1px $top_hilight, 0 1px 5px transparentize(black, 0.8); }
+    &:backdrop { box-shadow: inset 0 0 0 3px $backdrop_bg_color, inset 0 1px $top_hilight, 0 3px 5px transparentize(black, 0.3); }
   }
 }
 
@@ -4448,36 +4404,8 @@ headerbar.selection-mode button.titlebutton,
  * Touch Copy & Paste *
  *********************/
 //touch selection handlebars for the Popover.osd above
-cursor-handle {
-  background-color: transparent;
-  background-image: none;
-  box-shadow: none;
-  border-style: none;
 
-  @each $s,$as in ('',''),
-                  (':hover','-hover'),
-                  (':active','-active') { //no need for insensitive and backdrop
-    &.top#{$s}:dir(ltr), &.bottom#{$s}:dir(rtl) {
-      $_url: 'assets/text-select-start#{$as}#{$asset_suffix}';
-      -gtk-icon-source: -gtk-scaled(url('#{$_url}.png'),
-                                    url('#{$_url}@2.png'));
-      padding-left: 10px;
-    }
-
-    &.bottom#{$s}:dir(ltr), &.top#{$s}:dir(rtl) {
-      $_url: 'assets/text-select-end#{$as}#{$asset_suffix}';
-      -gtk-icon-source: -gtk-scaled(url('#{$_url}.png'),
-                                    url('#{$_url}@2.png'));
-      padding-right: 10px;
-    }
-
-    &.insertion-cursor#{$s}:dir(ltr), &.insertion-cursor#{$s}:dir(rtl) {
-      $_url: 'assets/slider-horz-scale-has-marks-above#{$as}#{$asset_suffix}';
-      -gtk-icon-source: -gtk-scaled(url('#{$_url}.png'),
-                                    url('#{$_url}@2.png'));
-    }
-  }
-}
+@import '../common/cursor-handle.scss';
 
 .context-menu { font: initial; } // Decouple the font of context menus from their entry/textview
 
