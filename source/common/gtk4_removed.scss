@@ -464,4 +464,52 @@ cursor-handle {
     }
   }
 }
- 
+
+//inside scale .color
+&.fine-tune {
+      &.horizontal {
+        &:dir(ltr), &:dir(rtl) { // specificity bump
+          padding: 0 0 12px 0;
+
+          > trough {
+            padding-bottom: 7px;
+            background-position: 0 -6px;
+          }
+
+          > trough > slider {
+            margin-bottom: -15px;
+            margin-top: 6px;
+          }
+        }
+      }
+
+      &.vertical {
+        &:dir(ltr) {
+          padding: 0 0 0 12px;
+
+          > trough {
+            padding-left: 7px;
+            background-position: 6px 0;
+          }
+
+          > trough > slider {
+            margin-left: -15px;
+            margin-right: 6px;
+          }
+        }
+
+        &:dir(rtl) {
+          padding: 0 12px 0 0;
+
+          > trough {
+            padding-right: 7px;
+            background-position: -6px 0;
+          }
+
+          > trough > slider {
+            margin-right: -15px;
+            margin-left: 6px;
+          }
+        }
+      }
+    }
