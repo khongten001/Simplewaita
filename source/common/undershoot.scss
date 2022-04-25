@@ -1,0 +1,18 @@
+undershoot {
+	background-origin: padding-box;
+	&.top, &.bottom {
+		background-image: linear-gradient(to right, currentColor 50%, transparent 50%);
+		background-size: 0.5em 1px;
+		background-repeat: repeat-x;
+	}
+	&.right, &.left {
+		background-image: linear-gradient(to bottom, currentColor 50%, transparent 50%);
+		background-size: 1px 0.5em;
+		background-repeat: repeat-y;
+	}
+	&.top {background-position: top;}
+	&.bottom {background-position: bottom;}
+	&.right {background-position: right;}
+	&.left {background-position: left;}
+	
+}
