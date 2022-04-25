@@ -1,18 +1,25 @@
 undershoot {
-	background-origin: padding-box;
-	&.top, &.bottom {
-		background-image: linear-gradient(to right, currentColor 50%, transparent 50%);
-		background-size: 0.5em 1px;
-		background-repeat: repeat-x;
+	background-repeat: no-repeat;
+	background-clip: border-box;
+	&.top {
+		background-image: linear-gradient(to bottom, gtkalpha(currentColor, 0.5), gtkalpha(currentColor, 0.2), gtkalpha(currentColor, 0));
+		background-size: 100% 1em;
+		background-position: top;
 	}
-	&.right, &.left {
-		background-image: linear-gradient(to bottom, currentColor 50%, transparent 50%);
-		background-size: 1px 0.5em;
-		background-repeat: repeat-y;
+	&.bottom {
+		background-image: linear-gradient(to top, gtkalpha(currentColor, 0.5), gtkalpha(currentColor, 0.2), gtkalpha(currentColor, 0));
+		background-size: 100% 1em;
+		background-position: bottom;
 	}
-	&.top {background-position: top;}
-	&.bottom {background-position: bottom;}
-	&.right {background-position: right;}
-	&.left {background-position: left;}
+	&.left {
+		background-image: linear-gradient(to right, gtkalpha(currentColor, 0.5), gtkalpha(currentColor, 0.2), gtkalpha(currentColor, 0));
+		background-size: 1em 100%;
+		background-position: left;	
+	}
+	&.right {
+		background-image: linear-gradient(to left, gtkalpha(currentColor, 0.5), gtkalpha(currentColor, 0.2), gtkalpha(currentColor, 0));
+		background-size: 1em 100%;
+		background-position: right;	
+	}
 	
 }

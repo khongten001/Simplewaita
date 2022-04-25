@@ -1642,19 +1642,15 @@ menubutton arrow.left { -gtk-icon-source: -gtk-icontheme("pan-start-symbolic"); 
 
 menubutton arrow.right { -gtk-icon-source: -gtk-icontheme("pan-end-symbolic"); }
 
-undershoot { background-origin: padding-box; }
+undershoot { background-repeat: no-repeat; background-clip: border-box; }
 
-undershoot.top, undershoot.bottom { background-image: linear-gradient(to right, currentColor 50%, transparent 50%); background-size: 0.5em 1px; background-repeat: repeat-x; }
+undershoot.top { background-image: linear-gradient(to bottom, alpha(currentColor,0.5), alpha(currentColor,0.2), alpha(currentColor,0)); background-size: 100% 1em; background-position: top; }
 
-undershoot.right, undershoot.left { background-image: linear-gradient(to bottom, currentColor 50%, transparent 50%); background-size: 1px 0.5em; background-repeat: repeat-y; }
+undershoot.bottom { background-image: linear-gradient(to top, alpha(currentColor,0.5), alpha(currentColor,0.2), alpha(currentColor,0)); background-size: 100% 1em; background-position: bottom; }
 
-undershoot.top { background-position: top; }
+undershoot.left { background-image: linear-gradient(to right, alpha(currentColor,0.5), alpha(currentColor,0.2), alpha(currentColor,0)); background-size: 1em 100%; background-position: left; }
 
-undershoot.bottom { background-position: bottom; }
-
-undershoot.right { background-position: right; }
-
-undershoot.left { background-position: left; }
+undershoot.right { background-image: linear-gradient(to left, alpha(currentColor,0.5), alpha(currentColor,0.2), alpha(currentColor,0)); background-size: 1em 100%; background-position: right; }
 
 /* GTK NAMED COLORS ---------------- use responsibly! */
 /*
