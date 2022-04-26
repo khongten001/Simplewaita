@@ -13,6 +13,7 @@ $_sel_menu_pad: if($_sizevariant=='default', 6px 10px, 4px 10px);
 $_circ_btn_pad: if($_sizevariant=='default', 4px, 2px);
 $_switch_margin: if($_sizevariant=='default', 10px, 7px);
 
+$entry_radius: 0px;
 
 $ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 $asset_suffix: if($variant=='dark', '-dark', '');

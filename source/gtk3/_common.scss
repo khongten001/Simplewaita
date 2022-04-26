@@ -308,10 +308,10 @@ spinner {
 entry {
   %entry_basic, & {
     min-height: $_entry_height;
-    padding-left: 8px;
-    padding-right: 8px;
+    padding-left: 1px;
+    padding-right: 1px;
     border: 1px solid;
-    border-radius: $button_radius;
+    border-radius: $entry_radius;
     transition: all 200ms $ease-out-quad;
 
     @include entry(normal);
@@ -326,6 +326,8 @@ entry {
       &:focus, &:backdrop, &:disabled, &:backdrop:disabled, & {
         min-height: 0;
         padding: 2px;
+        padding-left: 1px;
+        padding-right: 1px;
         background-color: transparent;
         border-color: transparent;
         border-radius: 0;
@@ -401,7 +403,12 @@ entry {
   }
 
    // linked entries
-  .linked:not(.vertical) > & { @extend %linked; }
+  .linked:not(.vertical) > & { 
+        @extend %linked;
+        &, &:first-child, &:last-child, &:only-child { 
+            &:dir(rtl), &:dir(ltr) {border-radius:$entry_radius;} //breaking roundness if present, added for square theme. All this to get equal specificity!
+        }
+   } 
   .linked:not(.vertical) > &:focus + &,
   .linked:not(.vertical) > &:focus + button,
   .linked:not(.vertical) > &:focus + combobox > box > button.combo { border-left-color: entry_focus_border(); }
