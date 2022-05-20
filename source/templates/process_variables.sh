@@ -1,3 +1,5 @@
 #! /bin/bash
 
 source variables.sh
+
+envsubst <_theme_colors.scss >theme_colors_.scss.processed

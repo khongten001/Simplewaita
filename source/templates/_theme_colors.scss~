@@ -1,4 +1,4 @@
-$window_fg: $vwindow_fg;
+"$window_fg: "$vwindow_fg;
 $window_bg: $vwindow_bg;
 $text_widget_fg: $vtext_widget_fg;
 $text_widget_bg: $vtext_widget_bg;
@@ -12,26 +12,26 @@ $button_checked_bg: $vbutton_checked_bg;
 $button_checked_fg: $vbutton_checked_fg;
 
 
-$disabled_fg: #552222;
-$disabled_bg: #938989;
+$disabled_fg: $vdisabled_fg;
+$disabled_bg: $vdisabled_bg;
 
 /*Usually an automatic fg color on these backgrounds should check this value!*/
-$warningc: #f57900;
-$errorc: #990000;
-$successc: #73d216;
+$warningc: $vdisabled_bg;
+$errorc: $verrorc;
+$successc: $vsuccessc;
 
 
-$titlebar_active_fg: $selected_fg;
-$titlebar_active_bg: $selected_bg;
+$titlebar_active_fg: $vtitlebar_active_fg;
+$titlebar_active_bg: $vtitlebar_active_bg;
 
-$titlebar_backdrop_fg: $window_fg;
-$titlebar_backdrop_bg: $window_bg;
+$titlebar_backdrop_fg: $vtitlebar_backdrop_fg;
+$titlebar_backdrop_bg: $vtitlebar_backdrop_bg;
 
-$hint_fg: #002269;
-$hint_bg: #6789b4;
+$hint_fg: $vhint_fg;
+$hint_bg: $vhint_bg;
 
-$osd_fg: $hint_fg;
-$osd_bg: $hint_bg;
+$osd_fg: $vosd_fg;
+$osd_bg: $vosd_bg;
 
-$link_fg: #004B91;
-$link_visited_fg: #680091;
+$link_fg: $vlink_fg;
+$link_visited_fg: $vlink_visited_fg;
