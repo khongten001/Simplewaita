@@ -12,17 +12,17 @@ $button_checked_bg: $vbutton_checked_bg;
 $button_checked_fg: $vbutton_checked_fg;
 
 
-$disabled_fg: $vdisabled_fg;
-$disabled_bg: $vdisabled_bg;
+$disabled_fg: #552222;
+$disabled_bg: #938989;
 
 /*Usually an automatic fg color on these backgrounds should check this value!*/
-$warningc: $vdisabled_bg;
-$errorc: $verrorc;
-$successc: $vsuccessc;
+$warningc: #f57900;
+$errorc: #990000;
+$successc: #73d216;
 
 
-$titlebar_active_fg: $vtitlebar_active_fg;
-$titlebar_active_bg: $vtitlebar_active_bg;
+$titlebar_active_fg: $selected_fg;
+$titlebar_active_bg: $selected_bg;
 
 $titlebar_backdrop_fg: $window_fg;
 $titlebar_backdrop_bg: $window_bg;
