@@ -1,37 +1,37 @@
-': '#241f31;
-: #a7a7a7;
-: #241f31;
-: #908f8d;
+$window_fg: #241f31;
+$window_bg: #a7a7a7;
+$text_widget_fg: #241f31;
+$text_widget_bg: #908f8d;
 
-: #000000;
-: #b0dd7e;
+$selected_fg: #000000;
+$selected_bg: #b0dd7e;
 
-: #241f31;
-: #bcbeb9;
-: #b0dd7e;
-: #000000;
+$button_fg: #241f31;
+$button_bg: #bcbeb9;
+$button_checked_bg: #b0dd7e;
+$button_checked_fg: #000000;
 
 
-: #552222;
-: #938989;
+$disabled_fg: #552222;
+$disabled_bg: #938989;
 
 /*Usually an automatic fg color on these backgrounds should check this value!*/
-: #938989;
-: #990000;
-: #73d216;
+$warningc: #938989;
+$errorc: #990000;
+$successc: #73d216;
 
 
-: #000000;
-: #b0dd7e;
+$titlebar_active_fg: #000000;
+$titlebar_active_bg: #b0dd7e;
 
-: #241f31;
-: #a7a7a7;
+$titlebar_backdrop_fg: #241f31;
+$titlebar_backdrop_bg: #a7a7a7;
 
-: #002269;
-: #6789b4;
+$hint_fg: #002269;
+$hint_bg: #6789b4;
 
-: ;
-: ;
+$osd_fg: #002269;
+$osd_bg: #6789b4;
 
-: #004B91;
-: #680091;
+$link_fg: #004B91;
+$link_visited_fg: #680091;

@@ -1,6 +1,13 @@
 #! /bin/bash
 
-# Gray light green scheme
+# This file contains a color scheme for Skewaita
+# To use it, follow these steps:
+#  1. execute process_variables <name of the color scheme file>
+#     (this processes templates to create somw files, which are then copyied to their respective source directory) 
+#  2. go up one directory, to source, and execute "./compile.sh light" or "./compile.sh dark" depending on whether the theme is light or dark
+
+
+# Original Skweaita: light, with grayish tones and light green accents, VERY easy on the eyes
 
 vwindow_fg="#241f31"
 vwindow_bg="#a7a7a7"
@@ -35,12 +42,12 @@ vtitlebar_backdrop_bg=$vwindow_bg
 vhint_fg="#002269"
 vhint_bg="#6789b4"
 
-vosd_fg=$hint_fg
-vosd_bg=$hint_bg
+vosd_fg=$vhint_fg
+vosd_bg=$vhint_bg
 
 vlink_fg="#004B91"
 vlink_visited_fg="#680091"
 
 
-export	vwindow_fg	vwindow_bg	vtext_widget_fg	vtext_widget_bg		vselected_fg	vselected_bg		vbutton_fg	vbutton_bg	vbutton_checked_bg	vbutton_checked_fg			vdisabled_fg	vdisabled_bg				vwarningc	verrorc	vsuccessc			vtitlebar_active_fg	vtitlebar_active_bg		vtitlebar_backdrop_fg	vtitlebar_backdrop_bg		vhint_fg	vhint_bg		vosd_fg	vosd_bg		vlink_fg	vlink_visited_fg
+# export	vwindow_fg	vwindow_bg	vtext_widget_fg	vtext_widget_bg		vselected_fg	vselected_bg		vbutton_fg	vbutton_bg	vbutton_checked_bg	vbutton_checked_fg			vdisabled_fg	vdisabled_bg				vwarningc	verrorc	vsuccessc			vtitlebar_active_fg	vtitlebar_active_bg		vtitlebar_backdrop_fg	vtitlebar_backdrop_bg		vhint_fg	vhint_bg		vosd_fg	vosd_bg		vlink_fg	vlink_visited_fg
 
