@@ -11,6 +11,8 @@ gtk-color-scheme = "tooltip_bg_color:${vhint_bg}"
 gtk-color-scheme = "tooltip_fg_color:${vhint_fg}"
 gtk-color-scheme = "disabled_bg_color:${vdisabled_bg}"
 gtk-color-scheme = "disabled_fg_color:${vdisabled_fg}"
+gtk-color-scheme = "button_bg_color:${vbutton_bg}"
+gtk-color-scheme = "button_fg_color:${vbutton_fg}"
 gtk-color-scheme = "button_checked_bg_color:${vbutton_checked_bg}"
 gtk-color-scheme = "button_checked_fg_color:${vbutton_checked_fg}"
 
@@ -85,7 +87,7 @@ style "default" {
 	base[ACTIVE]      = shade (0.9, @selected_bg_color)
 
 	engine "clearlooks" {
-		colorize_scrollbar = TRUE
+		colorize_scrollbar = FALSE
 		reliefstyle = 1
 		menubarstyle = 2
 		toolbarstyle = 1
@@ -182,8 +184,9 @@ style "button" {
 	xthickness = 3
 	ythickness = 3
 
-	bg[NORMAL]        = shade (1.04, @bg_color)
-	bg[PRELIGHT]      = shade (1.06, @bg_color)
+	bg[NORMAL]        = @button_bg_color
+	fg[NORMAL]        = @button_fg_color
+	bg[PRELIGHT]      = shade (1.06, @button_bg_color)
 	bg[ACTIVE]        = @button_checked_bg_color
 	fg[ACTIVE]        = @button_checked_fg_color
 }
