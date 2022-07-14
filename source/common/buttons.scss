@@ -98,6 +98,9 @@ $_default_button_c: $button_bg;
 						transparentize($shadow_hard_color, 1) 50%,
 						transparentize($shadow_hard_color, if($variant == 'light',0.85,0.7)) );
 	
+	//remove borders on all buttons...
+	//border-width: 0;
+	
 	@if $t==normal or $t==normal-alt  {
 	//
 	// normal button
@@ -158,6 +161,7 @@ $_default_button_c: $button_bg;
   // insensitive button
   //
   		color: $insensitive_fg_color;
+  		border-color: $insensitive_fg_color;
   		background-color: $insensitive_bg_color;
   		background-image: if($backimage==null, none, $backimage);
   	}

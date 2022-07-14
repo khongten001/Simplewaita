@@ -2362,8 +2362,8 @@ switch {
 
   &:checked {
     color: $selected_fg_color;
-    border-color: $switch_borders_color;
-    background-color: $switch_bg_color;
+    border-color: $checkradio_borders_color;
+    background-color: $checkradio_bg_color;
   }
 
   &:disabled {
@@ -2694,7 +2694,7 @@ scale {
 
     &:hover { @include button(hover); }
 
-    &:active { border-color: $selected_borders_color; }
+    &:active { border-color: $selected_bg_color; }
 
     &:disabled { @include button(insensitive); }
 

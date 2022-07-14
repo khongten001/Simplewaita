@@ -1,13 +1,13 @@
 #! /bin/bash
 
-# This file contains a color scheme for Skewaita
+# This file contains a color scheme for Skewaita GTK theme
 # To use it, follow these steps:
-#  1. execute process_variables <name of the color scheme file>
-#     (this processes templates to create somw files, which are then copyied to their respective source directory) 
-#  2. go up one directory, to source, and execute "./compile.sh light" or "./compile.sh dark" depending on whether the theme is light or dark
+#  1. execute ./use_scheme.sh <this_file_name>
+#     (this processes templates to create some files, which are then copyied to their respective source directory) 
+#  2. go up one directory, to "source", and execute "./compile.sh light" or "./compile.sh dark" depending on whether the theme is light or dark
 
 
-# Original Skweaita: light, with grayish tones and light green accents, VERY easy on the eyes
+# Original Skewaita: light, with grayish tones and light green accents, VERY easy on the eyes
 
 vwindow_fg="#241f31"
 vwindow_bg="#a7a7a7"
