@@ -1,4 +1,4 @@
-# Skewaita
+# Simplewaita
 
 ![small preview](previews/logo.png)
 
