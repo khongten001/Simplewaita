@@ -1,0 +1,38 @@
+//auxiliary functions for buttons first
+
+
+
+
+@function highlight_border ($c) {
+	@return lighten($c, 15%);
+}
+@function shadow_border ($c) {
+	@return darken($c, 10%);
+}
+
+
+@mixin relief($bg, $type:raised, $bc:$bg) {
+	// draws a raised (default) or sunken surface
+	// $bg: background color for the surface
+	// $type: either raised (default) or sunken (or any other value, which makes it sunken)
+	// $bc: border color: you may want a different border color (such as an active entry); otherwise it equals $bg
+	
+	// it only sets background and border colors; color or any other property are not set.
+	
+	background-color: $bg;
+	//border-width: $border_width;
+	//border-style: solid;
+	@if $type==raised {
+		border-left-color: highlight_border($bc);
+		border-top-color: highlight_border($bc);
+		border-right-color: shadow_border($bc);
+		border-bottom-color: shadow_border($bc);
+	}
+	@else { //usually "sunken", but really anything other than "raised"
+		border-left-color: shadow_border($bc);
+		border-top-color: shadow_border($bc);
+		border-right-color: highlight_border($bc);
+		border-bottom-color: highlight_border($bc);
+	
+	}
+}

@@ -1,0 +1,285 @@
+notebook, notebook.frame {
+  
+  $stack_bg_color: mix($bg_color, $base_color, 50%);
+  border-width: $border_width;
+  border-style: solid;
+  @include relief($stack_bg_color);
+  
+  > header {
+    //padding: 4px;
+    //border: none;
+    border: 0 solid;
+    background-color: $bg_color;
+    @include relief ($bg_color, sunken);
+    margin: -$border_width;
+
+
+    tabs { 
+      border-width: 0px;
+      border-style: none;
+      @include relief ($stack_bg_color, sunken);
+      background-color: $bg_color;
+      //margin: -$border_width;
+      
+    }
+
+    &.top {
+          //margin-bottom: 0;
+          border-bottom-width: $border_width;
+
+          > tabs { margin-top: $border_width;}
+          > tabs > tab {
+          border-bottom: none;
+          margin-top: $border_width;
+          &:checked {
+            //margin-top: 0px;
+            margin-bottom: -$border_width;
+            //box-shadow: inset 0 1px 1px 0 gtkalpha($light_shadow, 0.3);
+          }
+       }
+    }
+
+    &.bottom {
+      //margin-top: 0;
+      border-top-width: $border_width;
+
+      > tabs { margin-bottom: $border_width;}
+      > tabs > tab {
+          border-top: none;
+          margin-bottom: $border_width;
+          &:checked {
+            margin-top: -$border_width;
+            //margin-bottom: 0px;
+           
+          }
+        }
+    }
+
+    &.left {
+      //margin-right: 0;
+      border-right-width: $border_width;
+      @if $gtk == 4 { > tabs { margin-right: 0;} }
+      > tabs > tab {
+          border-right: none;
+          margin-left: $border_width;
+          &:checked {
+
+            margin-right: -($border_width);// + if( $gtk==4, 1px, 0));
+            //@if $gtk==3 { 
+              padding-right: 10px + $border_width;
+            //}
+            //margin-left: 0px;
+            
+          }
+        }
+      
+    }
+
+    &.right {
+      //margin-left: 0;
+      border-left-width: $border_width;
+      @if $gtk == 4 { > tabs { margin-left: 0;}}
+      > tabs > tab {
+          border-left: none;
+          margin-right: $border_width;
+          &:checked {
+            margin-left: -($border_width);// + if( $gtk==4, 1px, 0));
+            //@if $gtk==3 { 
+              padding-left: 10px + $border_width;
+            //}
+            //margin-right: 0px;     
+          }
+        }
+    }
+
+    &.top > tabs > arrow {
+      @extend %notebook_vert_arrows;
+
+      //border-top-style: none;
+    }
+
+    &.bottom > tabs > arrow {
+      @extend %notebook_vert_arrows;
+
+      //border-bottom-style: none;
+    }
+
+    @at-root %notebook_vert_arrows {
+      //margin-left: -5px;
+      //margin-right: -5px;
+      padding: 2px;
+
+      &.down { -gtk-icon-source: -gtk-icontheme('pan-start-symbolic'); }
+
+      &.up { -gtk-icon-source: -gtk-icontheme('pan-end-symbolic'); }
+    }
+
+    &.left > tabs > arrow {
+      @extend %notebook_horz_arrows;
+
+      border-left-style: none;
+    }
+
+    &.right > tabs > arrow {
+      @extend %notebook_horz_arrows;
+
+      border-right-style: none;
+    }
+
+    @at-root %notebook_horz_arrows {
+      margin-top: -5px;
+      margin-bottom: -5px;
+      padding-top: 4px;
+      padding-bottom: 4px;
+
+      &.down { -gtk-icon-source: -gtk-icontheme('pan-up-symbolic'); }
+
+      &.up { -gtk-icon-source: -gtk-icontheme('pan-down-symbolic'); }
+    }
+
+    > tabs > arrow {
+      @extend %button_basic;
+
+      @extend %button_basic_flat;
+      
+      //margin: $border_width; 
+      min-height: 1em;
+      min-width: 1em;
+      border-radius: 0;
+
+      &:hover:not(:active):not(:backdrop) {
+        background-clip: padding-box;
+        background-image: none;
+        //background-color: transparentize(white, 0.7);
+        //border-color: transparent;
+        box-shadow: none;
+        
+      }
+
+      &:disabled { @include button(disabled); }
+    }
+
+    tab {
+
+
+      outline-offset: -5px;
+      font-weight: normal;
+      padding: 3px 10px;
+      border-width: $border_width;
+      border-style: solid;
+      border-radius: 0;
+      color: mix($text_color, $base_color, 50%);
+      @include relief($base_color);
+      margin: 0px;
+      
+  
+
+      &:hover {
+        color: $fg_color;
+        background-color: darken($bg_color,4%);
+
+        &.reorderable-page {
+          //border-color: transparentize($borders_color, 0.7);
+          //background-color: transparentize($bg_color, 0.8);
+        }
+      }
+
+      
+
+      &:checked {
+        @include relief(mix($bg_color, $base_color, 50%));
+        color: $fg_color;
+        &.reorderable-page {
+          //border-color: transparentize($borders_color, 0.5);
+          //background-color: transparentize($bg_color, 0.5);
+
+          //&:hover { background-color: transparentize($bg_color, 0.3); }
+        }
+      }
+
+
+      // colors the button like the label, overridden otherwise
+      button.flat {
+        &:hover { color: currentColor; }
+
+        &, &:backdrop { color: gtkalpha(currentColor, 0.3); }
+
+        padding: 0;
+        //margin-top: 4px;
+        //margin-bottom: 4px;
+        // FIXME: generalize .small-button?
+        min-width: 1em;
+        min-height: 1em;
+
+        &:last-child {
+          margin-left: 4px;
+          margin-right: -4px;
+        }
+
+        &:first-child {
+          margin-left: -4px;
+          margin-right: 4px;
+        }
+      }
+    }
+
+    &.top,
+    &.bottom {
+      tabs {
+        padding-left: 2px;
+        padding-right: 2px;
+
+        &:not(:only-child) {
+          margin-left: 3px;
+          margin-right: 3px;
+
+          &:first-child { margin-left: -1px; }
+          &:last-child { margin-right: -1px; }
+        }
+
+        tab {
+          margin-left: 2px;
+          margin-right: 2px;
+
+          //&.reorderable-page { border-style: none solid; }
+        }
+      }
+    }
+
+    &.left,
+    &.right {
+      tabs {
+        padding-top: 2px;
+        padding-bottom: 2px;
+
+        &:not(:only-child) {
+          margin-top: 3px;
+          margin-bottom: 3px;
+
+          &:first-child { margin-top: -1px; }
+          &:last-child { margin-bottom: -1px; }
+        }
+
+        tab {
+          margin-top: 2px;
+          margin-bottom: 2px;
+
+         //&.reorderable-page { border-style: solid none; }
+        }
+      }
+    }
+
+    &.top tab { padding-bottom: 4px; }
+    &.bottom tab { padding-top: 4px; }
+  }
+
+  > stack:not(:only-child) { // the :not(:only-child) is for "hidden" notebooks
+    border: none;
+    background-color: $stack_bg_color;
+    margin: $border_width;
+    //@include relief(mix($base_color, $bg_color, 50%));
+    
+
+    //&:backdrop { background-color: $backdrop_base_color; }
+  }
+}

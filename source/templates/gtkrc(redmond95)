@@ -1,0 +1,142 @@
+# Copyright (C) 2007-2011 Daniel Foré <Daniel@elementaryos.org>
+#
+# This library is free software; you can redistribute it and/or
+# modify it under the terms of the GNU Lesser General Public
+# License as published by the Free Software Foundation; either
+# version 2.1 of the License, or (at your option) any later version.
+#
+# See the file COPYING for the full license text.
+
+gtk_color_scheme	= "bg_color:#3f3e3e\nselected_bg_color:#669900\nbase_color:#302e2e"	# Background, base
+gtk_color_scheme	= "fg_color:#EDF0F5\nselected_fg_color:#d1ff96\ntext_color:#F7FAFF"	# Foreground, text
+gtk_color_scheme 	= "sidebar_color:#302e2e"                                           # Custom colors
+gtk_color_scheme	= "tooltip_bg_color:#003209\ntooltip_fg_color:#B5FF62"                    # Tooltips
+gtk_color_scheme	= "link_color:#7BBD89"                                                 # Hyperlinks
+gtk_color_scheme	= "frame_color:#986a44\ninactive_frame_color:#63452c"               # Fix for Chrome
+gtk_color_scheme	= "bg_color_dark:#282828\ntext_color_dark:#F7FAFF\ntext_color_dark_selected:#FFF"                     # Dark colors - NO MORE DARKS
+gtk_color_scheme	= "widget_color:#4F6665"
+gtk_color_scheme	= "button_bg_color:#4F6665"
+gtk_color_scheme	= "disabled_bg_color:#543f3f\ndisabled_fg_color:#775f5f"
+
+gtk-icon-sizes		= "gtk-button=16,16"				                                # Set icon size for buttons
+gtk-button-images	= 1									                                # Disables icons for buttons with text
+gtk-toolbar-style	= 0									                                # Disables text in toolbar
+gtk-auto-mnemonics	= 1									                                # Disables lines under menu items
+
+####################
+## Default Styles ##
+####################
+style "standard-default"
+{
+  GtkWidget::interior_focus = 2
+  GtkButton::default_border = { 1, 1, 1, 1 }
+  GtkButton::default_outside_border = { 0, 0, 0, 0 }
+  GtkOptionMenu::indicator_size = { 9, 5 }
+  GtkOptionMenu::indicator_spacing = { 7, 5, 2, 2 }
+  GtkComboBox::appears-as-list = 1
+  GtkNotebook::tab-overlap = 4
+
+  GtkButton::child_displacement_x = 1
+  GtkButton::child_displacement_y = 1
+
+  GtkMenu::horizontal-padding = 1
+  GtkMenu::vertical-padding = 1
+  GtkMenu::horizontal-offset = -6
+
+  GtkScrolledWindow::scrollbar-spacing = 0
+  GtkScrolledWindow::scrollbars-within-bevel = 1
+
+  fg[ACTIVE]        = @fg_color
+  fg[INSENSITIVE]   = @disabled_fg_color
+  fg[NORMAL]        = @fg_color
+  fg[PRELIGHT]      = @fg_color
+  fg[SELECTED]      = @selected_fg_color
+
+  bg[ACTIVE]        = @bg_color
+  bg[INSENSITIVE]   = @disabled_bg_color
+  bg[NORMAL]        = @bg_color
+  bg[PRELIGHT]      = @bg_color
+  bg[SELECTED]      = @selected_bg_color
+
+  base[ACTIVE]      = @selected_bg_color
+  base[INSENSITIVE] = @disabled_bg_color
+  base[NORMAL]      = @base_color
+  base[PRELIGHT]    = @selected_bg_color
+  base[SELECTED]    = @selected_bg_color
+
+  text[ACTIVE]      = @selected_fg_color
+  text[INSENSITIVE] = @disabled_fg_color
+  text[NORMAL]      = @fg_color
+  text[PRELIGHT]    = @selected_fg_color
+  text[SELECTED]    = @selected_fg_color
+
+  engine "redmond95" {}
+}
+
+class "GtkWidget" style "standard-default"
+
+style "standard-menu"
+{
+  bg[PRELIGHT] = @selected_bg_color
+  fg[PRELIGHT] = @selected_fg_color
+}
+
+widget_class "*MenuItem*" style "standard-menu"
+
+style "standard-menubar-item"
+{
+  bg[PRELIGHT] = @bg_color
+  fg[PRELIGHT] = @fg_color
+}
+
+class "*MenuBar.*MenuItem*" style "standard-menubar-item"
+widget_class "*MenuBar.*MenuItem*" style "standard-menubar-item"
+
+style "standard-list"
+{
+   bg[NORMAL] = { 0.9, 0.9, 0.9 }
+   bg[PRELIGHT] = @fg_color
+}
+
+class "GtkList" style "standard-list"
+
+style "standard-scrollbar"
+{
+  GtkRange::trough_border = 0
+  GtkRange::slider_width = 16
+  GtkRange::stepper_size = 16
+  GtkRange::stepper_spacing = 0
+}
+
+class "GtkScrollbar" style "standard-scrollbar"
+
+
+style "standard-scales"
+{
+  GtkRange::slider-width = 21
+  GtkScale::slider-length = 11
+}
+
+class "*Scale*" style "standard-scales"
+
+style "standard-option-menu"
+{
+  GtkOptionMenu::indicator_width = 7
+  GtkOptionMenu::indicator_left_spacing = 6
+  GtkOptionMenu::indicator_right_spacing = 4
+}
+
+class "GtkOptionMenu" style "standard-option-menu"
+
+style "standard-progressbar" {
+  fg[PRELIGHT] = @selected_fg_color
+} 
+class "GtkProgressBar" style "standard-progressbar"
+
+
+style "standard-entry"
+{
+  bg[SELECTED] = "#1C40A8"
+  fg[SELECTED] = @selected_fg_color
+}
+class "GtkEntry" style "standard-entry"

@@ -1,0 +1,60 @@
+paned {
+  > separator {
+    min-width: 2*$border_width;
+    min-height: 2*$border_width;
+    -gtk-icon-source: none; // defeats the ugly default handle decoration. 
+    border-width: $border_width; //for some reason, it's drawn twice as wide (only in GTK3!)
+    border-style: solid;
+    background-image: radial-gradient(circle closest-side, $fg_color 0%, $fg_color 75%, transparentize($fg_color, 1) 100%);
+    background-clip: padding-box;
+    //background-size:  2*$border_width + 2px  2*$border_width + 2px;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+    @include relief($bg_color);
+
+    &:selected { @include relief($selected_bg_color); } // FIXME is this needed?
+
+    &.wide {
+      min-width: 5px;
+      min-height: 5px;
+      
+    }
+  }
+
+  &.horizontal > separator {
+    //background-repeat: repeat-y;
+
+    &:dir(ltr) {
+      //margin: 0 -8px 0 0;
+      //padding: 0 8px 0 0;
+      //background-position: left;
+    }
+    &:dir(rtl) {
+      //margin: 0 0 0 -8px;
+      //padding: 0 0 0 8px;
+      //background-position: right;
+    }
+
+    &.wide {
+      margin: 0;
+      padding: 0;
+      //background-repeat: repeat-y, repeat-y;
+      //background-position: left, right;
+    }
+  }
+
+  &.vertical > separator {
+    //margin: 0 0 -8px 0;
+    //padding: 0 0 8px 0;
+    //background-repeat: repeat-x;
+    //background-position: top;
+
+    &.wide {
+      margin: 0;
+      padding: 0;
+      //background-repeat: repeat-x, repeat-x;
+      //background-position: bottom, top;
+    }
+  }
+}

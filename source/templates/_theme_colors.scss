@@ -16,7 +16,7 @@ $disabled_fg: ${vdisabled_fg};
 $disabled_bg: ${vdisabled_bg};
 
 /*Usually an automatic fg color on these backgrounds should check this value!*/
-$warningc: ${vdisabled_bg};
+$warningc: ${vwarningc};
 $errorc: ${verrorc};
 $successc: ${vsuccessc};
 
@@ -35,3 +35,8 @@ $osd_bg: ${vosd_bg};
 
 $link_fg: ${vlink_fg};
 $link_visited_fg: ${vlink_visited_fg};
+
+// ---- These are not colors, but other types of variables:
+
+$button_radius: ${vbutton_radius};
+$window_radius: ${vwindow_radius};

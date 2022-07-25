@@ -1,0 +1,94 @@
+@mixin entry($t, $fc:$selected_bg_color, $edge: none) {
+//
+// Entries drawing function
+//
+// $t: entry type
+// $fc: focus color
+// $edge: set to none to not draw the bottom edge or specify a color to not
+//        use the default one
+//
+// possible $t values:
+// normal, focus, insensitive, backdrop, backdrop-insensitive, osd, osd-focus, osd-backdrop, block_cursor;
+//
+  //$_entry_shadow: 0 1px 2px transparentize($shadow_hard_color, 0.6);
+  //$_blank_edge: if($edge == none, none, 0 1px transparentize($edge, 1));
+  //$_entry_edge: if($edge == none, none, _widget_edge($edge));
+  //$_hilight_color: _button_hilight_color($bg_color);
+
+  @if $t==normal {
+    color: $text_color;
+    //border-color: $text_color;//$borders_color;
+    //background-color: $base_color;
+    @include relief($base_color, sunken);
+    
+    //@include _shadows(entry_focus_shadow(transparentize($fc, 1)),inset $_entry_shadow, 0 1px $_hilight_color, $_entry_edge);
+    // for the transition to work the number of shadows in different states needs to match, hence the transparent shadow here.
+  }
+  @if $t==focus {
+    //@include _shadows(entry_focus_shadow($fc), inset $_entry_shadow, 0 1px $_hilight_color, $_entry_edge);
+    //border-color: entry_focus_border($fc);
+    @include relief($base_color, sunken, $fc);
+  }
+  @if $t==insensitive or $t==osd-insensitive {
+    color: $insensitive_fg_color;
+    @include relief($insensitive_bg_color, sunken);
+    //border-color: $insensitive_fg_color;
+    //background-color: $insensitive_bg_color;
+    //box-shadow: $_entry_edge;
+    
+  }
+  @if $t==backdrop {
+    //color: $backdrop_text_color;
+    //border-color: $backdrop_borders_color;
+    //background-color: $backdrop_base_color;
+    //box-shadow: $_blank_edge;
+  }
+  @if $t==backdrop-insensitive {
+    //color: $backdrop_insensitive_color;
+    //border-color: $backdrop_borders_color;
+    //background-color: $insensitive_bg_color;
+    //box-shadow: $_blank_edge;
+  }
+  @if $t==osd {
+    color: $osd_text_color;
+    @include relief($osd_bg_color, sunken);
+    //border-color: $osd_borders_color;
+    //background-color: transparentize(opacify($osd_borders_color, 1), 0.5);
+    //background-clip: padding-box;
+    //@include _shadows($_entry_shadow);;
+    //text-shadow: 0 1px black;
+    //-gtk-icon-shadow: 0 1px black;
+  }
+  @if $t==osd-focus {
+    color: $osd_text_color;
+    @include relief($osd_bg_color, sunken, $fc);
+    //border-color: $selected_bg_color;
+    //background-color: transparentize(opacify($osd_borders_color, 1), 0.5);
+    //background-clip: padding-box;
+    //@include _shadows(entry_focus_shadow($fc), $_entry_shadow);
+    //text-shadow: 0 1px black;
+    //-gtk-icon-shadow: 0 1px black;
+  }
+  //@if $t==osd-insensitive {
+  //  color: $osd_insensitive_fg_color;
+  //  border-color: $osd_borders_color;
+  //  background-color: $osd_insensitive_bg_color;
+  //  background-clip: padding-box;
+  //  box-shadow: none;
+  //  text-shadow: none;
+  //  -gtk-icon-shadow: none;
+  //}
+  @if $t==osd-backdrop {
+    //color: $osd_text_color;
+    //border-color: $osd_borders_color;
+    //background-color: transparentize(opacify($osd_borders_color, 1), 0.5);
+    //background-clip: padding-box;
+    //box-shadow: none;
+    //text-shadow: none;
+    //-gtk-icon-shadow: none;
+  }
+  @if $t==block_cursor {
+    color: $base_color;
+    background-color: $text_color;
+  }
+}

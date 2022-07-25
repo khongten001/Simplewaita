@@ -14,6 +14,8 @@
 $gtk: 4;
 
 
+@import "../common/relief.scss";
+
 @mixin focus-ring($target: null, $width: 2px, $offset: -$width, $outer: false, $focus-state: 'focus:focus-visible', $fc: $focus_border_color) {
   transition-property: outline, outline-width, outline-offset, outline-color;
   transition-duration: 300ms;
@@ -45,78 +47,9 @@ $gtk: 4;
 
 // entries
 
-@mixin entry($t, $fc:$focus_border_color) {
-//
-// Entries drawing function
-//
-// $t: entry type
-// $fc: focus color
-//
-// possible $t values:
-// normal, focus, insensitive, backdrop, backdrop-insensitive, osd, osd-focus, osd-backdrop, block_cursor;
-//
-  $_entry_shadow: 0 1px 2px transparentize($shadow_hard_color, 0.6);
-  $_hilight_color: _button_hilight_color($bg_color);
-  
-  @if $t==normal {
-    color: $text_color;
-    border-color: $text_color;// $borders_color;
-    background-color: $base_color;
-    @include _shadows(inset $_entry_shadow, 0 1px $_hilight_color);
-    // for the transition to work the number of shadows in different states needs to match, hence the transparent shadow here.
-  }
-  
-  
-  @if $t==insensitive {
-    color: $insensitive_fg_color;
-    border-color: $insensitive_fg_color;
-    background-color: $insensitive_bg_color;
-  }
-  @if $t==backdrop {
-    color: $backdrop_text_color;
-    border-color: $backdrop_borders_color;
-    background-color: $backdrop_base_color;
-  }
-  @if $t==backdrop-insensitive {
-    color: $backdrop_insensitive_color;
-    border-color: $backdrop_borders_color;
-    background-color: $insensitive_bg_color;
-  }
-  @if $t==osd {
-    color: $osd_text_color;
-    border-color: $osd_borders_color;
-    background-color: transparentize(opacify($osd_borders_color, 1), 0.5);
-    background-clip: padding-box;
-    @include _shadows(inset $_entry_shadow, 0 1px $_hilight_color);
-    -gtk-icon-shadow: 0 1px black;
-  }
-  @if $t==osd-focus {
-    color: $osd_text_color;
-    border-color: $selected_bg_color;
-    background-color: transparentize(opacify($osd_borders_color, 1), 0.5);
-    background-clip: padding-box;
-    @include _shadows(inset $_entry_shadow, 0 1px $_hilight_color);
-  }
-  @if $t==osd-insensitive {
-    color: $osd_insensitive_fg_color;
-    border-color: $osd_borders_color;
-    background-color: $osd_insensitive_bg_color;
-    background-clip: padding-box;
-  }
-  @if $t==osd-backdrop {
-    color: $osd_text_color;
-    border-color: $osd_borders_color;
-    background-color: transparentize(opacify($osd_borders_color, 1), 0.5);
-    background-clip: padding-box;
-  }
-  @if $t==block_cursor {
-    color: $base_color;
-    background-color: $text_color;
-  }
-}
+@import "../common/entry.scss";
 
 // buttons
-
 
 @import "../common/buttons.scss";
 

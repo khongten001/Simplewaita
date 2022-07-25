@@ -2,58 +2,6 @@
 
 $_default_button_c: $button_bg;
 
-@function _border_color($c, $darker: false) {
-  @if $darker == true { @return darken($c, 20%); }
-  @else { @return darken($c, 10%); }
-}
-
-@function _text_shadow_color ($tc: $fg_color, $bg: $bg_color) {
-//
-// calculate the color of text shadows
-//
-// $tc is the text color
-// $bg is the background color
-//
-  $_lbg: lightness($bg)/100%;
-  @if lightness($tc)<50% { @return transparentize(white, 1-$_lbg/($_lbg*1.3)); }
-  @else { @return transparentize(black, $_lbg*0.8); }
-}
-
-@function _button_hilight_color($c) {
-//
-// calculate the right top hilight color for buttons
-//
-// $c: base color;
-//
-  @if lightness($c)>95% { @return white; }
-  @else if lightness($c)>90% { @return transparentize(white, 0.15); }
-  @else if lightness($c)>80% { @return transparentize(white, 0.35); }
-  @else if lightness($c)>50% { @return transparentize(white, 0.5); }
-  @else if lightness($c)>40% { @return transparentize(white, 0.65); }
-  @else { @return transparentize(white, 0.7); }
-  //@return $top_hilight;
-}
-
-@mixin _button_text_shadow ($tc:$fg_color, $bg:$bg_color) {
-//
-// helper function for the text emboss effect
-//
-// $tc is the optional text color, not the shadow color
-//
-// TODO: this functions needs a way to deal with special cases
-//
-
-  $_shadow: _text_shadow_color($tc, $bg);
-
-  @if lightness($tc)<50% {
-    text-shadow: 0 1px _button_hilight_color($tc);//$_shadow;
-    -gtk-icon-shadow: 0 1px _button_hilight_color($tc);//$_shadow;
-  }
-  @else {
-    text-shadow: 0 -1px $_shadow;
-    -gtk-icon-shadow: 0 -1px $_shadow;
-  }
-}
 
 
 
@@ -85,21 +33,7 @@ $_default_button_c: $button_bg;
 	// this mixin needs to cover both gtk3 and gtk4 cases in order to work.
 	// gtk4 mixin calls only include $t, $c and $tc, therefore it should be safe to use in both.
 
-	
-  	$_hilight_color: _button_hilight_color($c);
-	$_button_edge: if($edge == none, none, _widget_edge($edge));
-	$_blank_edge: if($edge == none, none, _widget_edge(transparentize($edge,1)));
-	$_button_shadow: 0 1px 2px transparentize($shadow_hard_color, 0.6);
-	
-	$button_clickable_image: linear-gradient(
-						to bottom, 
-						transparentize($_hilight_color, if($variant == 'light', 0.2 ,0.3 )), 
-						transparentize($_hilight_color, 1) 50%,
-						transparentize($shadow_hard_color, 1) 50%,
-						transparentize($shadow_hard_color, if($variant == 'light',0.85,0.7)) );
-	
-	//remove borders on all buttons...
-	//border-width: 0;
+	border-width: $border_width;
 	
 	@if $t==normal or $t==normal-alt  {
 	//
@@ -107,30 +41,24 @@ $_default_button_c: $button_bg;
 	//
 	
 	color: $tc;
-	background-color: $c;
-	border-color: $tc;
-	outline-color: $focus_border_color;
-	background-image: $button_clickable_image;
-	@include _button_text_shadow($tc, $c);
-    @include _shadows(inset 0 1px $_hilight_color, $_button_edge, $_button_shadow);
+	@include relief($c);
+	
     
 	}
 	@else if $t==hover or $t==hover-alt or $t==undecorated-hover  {
 	//
 	// hovered button
 	//
-  	background-color: shade($c, 1.1)
+  	@include relief(lighten($c, 5%));
 	}
-
 	
-  	
   	@else if ($t==active)  {
 	  //
 	  // pushed button
 	  //
 	  //color: $button_checked_fg;
 	  //background-color: $button_checked_bg;
-		@include _shadows(0 1px $_hilight_color, $_button_edge, inset $_button_shadow);
+	  @include relief($c, sunken);
 	}
 	
 	@else if ($t==checked-active ) {
@@ -138,9 +66,7 @@ $_default_button_c: $button_bg;
 	  // pushed and toggled button
 	  //
 	  color: $button_checked_fg;
-	  background-color: $button_checked_bg;
-	  @include _button_text_shadow($button_checked_fg, $button_checked_bg);
-	  @include _shadows(0 1px $_hilight_color, $_button_edge, inset $_button_shadow);
+	  @include relief($button_checked_bg, sunken);
 	
 	}
 	
@@ -149,35 +75,31 @@ $_default_button_c: $button_bg;
 	  // toggled button and hover
 	  //
 	  color: $button_checked_fg;
-	  background-color: shade($button_checked_bg, 1.1);
-	  @include _button_text_shadow($button_checked_fg, $button_checked_bg);
-	  @include _shadows(0 1px $_hilight_color, $_button_edge, inset $_button_shadow);
-	
+	  @include relief(lighten($button_checked_bg, 5%), sunken);
 	}
 
 	
-	 @else if $t==insensitive {
+	 @else if $t==insensitive or $t==osd-insensitive {
   //
   // insensitive button
   //
   		color: $insensitive_fg_color;
-  		border-color: $insensitive_fg_color;
-  		background-color: $insensitive_bg_color;
-  		background-image: if($backimage==null, none, $backimage);
+  		@include relief($insensitive_bg_color);
   	}
   	@else if $t==insensitive-active {
   	  //
  	 // insensitive pushed button
   	//
   		color: $insensitive_fg_color;
-  		background-color: mix($insensitive_bg_color, $button_checked_bg, 85%);
+  		@include relief(mix($insensitive_bg_color, $button_checked_bg, 85%), sunken);
+
   	}
   	
   	@else if $t==backdrop  {
 	  //
 	  // backdrop button
 	  //
-	  background-image: if($backimage==null, none, $backimage);
+	  //background-image: if($backimage==null, none, $backimage);
 	  }
 	@else if $t==backdrop-active {
   //
@@ -196,7 +118,20 @@ $_default_button_c: $button_bg;
   //
   }
   
-  //TODO: what happens with OSDs? Is it necessary to redefine them?
+  //OSD buttons
+  
+  @else if $t==osd {
+    color: $osd_fg_color;
+    @include relief($osd_bg_color);
+  }
+  @else if $t==osd-hover {
+    color: $osd_fg_color;
+    @include relief(lighten($osd_bg_color,5%));
+  }
+  @else if $t==osd-active {
+    color: $osd_fg_color;
+    @include relief(lighten($osd_bg_color,5%),sunken);
+  }
   
   @else if $t==undecorated {
   //
@@ -205,8 +140,6 @@ $_default_button_c: $button_bg;
     border-color: transparent;
     background-color: transparent;
     background-image: none;
-
-    @include _shadows(inset 0 1px transparentize(white, 1), $_blank_edge);
 
     text-shadow: none;
     -gtk-icon-shadow: none;

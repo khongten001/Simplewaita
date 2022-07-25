@@ -1,9 +1,9 @@
 /* XPM */
-static char * left_inactive_xpm[] = {
+static char * left_active_xpm[] = {
 "6 24 3 1",
 "       c None",
 "#      c #C0C0C0 s inactive_color_2",
-"@      c #C0C0FF s inactive_color_2",
+"@      c #C0C0FF s inactive_hilight_2",
 "@@####",
 "@@####",
 "@@####",

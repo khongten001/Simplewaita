@@ -19,11 +19,11 @@ $link_visited_color: $link_visited_fg; //mix($selected_bg_color, $fg_color, 20%)
 $top_hilight: $borders_edge;
 $dark_fill: mix($borders_color, $bg_color, 50%);
 
-$menu_color: if($variant == 'light', $base_color, mix($bg_color, $base_color, 20%));
+$menu_color: if($variant == 'light', $base_color, mix($bg_color, $base_color, 20%)); //unused; base and text apply.
 
 $scrollbar_bg_color: if($variant == 'light', mix($bg_color, $fg_color, 80%), mix($base_color, $bg_color, 50%));
-$scrollbar_slider_color: mix($fg_color, $bg_color, 60%);
-$scrollbar_slider_hover_color: mix($fg_color, $bg_color, 80%);
+$scrollbar_slider_color: $button_bg; //mix($fg_color, $bg_color, 60%);
+$scrollbar_slider_hover_color: mix($button_bg, $button_fg, 90%);
 $scrollbar_slider_active_color: if($variant=='light', darken($selected_bg_color, 10%), lighten($selected_bg_color, 10%));
 
 $warning_color: $warningc;
@@ -34,14 +34,7 @@ $destructive_color: $errorc;
 //$warning_fg: if($variant == 'light', shade($warningc,0.5), shade($warningc,1.3));
 //$warning_bg: if($variant == 'light', shade($warningc,1.3), shade($warningc,0.5));
 
-$osd_fg_color: $osd_fg;
-$osd_text_color: $osd_fg;
-$osd_bg_color: transparentize($osd_bg, 0.3); //if($variant == 'light', transparentize(darken(desaturate($osd_bg, 100%), 4%),0.3), transparentize(darken(desaturate($osd_bg, 100%), 10%),0.3));
 
-
-$osd_insensitive_bg_color: transparentize(mix($osd_fg_color, opacify($osd_bg_color, 1), 10%), 0.5);
-$osd_insensitive_fg_color: mix($osd_fg_color, opacify($osd_bg_color, 1), 50%);
-$osd_borders_color: $hint_fg;
 
 $sidebar_bg_color: mix($bg_color, $base_color, 50%);
 
@@ -56,19 +49,31 @@ $insensitive_fg_color: $disabled_fg;
 $insensitive_bg_color: $disabled_bg;
 $insensitive_borders_color: mix($borders_color, $disabled_fg, 50%);
 
+//osd colors
+$osd_fg_color: $osd_fg;
+$osd_text_color: $osd_fg;
+$osd_bg_color: $osd_bg; //transparentize($osd_bg, 0.3); //if($variant == 'light', transparentize(darken(desaturate($osd_bg, 100%), 4%),0.3), transparentize(darken(desaturate($osd_bg, 100%), 10%),0.3));
+
+
+$osd_insensitive_bg_color: $insensitive_bg_color; //transparentize(mix($osd_fg_color, opacify($osd_bg_color, 1), 10%), 0.5);
+$osd_insensitive_fg_color: $insensitive_fg_color;// mix($osd_fg_color, opacify($osd_bg_color, 1), 50%);
+$osd_borders_color: $hint_fg;
+
+
 //colors for the backdrop state, derived from the main colors.
-$backdrop_base_color: if($variant == 'light', darken($base_color, 1%), lighten($base_color, 1%));
-$backdrop_text_color: mix($text_color, $backdrop_base_color, 80%);
+// This is a simple theme. Therefore, no backdrop states should be used. However, just in case I forgot one, I'll define them here too:
+$backdrop_base_color: $base_color; //if($variant == 'light', darken($base_color, 1%), lighten($base_color, 1%));
+$backdrop_text_color: $text_color; //mix($text_color, $backdrop_base_color, 80%);
 $backdrop_bg_color: $bg_color;
-$backdrop_fg_color: mix($fg_color, $backdrop_bg_color, 50%);
-$backdrop_insensitive_color: if($variant == 'light', darken($backdrop_bg_color, 15%), lighten($backdrop_bg_color, 15%));
-$backdrop_selected_fg_color: mix($backdrop_text_color, $selected_fg_color, 50%);
-$backdrop_selected_bg_color: transparentize(desaturate($selected_bg_color,50%),0.3);
-$backdrop_borders_color: mix($borders_color, $bg_color, 80%);
-$backdrop_dark_fill: mix($backdrop_borders_color, $backdrop_bg_color, 35%);
+$backdrop_fg_color: $fg_color; //mix($fg_color, $backdrop_bg_color, 50%);
+$backdrop_insensitive_color: $insensitive_bg_color; //if($variant == 'light', darken($backdrop_bg_color, 15%), lighten($backdrop_bg_color, 15%));
+$backdrop_selected_fg_color: $selected_fg_color; //mix($backdrop_text_color, $selected_fg_color, 50%);
+$backdrop_selected_bg_color: $selected_bg_color; //transparentize(desaturate($selected_bg_color,50%),0.3);
+$backdrop_borders_color: $borders_color; //mix($borders_color, $bg_color, 80%);
+$backdrop_dark_fill: $dark_fill; //mix($backdrop_borders_color, $backdrop_bg_color, 35%);
 
 //special cased widget colors
-$suggested_bg_color: $selected_bg_color;
+$suggested_bg_color: darken($success_color,10%); //$selected_bg_color;
 $suggested_border_color: $selected_borders_color;
 $progress_bg_color: $selected_bg_color;
 $progress_border_color: $selected_borders_color;

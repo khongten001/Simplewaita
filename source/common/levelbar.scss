@@ -3,7 +3,7 @@
  *************/
  
 $_levelbar_size: 9px;
-$_levelbar_border_radius: 5px;
+$_levelbar_border_radius: 0px;
 
 levelbar {
   &.horizontal {
@@ -27,14 +27,11 @@ levelbar {
     // segmented level bar
     &.discrete {
       trough > block {
-        min-height: 2px;
-        margin: 1px;
+        min-height: 4px;
+        margin: $border_width;
         min-width: 24px;
         border-radius:0;
-        &:first-child {border-radius: 2px 0 0 2px;}
-        &:last-child {
-          border-radius: 0 2px 2px 0;
-        }
+        
       }
     }
   }
@@ -47,41 +44,38 @@ levelbar {
 
     &.discrete > trough > block {
       min-width: $_levelbar_size - 7px;
-      margin: 1px 0;
+      margin: $border_width;
       min-height: 32px;
     }
   }
 
   > trough {
-    padding: 1px;
-    @include entry(normal);
-    &:backdrop { @include entry(backdrop); }
-    border-radius: $_levelbar_border_radius;
+    @extend %scale_trough;
   }
 
   // level bar colours
   > trough > block {
-    border: 1px solid;
+    //border: 1px solid;
 
     &.low {
-      border-color: $warning_color;
+      //border-color: $warning_color;
       background-color: $warning_color;
     }
 
     &.high,
     &:not(.empty) {
-      border-color: $selected_bg_color;
+      //border-color: $selected_bg_color;
       background-color: $selected_bg_color;
     }
 
     &.full {
-      border-color: $success_color;
+      //border-color: $success_color;
       background-color: $success_color;
     }
 
     &.empty {
-      background-color: darken($bg_color, 5%);
-      border-color: darken($bg_color, 5%);
+      background-color: darken($bg_color, 10%);
+      //border-color: darken($bg_color, 5%);
     }
   }
 }
