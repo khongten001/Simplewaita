@@ -1084,6 +1084,8 @@ scrolledwindow junction:dir(rtl) { border-image-slice: 0 1 0 0; }
 
 separator { border-width: 2px; border-style: solid; background-color: #3f3e3e; border-left-color: #666464; border-top-color: #666464; border-right-color: #252525; border-bottom-color: #252525; min-width: 0px; min-height: 0px; }
 
+statusbar separator, .osd separator, osd separator { background-color: #203d79; border-left-color: #305cb6; border-top-color: #305cb6; border-right-color: #152951; border-bottom-color: #152951; }
+
 /********* Lists * */
 list { color: #EDF0F5; background-color: #323232; border-color: #252525; }
 

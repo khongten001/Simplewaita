@@ -3003,6 +3003,7 @@ separator {
   @include relief($bg_color);
   min-width: 0px;
   min-height: 0px;
+  statusbar &, .osd &, osd & {@include relief($hint_bg);}
 }
 
 
