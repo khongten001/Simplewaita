@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   inkscape:version="1.2 (dc2aedaf03, 2022-05-15)"
-   sodipodi:docname="Simple.svg"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14, custom)"
+   sodipodi:docname="Simplewaita.svg"
    id="svg1549"
    height="1380"
    version="1.0"
@@ -20,13 +20,13 @@
      inkscape:pageopacity="1"
      inkscape:pagecheckerboard="0"
      showgrid="false"
-     inkscape:zoom="1"
-     inkscape:cx="55.999999"
-     inkscape:cy="407.99999"
-     inkscape:window-width="1860"
-     inkscape:window-height="1007"
-     inkscape:window-x="60"
-     inkscape:window-y="0"
+     inkscape:zoom="2.8284271"
+     inkscape:cx="79.19596"
+     inkscape:cy="820.06709"
+     inkscape:window-width="1868"
+     inkscape:window-height="1014"
+     inkscape:window-x="52"
+     inkscape:window-y="28"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg1549"
      inkscape:showpageshadow="2"
@@ -12515,4 +12515,48 @@
      id="path19653"
      style="fill:#232323;fill-opacity:1;stroke-width:0.354878"
      d="M -60.703492,956.93755 H -78.70349 v -2 h 17.999998 z" />
+  <path
+     id="tab-toggled-top"
+     style="fill:#99e600;fill-opacity:1;stroke-width:0.354878"
+     d="m 145.80997,811.14045 h 39.84527 v 5.01804 h -39.84527 z" />
+  <g
+     id="tab-toggled-topright"
+     transform="translate(128.16426,666.07362)">
+    <path
+       id="path2247"
+       style="fill:#425b10;fill-opacity:1"
+       inkscape:transform-center-x="-0.019211102"
+       inkscape:transform-center-y="-1.0518174"
+       d="m 57.529402,150.08487 h 5.018041 v -5.01804 z"
+       sodipodi:nodetypes="cccc" />
+    <path
+       id="path2249"
+       style="fill:#99e600;fill-opacity:1"
+       inkscape:transform-center-x="0.019210898"
+       inkscape:transform-center-y="1.0518126"
+       d="m 62.547443,145.06683 h -5.018041 v 5.01804 z"
+       sodipodi:nodetypes="cccc" />
+  </g>
+  <path
+     id="tab-toggled-topleft"
+     style="fill:#99e600;fill-opacity:1;stroke-width:1"
+     d="m 140.79193,811.14045 h 5.01804 v 5.01804 h -5.01804 z" />
+  <use
+     x="0"
+     y="0"
+     xlink:href="#tab-toggled-top"
+     id="floating-tab-toggled-top"
+     transform="translate(-0.26281,57.87084)" />
+  <use
+     x="0"
+     y="0"
+     xlink:href="#tab-toggled-topright"
+     id="floating-tab-toggled-topright"
+     transform="translate(-0.26281,57.87084)" />
+  <use
+     x="0"
+     y="0"
+     xlink:href="#tab-toggled-topleft"
+     id="floating-tab-toggled-topleft"
+     transform="translate(-0.26281,57.87084)" />
 </svg>
