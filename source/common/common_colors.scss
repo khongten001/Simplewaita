@@ -81,3 +81,7 @@ $checkradio_bg_color: $selected_bg_color; //if($variant == 'light', $selected_bg
 $checkradio_fg_color: $selected_fg_color;
 $checkradio_borders_color: $selected_fg_color;//if($variant == 'light', darken($checkradio_bg_color,20%), darken($checkradio_bg_color,40%));
 $focus_border_color: if($variant == 'light', transparentize($selected_bg_color, 0.5), transparentize($selected_bg_color, 0.3));
+
+//cards
+$card_bg_color: mix($base_color, $bg_color, 20%);
+$card_fg_color: $fg_color;

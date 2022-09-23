@@ -1,0 +1,12 @@
+.nautilus-path-bar .path-buttons-box {
+	//border-width: $border_width;
+	//border-style: solid;  
+  //@include relief($button_bg);
+  //color: $button_fg;
+  //padding: 0;
+  button { 
+    @extend %button_basic;
+    @extend %button_basic_flat;
+    
+    }
+}

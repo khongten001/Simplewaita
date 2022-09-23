@@ -1142,9 +1142,11 @@ dropdown > popover.menu.background > contents { padding: 0; } //allow search ent
 dropdown > button > box {
   border-spacing: 6px;
 
-  > stack > row.activatable:hover {
+  > stack > row.activatable, > stack > row.activatable:hover {
     background: none;
     box-shadow: none;
+    border-style: none;
+    border-width: 0;
   }
 }
 
@@ -1155,7 +1157,11 @@ combobox {
     min-height: 16px;
     min-width: 16px;
   }
-
+  //button row, button row.activatble { //some dropdowns put a row inside a button!
+  //  border-style:none;
+  //  border-width: 0;
+  //  background: none;
+  //}
   // align menu labels with the button label
   > popover.menu > contents modelbutton {
     padding-left: 9px;
@@ -1186,6 +1192,7 @@ combobox {
 
       > row.activatable {
          padding: 8px;
+         border-radius: 0px;
 
          &:selected {
            &, &:hover {
@@ -1338,14 +1345,15 @@ windowcontrols {
 
   button {
     @extend %button_basic;
-
+    & > image {background: none;}
     &.close { 
 	  @include button(normal, $close_bg_color, $titlebar_active_fg);
 	  &:hover { &, &:backdrop { @include button(hover, $close_bg_color, $titlebar_active_fg);}}//, $titlebar_active_fg); } }
 	  &:active { &, &:backdrop { @include button(active, $close_bg_color, $titlebar_active_fg); } }
 	  &:disabled { @include button(insensitive); }
 	  &:backdrop { @include button(normal); }
-	}
+	  }
+	
 	
 	&.maximize { 
 	  @include button(normal, $maximize_bg_color, $titlebar_active_fg);
@@ -1557,6 +1565,7 @@ pathbar > button {
   }
 }
 
+@import '../common/nautilus.scss'; //not sure if nautilus in gtk4 will follow the same selectors, we'll have to wait
 
 /**************
  * Tree Views *
@@ -1986,7 +1995,7 @@ scrollbar {
   //&.bottom { border-top: 1px solid $borders_color; }
   //&.left { border-right: 1px solid $borders_color; }
   //&.right { border-left: 1px solid $borders_color; }
-
+  //> range {border: none;} //cancelling libadwaita
   > range > trough > slider {
     //@extend %button_basic;
     padding: 0;
@@ -2000,6 +2009,7 @@ scrollbar {
     //background-clip: padding-box;
     //background-color: $scrollbar_slider_color;
     //transition: $_scrollbar_transition;
+    outline: none; //cancelling libadwaita
     @include relief($button_bg);
 
     &:hover { @include relief($scrollbar_slider_hover_color); }
@@ -2008,7 +2018,8 @@ scrollbar {
 
     &:disabled { @include relief($insensitive_bg_color); }
   }
-
+  > range > trough {outline: none;} //cancelling libadwaita
+  > range {outline: none;} //cancelling libadwaita
   > range.fine-tune {
     > trough > slider {
       //transition: none;
@@ -2149,7 +2160,7 @@ radio {
   min-height: 14px;
   min-width: 14px;
   border: 1px solid;
-  -gtk-icon-source: none;
+  //-gtk-icon-source: none;
 
   & {
     // for unchecked
@@ -2244,6 +2255,7 @@ treeview.view radio:selected { &:selected, &:focus, & { @extend %radio; }} // Th
 %scale_trough {
   border: $border_width solid;// $borders_color;
   @include relief($dark_fill, sunken);
+  outline: none; //cancelling libadwaita
   //padding:1px;
 
   //headerbar & { background-color: darken($dark_fill,8%); } //3504
@@ -2726,7 +2738,9 @@ list {
   color: $text_color;
   background-color: $base_color;
   border-color: $borders_color;
-
+  border-radius: 0;
+  box-shadow: none;
+  > row:first-child, row:last-child { border-radius: 0;} //overwriting libadwaita's rounded corners everywhere...
   
   > row { padding: 2px; }
   > row.expander { padding: 0px; }
@@ -2741,6 +2755,7 @@ list {
   &.separators:not(.horizontal) > row:not(.separator) {
     //border-bottom: 1px solid $_treeview_borders_color;
   }
+
 }
 
 row {
@@ -3390,6 +3405,7 @@ colorchooser .popover.osd { border-radius: 0px; }
 window {
   // lamefun trick to get rounded borders regardless of CSD use
   border-width: 0px;
+  border-radius: 0px;
 
   // this needs to be transparent
   // see bug #722563
@@ -3666,6 +3682,18 @@ menubutton {
       -gtk-icon-source: -gtk-icontheme('pan-end-symbolic');
     }
   }
+}
+
+.card {
+
+  
+  border-radius: 0px; //for libadwaita;
+  background-color: $card_bg_color;
+  color: $card_fg_color;
+  border: $border_width;
+  border-style: solid;
+  @include relief($card_bg_color);
+  box-shadow: none;
 }
 
 @import '../common/undershoot.scss';

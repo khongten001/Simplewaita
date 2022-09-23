@@ -15,10 +15,11 @@
 
 // overshoot is very simplified in this theme
 
-  		background-color: gtkalpha($c, 0.1);
+  	background-color: gtkalpha($c, 0.1);
 		background-size: 100%;
 		background-repeat: no-repeat;
 		border: none;
 		box-shadow: none;
+		background-image: none; //for libadwaita: we need to overwrite its defaults!
 
 }
