@@ -100,7 +100,7 @@ spinner:checked:disabled { opacity: 0.5; color: #7c675a; }
 .caption { font-weight: 400; font-size: 9pt; }
 
 /**************** Text Entries * */
-spinbutton:not(.vertical), entry { min-height: 28px; padding-left: 1px; padding-right: 1px; border: 2px solid; border-radius: 0px; transition: none; color: #EDF0F5; background-color: #323232; border-left-color: #191919; border-top-color: #191919; border-right-color: #585858; border-bottom-color: #585858; }
+spinbutton:not(.vertical), entry { min-height: 1.6em; padding-left: 1px; padding-right: 1px; border: 2px solid; border-radius: 0px; transition: none; color: #EDF0F5; background-color: #323232; border-left-color: #191919; border-top-color: #191919; border-right-color: #585858; border-bottom-color: #585858; }
 
 spinbutton:not(.vertical) image.left, entry image.left { margin-right: 6px; }
 
@@ -168,7 +168,7 @@ treeview entry.flat:focus, treeview entry:focus { border-color: #669900; }
 @keyframes needs_attention { from { background-image: -gtk-gradient(radial, center center, 0, center center, 0.01, to(#f57900), to(transparent)); }
   to { background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(#669900), to(transparent)); } }
 
-button.titlebutton, scrollbar slider, notebook > header > tabs > arrow, notebook.frame > header > tabs > arrow, .nautilus-path-bar .path-buttons-box button, calendar.button, button { min-height: 24px; min-width: 16px; padding: 2px 4px; border: 2px solid; border-radius: 0px; transition: none; border-width: 2px; color: #EDF0F5; background-color: #4e584d; border-left-color: #728171; border-top-color: #728171; border-right-color: #363d35; border-bottom-color: #363d35; }
+button.titlebutton, scrollbar slider, notebook > header > tabs > arrow, notebook.frame > header > tabs > arrow, .nautilus-path-bar .path-buttons-box button, calendar.button, button { min-height: 1.6em; min-width: 1.6em; padding: 2px 4px; border: 2px solid; border-radius: 0px; transition: none; border-width: 2px; color: #EDF0F5; background-color: #4e584d; border-left-color: #728171; border-top-color: #728171; border-right-color: #363d35; border-bottom-color: #363d35; }
 
 button.sidebar-button, notebook > header > tabs > arrow, notebook.frame > header > tabs > arrow, .nautilus-path-bar .path-buttons-box button, scrollbar slider.flat:not(:hover):not(:active):not(:checked):not(:disabled), notebook > header > tabs > arrow.flat:not(:hover):not(:active):not(:checked):not(:disabled), calendar.flat.button:not(:hover):not(:active):not(:checked):not(:disabled), button.flat:not(:hover):not(:active):not(:checked):not(:disabled) { border-width: 2px; border-color: transparent; background-color: transparent; background-image: none; text-shadow: none; -gtk-icon-shadow: none; transition: none; }
 
@@ -458,7 +458,7 @@ searchbar > revealer > box { margin: -6px; padding: 6px; }
 .inline-toolbar, searchbar > revealer > box, .location-bar { border-style: solid; background-color: #313030; }
 
 /*************** Header bars * */
-.titlebar:not(headerbar), headerbar { padding: 0 6px; min-height: 40px; border: none; border-radius: 0px; background-color: #669900; color: #d1ff96; border: none; /* Darken switchbuttons for headerbars. issue #1588 */ /* hide the close button separator */ }
+.titlebar:not(headerbar), headerbar { padding: 0 6px; min-height: 2.5em; border: none; border-radius: 0px; background-color: #507800; color: #d1ff96; border: none; /* Darken switchbuttons for headerbars. issue #1588 */ /* hide the close button separator */ }
 
 .titlebar:backdrop:not(headerbar), headerbar:backdrop { background-color: #3f3e3e; color: #EDF0F5; transition: none; }
 
@@ -868,9 +868,9 @@ popover check.left:dir(rtl), popover radio.left:dir(rtl) { margin-left: 0; margi
 
 popover check.right:dir(ltr), popover radio.right:dir(ltr) { margin-left: 12px; margin-right: 0; }
 
-check, radio { background-clip: padding-box; background-image: linear-gradient(to bottom, #5a6659 20%, #4e584d 90%); border-color: #d1ff96; box-shadow: 0 1px rgba(0, 0, 0, 0.05); color: #d1ff96; }
+check, radio { background-clip: padding-box; background-image: image(#4e584d); border-width: 2px; background-color: #d1ff96; border-left-color: #f3ffe3; border-top-color: #f3ffe3; border-right-color: #bbff63; border-bottom-color: #bbff63; background-color: #4e584d; color: #d1ff96; }
 
-check:hover, radio:hover { background-image: linear-gradient(to bottom, #647062 10%, #586357 90%); }
+check:hover, radio:hover { background-image: image(#5f6b5e); }
 
 check:active, radio:active { box-shadow: inset 0 1px rgba(0, 0, 0, 0.2); background-image: image(#424a41); }
 
@@ -880,9 +880,9 @@ check:backdrop, radio:backdrop { background-image: image(#4e584d); box-shadow: n
 
 check:backdrop:disabled, radio:backdrop:disabled { box-shadow: none; color: #7c675a; background-image: image(#493e37); }
 
-check:checked, radio:checked { background-clip: border-box; background-image: linear-gradient(to bottom, #77b300 20%, #669900 90%); border-color: #d1ff96; box-shadow: 0 1px rgba(0, 0, 0, 0.05); color: #d1ff96; }
+check:checked, radio:checked { background-clip: border-box; background-image: image(#669900); border-width: 2px; background-color: #d1ff96; border-left-color: #f3ffe3; border-top-color: #f3ffe3; border-right-color: #bbff63; border-bottom-color: #bbff63; background-color: #669900; color: #d1ff96; }
 
-check:checked:hover, radio:checked:hover { background-image: linear-gradient(to bottom, #85c700 10%, #74ad00 90%); }
+check:checked:hover, radio:checked:hover { background-image: image(#7ebd00); }
 
 check:checked:active, radio:checked:active { box-shadow: inset 0 1px rgba(0, 0, 0, 0.2); background-image: image(#558000); }
 
@@ -892,9 +892,9 @@ check:checked:backdrop, radio:checked:backdrop { background-image: image(#669900
 
 check:checked:backdrop:disabled, radio:checked:backdrop:disabled { box-shadow: none; color: #7c675a; background-image: image(#493e37); }
 
-check:indeterminate, radio:indeterminate { background-clip: border-box; background-image: linear-gradient(to bottom, #77b300 20%, #669900 90%); border-color: #d1ff96; box-shadow: 0 1px rgba(0, 0, 0, 0.05); color: #d1ff96; }
+check:indeterminate, radio:indeterminate { background-clip: border-box; background-image: image(#669900); border-width: 2px; background-color: #d1ff96; border-left-color: #f3ffe3; border-top-color: #f3ffe3; border-right-color: #bbff63; border-bottom-color: #bbff63; background-color: #669900; color: #d1ff96; }
 
-check:indeterminate:hover, radio:indeterminate:hover { background-image: linear-gradient(to bottom, #85c700 10%, #74ad00 90%); }
+check:indeterminate:hover, radio:indeterminate:hover { background-image: image(#7ebd00); }
 
 check:indeterminate:active, radio:indeterminate:active { box-shadow: inset 0 1px rgba(0, 0, 0, 0.2); background-image: image(#558000); }
 
@@ -1322,7 +1322,7 @@ colorchooser .popover.osd { border-radius: 5px; }
 .scale-popup button:hover { background-color: rgba(237, 240, 245, 0.1); }
 
 /********************** Window Decorations * */
-decoration { border-radius: 0px 0px 0 0; box-shadow: 0 0 0 4px #88cc00, 2px 2px 0 2px #4e7500; margin: 8px; }
+decoration { border-radius: 0px 0px 0 0; box-shadow: 0 0 0 4px #72ab00, 2px 2px 0 2px #385400; margin: 8px; }
 
 decoration:backdrop { box-shadow: 0 0 0 4px #595757, 2px 2px 0 2px #2d2c2c; }
 
@@ -1332,31 +1332,31 @@ decoration:backdrop { box-shadow: 0 0 0 4px #595757, 2px 2px 0 2px #2d2c2c; }
 
 tooltip.csd decoration { border-radius: 0px; box-shadow: none; }
 
-button.titlebutton.close { border-width: 2px; color: #d1ff96; background-color: #994d00; border-left-color: #e67400; border-top-color: #e67400; border-right-color: #663300; border-bottom-color: #663300; }
+button.titlebutton.close { border-width: 2px; color: #d1ff96; background-color: #8e3c00; border-left-color: #db5c00; border-top-color: #db5c00; border-right-color: #5b2600; border-bottom-color: #5b2600; }
 
-button.titlebutton.close:hover, button.titlebutton.close:hover:backdrop { border-width: 2px; background-color: #b35a00; border-left-color: #ff8000; border-top-color: #ff8000; border-right-color: #804000; border-bottom-color: #804000; }
+button.titlebutton.close:hover, button.titlebutton.close:hover:backdrop { border-width: 2px; background-color: #a84700; border-left-color: #f46700; border-top-color: #f46700; border-right-color: #753100; border-bottom-color: #753100; }
 
-button.titlebutton.close:active, button.titlebutton.close:active:backdrop { border-width: 2px; background-color: #994d00; border-left-color: #663300; border-top-color: #663300; border-right-color: #e67400; border-bottom-color: #e67400; }
+button.titlebutton.close:active, button.titlebutton.close:active:backdrop { border-width: 2px; background-color: #8e3c00; border-left-color: #5b2600; border-top-color: #5b2600; border-right-color: #db5c00; border-bottom-color: #db5c00; }
 
 button.titlebutton.close:disabled { border-width: 2px; color: #7c675a; background-color: #493e37; border-left-color: #756358; border-top-color: #756358; border-right-color: #2c2521; border-bottom-color: #2c2521; }
 
 button.titlebutton.close:backdrop { border-width: 2px; color: #EDF0F5; background-color: #4e584d; border-left-color: #728171; border-top-color: #728171; border-right-color: #363d35; border-bottom-color: #363d35; }
 
-button.titlebutton.maximize { border-width: 2px; color: #d1ff96; background-color: #4db53d; border-left-color: #7ccf70; border-top-color: #7ccf70; border-right-color: #3d8f30; border-bottom-color: #3d8f30; }
+button.titlebutton.maximize { border-width: 2px; color: #d1ff96; background-color: #42a53d; border-left-color: #6cc768; border-top-color: #6cc768; border-right-color: #33802f; border-bottom-color: #33802f; }
 
-button.titlebutton.maximize:hover, button.titlebutton.maximize:hover:backdrop { border-width: 2px; background-color: #5ac24a; border-left-color: #8ed583; border-top-color: #8ed583; border-right-color: #45a237; border-bottom-color: #45a237; }
+button.titlebutton.maximize:hover, button.titlebutton.maximize:hover:backdrop { border-width: 2px; background-color: #49b844; border-left-color: #7ece7a; border-top-color: #7ece7a; border-right-color: #3b9236; border-bottom-color: #3b9236; }
 
-button.titlebutton.maximize:active, button.titlebutton.maximize:active:backdrop { border-width: 2px; background-color: #4db53d; border-left-color: #3d8f30; border-top-color: #3d8f30; border-right-color: #7ccf70; border-bottom-color: #7ccf70; }
+button.titlebutton.maximize:active, button.titlebutton.maximize:active:backdrop { border-width: 2px; background-color: #42a53d; border-left-color: #33802f; border-top-color: #33802f; border-right-color: #6cc768; border-bottom-color: #6cc768; }
 
 button.titlebutton.maximize:disabled { border-width: 2px; color: #7c675a; background-color: #493e37; border-left-color: #756358; border-top-color: #756358; border-right-color: #2c2521; border-bottom-color: #2c2521; }
 
 button.titlebutton.maximize:backdrop { border-width: 2px; color: #EDF0F5; background-color: #4e584d; border-left-color: #728171; border-top-color: #728171; border-right-color: #363d35; border-bottom-color: #363d35; }
 
-button.titlebutton.minimize { border-width: 2px; color: #d1ff96; background-color: #ae8900; border-left-color: #fbc500; border-top-color: #fbc500; border-right-color: #7b6100; border-bottom-color: #7b6100; }
+button.titlebutton.minimize { border-width: 2px; color: #d1ff96; background-color: #a37900; border-left-color: #f0b200; border-top-color: #f0b200; border-right-color: #705300; border-bottom-color: #705300; }
 
-button.titlebutton.minimize:hover, button.titlebutton.minimize:hover:backdrop { border-width: 2px; background-color: #c89d00; border-left-color: #ffcd15; border-top-color: #ffcd15; border-right-color: #957500; border-bottom-color: #957500; }
+button.titlebutton.minimize:hover, button.titlebutton.minimize:hover:backdrop { border-width: 2px; background-color: #bd8c00; border-left-color: #ffc00a; border-top-color: #ffc00a; border-right-color: #8a6600; border-bottom-color: #8a6600; }
 
-button.titlebutton.minimize:active, button.titlebutton.minimize:active:backdrop { border-width: 2px; background-color: #ae8900; border-left-color: #7b6100; border-top-color: #7b6100; border-right-color: #fbc500; border-bottom-color: #fbc500; }
+button.titlebutton.minimize:active, button.titlebutton.minimize:active:backdrop { border-width: 2px; background-color: #a37900; border-left-color: #705300; border-top-color: #705300; border-right-color: #f0b200; border-bottom-color: #f0b200; }
 
 button.titlebutton.minimize:disabled { border-width: 2px; color: #7c675a; background-color: #493e37; border-left-color: #756358; border-top-color: #756358; border-right-color: #2c2521; border-bottom-color: #2c2521; }
 

@@ -1,6 +1,6 @@
 @import '../common/common_common.scss';
 
-$assets: if($contrast=='normal', 'assets', 'assets-hc');
+$assets: 'assets'; // if($contrast=='normal', 'assets', 'assets-hc');
 $focus_transition:none;// outline-width 200ms $ease-out-quad, outline-offset 200ms $ease-out-quad;
 $menu_margin: $menu_radius +1px; //margin around menuitems & sidebar items
 
@@ -277,7 +277,7 @@ spinner {
 %entry,
 entry {
   %entry_basic, & {
-    min-height: 32px;
+    min-height: $_entry_height;
     padding-left: 1px;
     padding-right: 1px;
     border: $border_width solid;
@@ -1068,8 +1068,8 @@ spinbutton {
     > text {
       @extend %entry;
 
-      min-height: 32px;
-      min-width: 32px;
+      min-height: $_entry_height;
+      min-width: $_entry_height;
       padding: 0;
       border-radius: 0;
 
@@ -1085,8 +1085,8 @@ spinbutton {
     }
 
     > button {
-      min-height: 32px;
-      min-width: 32px;
+      min-height: $button_min_height;
+      min-width: $button_min_width;
       padding: 0;
 
       &.up { @extend %top_button; }
@@ -1380,7 +1380,7 @@ windowcontrols {
 %titlebar,
 headerbar {
   padding: 0 6px;
-  min-height: 46px;
+  min-height: $_headerbar_height;
   //border-width: 0 0 1px;
   //border-style: solid;
   //border-color: $alt_borders_color;
@@ -2160,7 +2160,7 @@ radio {
   min-height: 14px;
   min-width: 14px;
   border: 1px solid;
-  //-gtk-icon-source: none;
+  -gtk-icon-source: none;
 
   & {
     // for unchecked
@@ -2217,10 +2217,12 @@ check {
   -gtk-icon-size: 14px;
 
   &:checked { -gtk-icon-source: -gtk-scaled(-gtk-recolor(url("#{$assets}/check-symbolic.symbolic.png")),
-                                            -gtk-recolor(url("#{$assets}/check@2-symbolic.symbolic.png"))); }
+                                -gtk-recolor(url("#{$assets}/check@2-symbolic.symbolic.png")));
+  }
 
   &:indeterminate { -gtk-icon-source: -gtk-scaled(-gtk-recolor(url("#{$assets}/dash-symbolic.symbolic.png")),
                                                   -gtk-recolor(url("#{$assets}/dash@2-symbolic.symbolic.png"))); }
+
 }
 
 %radio,

@@ -34,7 +34,7 @@ vsuccessc="#33d17a"
 
 
 vtitlebar_active_fg=$vselected_fg
-vtitlebar_active_bg=$vselected_bg
+vtitlebar_active_bg="#507800"
 
 vtitlebar_backdrop_fg=$vwindow_fg
 vtitlebar_backdrop_bg=$vwindow_bg

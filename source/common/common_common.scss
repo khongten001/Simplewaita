@@ -4,8 +4,8 @@
 
 // Optional compact sizes for buttons, headerbar and headerbar widgets
 $_sizevariant: 'compact'; //either 'default', or compact otherwise
-$_headerbar_height: if($_sizevariant=='default', 46px, 40px);
-$_entry_height: if($_sizevariant=='default', 32px, 28px);
+$_headerbar_height: if($_sizevariant=='default', 3em, 2.5em);
+$_entry_height: if($_sizevariant=='default', 1.9em, 1.6em);
 $_btn_pad: if($_sizevariant=='default', 4px 9px, 2px 4px);
 $_hb_btn_pad: if($_sizevariant=='default', 6px, 5px);
 $_img_btn_pad: if($_sizevariant=='default', 5px, 2px);
@@ -24,8 +24,8 @@ $button_transition: none; //all 200ms $ease-out-quad;
 
 //added by me:
 	$border_width: 2px;
-    $button_min_height: 24px;
-    $button_min_width: 16px;
+    $button_min_height: 1.6em;
+    $button_min_width: 1.6em;
     $button_padding: $_btn_pad;
     $button_border: $border_width solid;
 
