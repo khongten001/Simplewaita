@@ -30,7 +30,27 @@ I've created a way to use different color themes:
 
 For now there are only two color schemes: the original one and a light one (using Skewaita's colors).
 
-Big previews:
+
+## Integration with other DE
+
+To integrate this theme with Plasma or QT: You can either download corresponding Simple themes using Plasma Configuration tool, or, if you prefer to use the cloned repo, then:
+
+- Plasma:
+  - import the color scheme in `kde_plasma_qt/plasma_colorscheme/` folder.
+  - With Kvantum manager, either import `kde_plasma_qt/Kvantum/Simplewaita/` with the Kvantum Manager, or create a symbolic link to `kde_plasma_qt/Kvantum/Simplewaita/` in `~/.config/Kvantum`.
+  - create a symbolic link to `kde_plasma_qt/aurorae/Simple/` called `Simple` at `~/.local/share/aurorae/themes`
+- Other QT desktops:
+  - copy Simple.conf in `kde_plasma_qt/qt5_or_6ct_color_scheme/` to `~/.config/qt5ct/colors` (to activate it, you need to use qt5ct or qt6ct to manage the aspect of your QT applications)
+  - Do the same as with Plasma for Kvantum
+- Gnome 42 and libadwaita: link or copy its `Simplewaita/gtk-4.0/gtk.css` to `~/.config/gtk-4.0/gtk.css` and the folder `Simplewaita/gtk-4.0/assets` to `~/.config/gtk-4.0/assets` (linking is the recommended option, especially if you use the cloned repo).
+
+(note: you can also use the strategy of creating symbolic links for Kvantum and color scheme).
+
+For GTK, metacity, xfwm4, openbox and Unity, just copy the root folder in `~/.themes` (or, if you want it to be available to all users, `/usr/share/themes`). If you clone the repo, then I'd recommend to create a symbolic link to Simplewaita's folder in `~/.themes`, instead of copying it, so you just need to `git pull` in order to fully update it.
+
+
+
+## Big previews:
 
 ![full desktop preview that includes gtk3 and gtk4](previews/gtk3-gtk4.png "Includes gtk2, gtk3 and gtk4")
 
