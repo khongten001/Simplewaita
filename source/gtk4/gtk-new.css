@@ -8,11 +8,13 @@ $selected_bg_color: if($variant == 'light', #3584e4, darken(#3584e4, 20%));*/
 /*Usually an automatic fg color on these backgrounds should check this value!*/
 /*************************** Check and Radio buttons * */
 /*************************** Check and Radio buttons * */
-calendar > grid > label.day-number:selected, row:selected, columnview.view:selected:focus, columnview.view:selected, treeview.view:selected:focus, treeview.view:selected, modelbutton.flat:selected, gridview > child:selected, flowbox > flowboxchild:selected, .view:selected:focus, iconview:selected:focus, .view:selected, iconview:selected, textview > text:selected:focus, textview > text:selected { background-color: #669900; }
+calendar > grid > label.day-number:selected, row:selected, columnview.view:selected:focus, columnview.view:selected, treeview.view:selected:focus, treeview.view:selected, modelbutton.flat:selected, gridview > child:selected, flowbox > flowboxchild:selected, .view:selected:focus, iconview:selected:focus, .view:selected, iconview:selected, textview > text:selected:focus, textview > text:selected { background-color: #669900; color: #d1ff96; }
 
 label:selected, calendar > grid > label.day-number:selected, row:selected, columnview.view:selected:focus, columnview.view:selected, treeview.view:selected:focus, treeview.view:selected, modelbutton.flat:selected, gridview > child:selected, flowbox > flowboxchild:selected, .view:selected:focus, iconview:selected:focus, .view:selected, iconview:selected, textview > text:selected:focus, textview > text:selected { color: #d1ff96; }
 
 label:disabled > selection, label:disabled:selected, calendar > grid > label.day-number:disabled:selected, row:disabled:selected, columnview.view:disabled:selected, treeview.view:disabled:selected, modelbutton.flat:disabled:selected, gridview > child:disabled:selected, flowbox > flowboxchild:disabled:selected, .view:disabled:selected, iconview:disabled:selected, textview > text:disabled:selected { color: #9ccc4b; }
+
+label:backdrop:selected, calendar > grid > label.day-number:backdrop:selected, row:backdrop:selected, columnview.view:backdrop:selected, treeview.view:backdrop:selected, modelbutton.flat:backdrop:selected, gridview > child:backdrop:selected, flowbox > flowboxchild:backdrop:selected, .view:backdrop:selected, iconview:backdrop:selected, textview > text:backdrop:selected { color: #d1ff96; background-color: #669900; }
 
 /*************** Base States * */
 .background { color: #EDF0F5; background-color: #3f3e3e; }
@@ -33,9 +35,9 @@ image:disabled { -gtk-icon-filter: opacity(0.5); }
 
 textview > text { background-color: transparent; }
 
-textview > text > selection { background-color: #669900; }
+textview > text > selection { background-color: #669900; color: #d1ff96; }
 
-textview > text > selection:focus-within { background-color: rgba(102, 153, 0, 0.3); }
+textview > text > selection:focus-within { background-color: #669900; color: #d1ff96; }
 
 textview:drop(active) { caret-color: #33d17a; }
 
@@ -81,7 +83,7 @@ label:focus:focus-visible { outline-color: rgba(102, 153, 0, 0.5); outline-width
 
 label > selection { background-color: #669900; color: #d1ff96; }
 
-label > selection:focus-within { background-color: rgba(102, 153, 0, 0.3); }
+label > selection:focus-within { background-color: #669900; color: #d1ff96; }
 
 label:disabled { color: #7c675a; }
 
@@ -155,6 +157,8 @@ spinbutton.vertical > text:focus-within > placeholder, spinbutton:focus-within:n
 spinbutton.vertical > text:disabled, spinbutton:disabled:not(.vertical), entry:disabled { color: #7c675a; background-color: #493e37; border-left-color: #2c2521; border-top-color: #2c2521; border-right-color: #756358; border-bottom-color: #756358; }
 
 spinbutton.vertical > text > text > selection, spinbutton:not(.vertical) > text > selection, entry > text > selection { background-color: #669900; color: #d1ff96; }
+
+spinbutton.vertical > text > text > selection:focus-within, spinbutton:not(.vertical) > text > selection:focus-within, entry > text > selection:focus-within { background-color: #669900; color: #d1ff96; }
 
 spinbutton.vertical > text.error, spinbutton.error:not(.vertical), entry.error { color: #CC0000; transition-property: outline, outline-width, outline-offset, outline-color; transition-duration: 300ms; animation-timing-function: ease-in-out; }
 
@@ -250,8 +254,6 @@ row:selected button { border-color: #334d00; }
 
 row:selected button.sidebar-button:not(:active):not(:checked):not(:hover):not(disabled), row:selected button.flat:not(:active):not(:checked):not(:hover):not(disabled) { color: #d1ff96; border-color: transparent; }
 
-row:selected button.sidebar-button:not(:active):not(:checked):not(:hover):not(disabled):backdrop, row:selected button.flat:not(:active):not(:checked):not(:hover):not(disabled):backdrop { color: #323232; }
-
 button.osd { min-width: 26px; min-height: 32px; color: #66cbec; border-radius: 5px; border-width: 2px; color: #66cbec; background-color: #203d79; border-left-color: #305cb6; border-top-color: #305cb6; border-right-color: #152951; border-bottom-color: #152951; box-shadow: none; }
 
 button.osd.image-button { min-width: 30px; }
@@ -338,7 +340,7 @@ button.font > box { border-spacing: 6px; }
 
 button.font > box > box > label { font-weight: bold; }
 
-menubutton.circular button, button.circular { min-width: 32px; min-height: 32px; padding: 0; border-radius: 9999px; }
+menubutton.circular button, button.circular { min-width: 1.6em; min-height: 1.6em; padding: 0; border-radius: 9999px; }
 
 menubutton.circular button label, button.circular label { padding: 0; }
 
@@ -444,9 +446,7 @@ spinbutton.vertical:drop(active) { border-color: transparent; box-shadow: none; 
 
 spinbutton.vertical > text { min-height: 1.6em; min-width: 1.6em; padding: 0; border-radius: 0; }
 
-spinbutton.vertical > text > selection { background-color: #669900; color: transparent; }
-
-spinbutton.vertical > text > selection:focus-within { background-color: rgba(102, 153, 0, 0.3); color: #d1ff96; }
+spinbutton.vertical > text > selection { background-color: #669900; color: #d1ff96; }
 
 spinbutton.vertical > text > block-cursor { color: #323232; background-color: #EDF0F5; }
 
@@ -1220,9 +1220,9 @@ columnview row:not(:selected) cell editablelabel:not(.editing):focus-within { ou
 
 columnview row:not(:selected) cell editablelabel.editing:focus-within { outline: 2px solid #669900; }
 
-columnview row:not(:selected) cell editablelabel.editing text selection { background-color: #669900; color: transparent; }
+columnview row:not(:selected) cell editablelabel.editing text selection { background-color: #669900; color: #d1ff96; }
 
-columnview row:not(:selected) cell editablelabel.editing text selection:focus-within { background-color: rgba(102, 153, 0, 0.3); color: #EDF0F5; }
+columnview row:not(:selected) cell editablelabel.editing text selection:focus-within { background-color: #669900; color: #d1ff96; }
 
 /******************************************************* Rich Lists                                          * Large list usually containing lots of widgets       * https://gitlab.gnome.org/GNOME/gtk/-/issues/3073    * */
 .rich-list { /* rich lists usually containing other widgets than just labels/text */ }

@@ -36,7 +36,7 @@ Big previews:
 
 ![gtk3 widget page 2](previews/gtk3wf-2.png)
 
-![gtk3 widget page 3](previews/gtk3wf-3.png)
+![gtk3 widget page 3](previews/gtk4wf-3.png)
 
 ![gtk2 preview](previews/gtk2.png)
 

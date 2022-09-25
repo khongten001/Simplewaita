@@ -61,10 +61,12 @@ textview {
     background-color: transparent;
 
     > selection {
-      background-color: $backdrop_selected_bg_color;
+      background-color: $selected_bg_color;
+      color: $selected_fg_color;
 
       &:focus-within {
-         background-color: $selected_text_bg_color;
+         background-color: $selected_bg_color;
+         color: $selected_fg_color;
       }
     }
   }
@@ -152,10 +154,11 @@ label {
   &:selected { @extend %nobg_selected_items; }
 
   > selection {
-    background-color: $backdrop_selected_bg_color;
+    background-color: $selected_bg_color;
     color: $selected_fg_color;
     &:focus-within {
-       background-color: $selected_text_bg_color;
+       background-color: $selected_bg_color;
+       color: $selected_fg_color;
     }
   }
 
@@ -326,8 +329,8 @@ entry {
       background-color: $selected_bg_color;
       color: $selected_fg_color;
       &:focus-within {
-        //background-color: $selected_text_bg_color;
-        //color: $fg_color;
+        background-color: $selected_bg_color;
+        color: $selected_fg_color;
       }
     }
 
@@ -547,7 +550,7 @@ button {
           color: $selected_fg_color;
           border-color: transparent;
 
-          &:backdrop { color: if($variant=='light', $backdrop_base_color, $backdrop_fg_color); }
+          //&:backdrop { color: if($variant=='light', $backdrop_base_color, $backdrop_fg_color); }
         }
       }
     }
@@ -706,8 +709,8 @@ button {
 
   menubutton.circular &,
   &.circular { // force circular button shape
-    min-width: 32px;
-    min-height: 32px;
+    min-width: $button_min_height;
+    min-height: $button_min_height;
     padding: 0;
     border-radius: 9999px;
 
@@ -1074,12 +1077,12 @@ spinbutton {
       border-radius: 0;
 
       > selection {
-        background-color: $backdrop_selected_bg_color;
-        color: transparent;
-        &:focus-within {
-          background-color: $selected_text_bg_color;
-          color: $selected_fg_color;
-        }
+        background-color: $selected_bg_color;
+        color: $selected_fg_color;
+        //&:focus-within {
+        //  background-color: $selected_text_bg_color;
+        //  color: $selected_fg_color;
+        //}
       }
       > block-cursor { @include entry(block_cursor); }
     }
@@ -2837,11 +2840,11 @@ columnview row:not(:selected) cell editablelabel.editing:focus-within {
 }
 
 columnview row:not(:selected) cell editablelabel.editing text selection {
-  background-color: $backdrop_selected_bg_color;
-  color: transparent;
+  background-color: $selected_bg_color;
+  color: $selected_fg_color;
   &:focus-within {
-    background-color: $selected_text_bg_color;
-    color: $fg_color;
+    background-color: $selected_bg_color;
+    color: $selected_fg_color;
   }
 }
 

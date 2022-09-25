@@ -38,7 +38,7 @@ $popover_radius: $window_radius;
 
 %selected_items {
   background-color: $selected_bg_color;
-
+  color: $selected_fg_color;
   @at-root %nobg_selected_items, & {
     color: $selected_fg_color;
 
@@ -46,9 +46,11 @@ $popover_radius: $window_radius;
     &:disabled { color: mix($selected_fg_color, $selected_bg_color, 50%); }
 
     @at-root %selected_items_backdrop,
-    &:backdrop { //Simplewaita does not like backdrop changes except for headerbar and window decoration
-      //color: $backdrop_selected_fg_color;
-      //background-color: $backdrop_selected_bg_color;
+    &:backdrop { 
+      //Simplewaita does not like backdrop changes except for headerbar and window decoration
+      //however, some problems may arise if this is not applied.
+      color: $selected_fg_color;
+      background-color: $selected_bg_color;
 
       //&:disabled { color: mix($backdrop_selected_fg_color, $selected_bg_color, 30%); }
     }
