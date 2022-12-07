@@ -1,0 +1,2015 @@
+<?xml version="1.0"?>
+<metacity_theme>
+
+<info>
+	<name>Simplewaita</name>
+	<author>Novomente</author>
+	<copyright>Licensed under GPLv2 or later</copyright>
+	<date>December 2022</date>
+	<description>Simplewaita, based on The Fugitive Metacity Theme (squared version)</description>
+</info>
+
+<!-- clearlooks blue: #669900 -->
+<!-- Simplewaita green: #669900 -->
+
+
+
+<!--::: frame_geometry BEGINNING :::-->
+<!--left_width, right_width, bottom_height (5 is minimum size)-->
+<frame_geometry name="normal" 
+		rounded_top_left="false" rounded_top_right="false" 
+		rounded_bottom_left="false" rounded_bottom_right="false">
+	<distance name="left_width" value="5"/>
+	<distance name="right_width" value="5"/>
+	<distance name="bottom_height" value="5"/>
+	<distance name="left_titlebar_edge" value="3"/>
+	<distance name="right_titlebar_edge" value="3"/>
+	<aspect_ratio name="button" value="0.70"/>
+	<distance name="title_vertical_pad" value="4"/>
+	<border name="title_border" left="5" right="5" top="3" bottom="3"/>
+	<border name="button_border" left="0" right="0" top="3" bottom="3"/>
+</frame_geometry>
+
+<frame_geometry name="shaded" parent="normal" 
+		rounded_top_left="true" rounded_top_right="true" 
+		rounded_bottom_left="true" rounded_bottom_right="true"/>
+
+<frame_geometry name="normal_maximized" parent="normal">
+	<distance name="left_width" value="0"/>
+	<distance name="right_width" value="0"/>
+	<distance name="bottom_height" value="1"/>
+</frame_geometry>
+
+<frame_geometry name="shaded_maximized" parent="normal_maximized" 
+		rounded_top_left="false" rounded_top_right="false" 
+		rounded_bottom_left="true" rounded_bottom_right="true"/>
+
+<!--left_width, right_width, bottom_height (3 is minimum size)-->
+<frame_geometry name="utility" title_scale="small" 
+		rounded_top_left="false" rounded_top_right="false" 
+		rounded_bottom_left="false" rounded_bottom_right="false">
+	<distance name="left_width" value="4"/>
+	<distance name="right_width" value="4"/>
+	<distance name="bottom_height" value="4"/>
+	<distance name="left_titlebar_edge" value="3"/>
+	<distance name="right_titlebar_edge" value="3"/>
+	<aspect_ratio name="button" value="0.68"/>
+	<distance name="title_vertical_pad" value="2"/>
+	<border name="title_border" left="4" right="4" top="4" bottom="4"/>
+	<border name="button_border" left="0" right="0" top="2" bottom="2"/>
+</frame_geometry>
+
+<frame_geometry name="utility_shaded" parent="utility" 
+		rounded_top_left="true" rounded_top_right="true" 
+		rounded_bottom_left="true" rounded_bottom_right="true"/>
+
+<!--left_width, right_width 
+	bottom_height, title_vertical_pad 
+	all these attributes have same size (3 is minimum size)-->
+<frame_geometry name="border" has_title="false" 
+		rounded_top_left="false" rounded_top_right="false" 
+		rounded_bottom_left="false" rounded_bottom_right="false">
+	<distance name="left_width" value="5"/>
+	<distance name="right_width" value="5"/>
+	<distance name="bottom_height" value="5"/>
+	<distance name="left_titlebar_edge" value="0"/>
+	<distance name="right_titlebar_edge" value="0"/>
+	<distance name="button_width" value="0"/>
+	<distance name="button_height" value="0"/>
+	<distance name="title_vertical_pad" value="5"/>
+	<border name="title_border" left="0" right="0" top="0" bottom="0"/>
+	<border name="button_border" left="0" right="0" top="0" bottom="0"/>
+</frame_geometry>
+<!--::: frame_geometry END :::-->
+
+
+
+
+
+<!--button padding between button edge and icon area
+	(icon area is button size minus Bpad)-->
+<constant name="Bpad" value="3"/>
+<!--button icon size - percentage of an icon area
+	(icon area is button size minus Bpad)-->
+<constant name="Isize" value="80"/>
+<!--button icon minimum size (must be even number)-->
+<constant name="Imin" value="10"/>
+
+
+
+
+
+<!--::: draw_ops BEGINNING :::-->
+<!--WINDOW BORDERS and TITLEBARS-->
+<!--background color-->
+<draw_ops name="bg_color_titlebar_normal_focused">
+	<gradient type="vertical" x="0" y="0" width="width" height="top_height">
+		<color value="shade/#669900/1.01"/>
+		<color value="shade/#669900/0.93"/>
+		<color value="shade/#669900/0.92"/>
+		<color value="shade/#669900/1.01"/>
+	</gradient>
+
+	<!--simple color instead of gradient-->
+	<!--<rectangle color="#669900" filled="true" 
+		x="0" y="0" width="width" height="top_height"/>-->
+</draw_ops>
+<draw_ops name="bg_color_titlebar_normal_unfocused">
+	<gradient type="vertical" x="0" y="0" width="width" height="top_height">
+		<color value="gtk:bg[NORMAL]"/>
+		<color value="shade/gtk:bg[NORMAL]/0.94"/>
+		<color value="shade/gtk:bg[NORMAL]/0.95"/>
+		<color value="gtk:bg[NORMAL]"/>
+	</gradient>
+
+	<!--simple color instead of gradient-->
+	<!--<rectangle color="gtk:bg[NORMAL]" filled="true" 
+		x="0" y="0" width="width" height="top_height"/>-->
+</draw_ops>
+
+<draw_ops name="bg_color_border_normal_focused">
+	<rectangle color="#669900" filled="true" 
+		x="0" y="top_height" 
+		width="left_width" height="height-top_height-bottom_height"/>
+	<rectangle color="#669900" filled="true" 
+		x="width-right_width" y="top_height" 
+		width="right_width" height="height-top_height-bottom_height"/>
+	<rectangle color="#669900" filled="true" 
+		x="0" y="height-bottom_height" 
+		width="width" height="bottom_height"/>
+</draw_ops>
+<draw_ops name="bg_color_border_normal_unfocused">
+	<rectangle color="gtk:bg[NORMAL]" filled="true" 
+		x="0" y="top_height" 
+		width="left_width" height="height-top_height-bottom_height"/>
+	<rectangle color="gtk:bg[NORMAL]" filled="true" 
+		x="width-right_width" y="top_height" 
+		width="right_width" height="height-top_height-bottom_height"/>
+	<rectangle color="gtk:bg[NORMAL]" filled="true" 
+		x="0" y="height-bottom_height" 
+		width="width" height="bottom_height"/>
+</draw_ops>
+
+<draw_ops name="bg_color_border_border_focused">
+	<rectangle color="#669900" filled="true" 
+		x="0" y="0" width="width" height="top_height"/>
+	<include name="bg_color_border_normal_focused"/>
+</draw_ops>
+<draw_ops name="bg_color_border_border_unfocused">
+	<rectangle color="gtk:bg[NORMAL]" filled="true" 
+		x="0" y="0" width="width" height="top_height"/>
+	<include name="bg_color_border_normal_unfocused"/>
+</draw_ops>
+
+
+<!--outer window borders-->
+<draw_ops name="borders_outer_normal_focused">
+	<rectangle color="shade/#669900/0.70" filled="false" 
+		x="0" y="0" width="width-1" height="height-1"/>
+	<rectangle color="shade/#669900/0.85" filled="false" 
+		x="1" y="1" width="width-3" height="height-3"/>
+	<rectangle color="shade/#669900/0.95" filled="false" 
+		x="2" y="2" width="width-5" height="height-5"/>
+</draw_ops>
+<draw_ops name="borders_outer_normal_unfocused">
+	<rectangle color="shade/gtk:bg[NORMAL]/0.70" filled="false" 
+		x="0" y="0" width="width-1" height="height-1"/>
+	<rectangle color="shade/gtk:bg[NORMAL]/0.85" filled="false" 
+		x="1" y="1" width="width-3" height="height-3"/>
+	<rectangle color="shade/gtk:bg[NORMAL]/0.95" filled="false" 
+		x="2" y="2" width="width-5" height="height-5"/>
+</draw_ops>
+
+<draw_ops name="borders_outer_maximized_focused">
+	<line color="shade/#669900/0.70" x1="0" y1="0" x2="width-1" y2="0"/>
+	<line color="shade/#669900/0.85" x1="0" y1="1" x2="width-1" y2="1"/>
+	<line color="shade/#669900/0.95" x1="0" y1="2" x2="width-1" y2="2"/>
+</draw_ops>
+<draw_ops name="borders_outer_maximized_unfocused">
+	<line color="shade/gtk:bg[NORMAL]/0.70" x1="0" y1="0" x2="width-1" y2="0"/>
+	<line color="shade/gtk:bg[NORMAL]/0.85" x1="0" y1="1" x2="width-1" y2="1"/>
+	<line color="shade/gtk:bg[NORMAL]/0.95" x1="0" y1="2" x2="width-1" y2="2"/>
+</draw_ops>
+
+<draw_ops name="borders_outer_utility_focused">
+	<rectangle color="shade/#669900/0.80" filled="false" x="0" y="0" 
+		width="width-1" height="height-1"/>
+	<rectangle color="shade/#669900/0.90" filled="false" x="1" y="1" 
+		width="width-3" height="height-3"/>
+</draw_ops>
+<draw_ops name="borders_outer_utility_unfocused">
+	<rectangle color="shade/gtk:bg[NORMAL]/0.80" filled="false" 
+		x="0" y="0" width="width-1" height="height-1"/>
+	<rectangle color="shade/gtk:bg[NORMAL]/0.90" filled="false" 
+		x="1" y="1" width="width-3" height="height-3"/>
+</draw_ops>
+
+
+<!--inner window borders-->
+<draw_ops name="borders_inner_normal_focused">
+	<rectangle color="shade/#669900/0.95" filled="false" 
+		x="left_width-3" y="top_height-3" 
+		width="width-left_width-right_width+5" 
+		height="height-top_height-bottom_height+5"/>
+	<rectangle color="shade/#669900/0.85" filled="false" 
+		x="left_width-2" y="top_height-2" 
+		width="width-left_width-right_width+3" 
+		height="height-top_height-bottom_height+3"/>
+	<rectangle color="shade/#669900/0.70" filled="false" 
+		x="left_width-1" y="top_height-1" 
+		width="width-left_width-right_width+1" 
+		height="height-top_height-bottom_height+1"/>
+</draw_ops>
+<draw_ops name="borders_inner_normal_unfocused">
+	<rectangle color="shade/gtk:bg[NORMAL]/0.95" filled="false" 
+		x="left_width-3" y="top_height-3" 
+		width="width-left_width-right_width+5" 
+		height="height-top_height-bottom_height+5"/>
+	<rectangle color="shade/gtk:bg[NORMAL]/0.85" filled="false" 
+		x="left_width-2" y="top_height-2" 
+		width="width-left_width-right_width+3" 
+		height="height-top_height-bottom_height+3"/>
+	<rectangle color="shade/gtk:bg[NORMAL]/0.70" filled="false" 
+		x="left_width-1" y="top_height-1" 
+		width="width-left_width-right_width+1" 
+		height="height-top_height-bottom_height+1"/>
+</draw_ops>
+
+<draw_ops name="borders_inner_maximized_focused">
+	<line color="shade/#669900/0.95" 
+		x1="0" y1="top_height-3" x2="width-1" y2="top_height-3"/>
+	<line color="shade/#669900/0.85" 
+		x1="0" y1="top_height-2" x2="width-1" y2="top_height-2"/>
+	<line color="shade/#669900/0.70" 
+		x1="0" y1="top_height-1" x2="width-1" y2="top_height-1"/>
+</draw_ops>
+<draw_ops name="borders_inner_maximized_unfocused">
+	<line color="shade/gtk:bg[NORMAL]/0.95" 
+		x1="0" y1="top_height-3" x2="width-1" y2="top_height-3"/>
+	<line color="shade/gtk:bg[NORMAL]/0.85" 
+		x1="0" y1="top_height-2" x2="width-1" y2="top_height-2"/>
+	<line color="shade/gtk:bg[NORMAL]/0.70" 
+		x1="0" y1="top_height-1" x2="width-1" y2="top_height-1"/>
+</draw_ops>
+
+<draw_ops name="borders_inner_utility_focused">
+	<rectangle color="shade/#669900/0.90" filled="false" 
+		x="left_width-2" y="top_height-2" 
+		width="width-left_width-right_width+3" 
+		height="height-top_height-bottom_height+3"/>
+	<rectangle color="shade/#669900/0.80" filled="false" 
+		x="left_width-1" y="top_height-1" 
+		width="width-left_width-right_width+1" 
+		height="height-top_height-bottom_height+1"/>
+</draw_ops>
+<draw_ops name="borders_inner_utility_unfocused">
+	<rectangle color="shade/gtk:bg[NORMAL]/0.90" filled="false" 
+		x="left_width-2" y="top_height-2" 
+		width="width-left_width-right_width+3" 
+		height="height-top_height-bottom_height+3"/>
+	<rectangle color="shade/gtk:bg[NORMAL]/0.80" filled="false" 
+		x="left_width-1" y="top_height-1" 
+		width="width-left_width-right_width+1" 
+		height="height-top_height-bottom_height+1"/>
+</draw_ops>
+
+
+
+<!--ROUNDED CORNERS-->
+<!--rounded corners (normal)-->
+<draw_ops name="rounded_corners_top_normal_focused">
+	<!--top left-->
+	<line color="shade/#669900/0.70" x1="3" y1="1" x2="4" y2="1"/>
+	<line color="shade/#669900/0.70" x1="1" y1="3" x2="1" y2="4"/>
+	<line color="shade/#669900/0.70" x1="2" y1="2" x2="2" y2="2"/>
+
+	<line color="shade/#669900/0.85" x1="3" y1="2" x2="4" y2="2"/>
+	<line color="shade/#669900/0.85" x1="2" y1="3" x2="2" y2="4"/>
+	<line color="shade/#669900/0.85" x1="3" y1="3" x2="3" y2="3"/>
+
+	<line color="shade/#669900/0.95" x1="4" y1="3" x2="4" y2="3"/>
+	<line color="shade/#669900/0.95" x1="3" y1="4" x2="3" y2="4"/>
+
+	<!--top right-->
+	<line color="shade/#669900/0.70" x1="width-5" y1="1" x2="width-4" y2="1"/>
+	<line color="shade/#669900/0.70" x1="width-2" y1="3" x2="width-2" y2="4"/>
+	<line color="shade/#669900/0.70" x1="width-3" y1="2" x2="width-3" y2="2"/>
+
+	<line color="shade/#669900/0.85" x1="width-5" y1="2" x2="width-4" y2="2"/>
+	<line color="shade/#669900/0.85" x1="width-3" y1="3" x2="width-3" y2="4"/>
+	<line color="shade/#669900/0.85" x1="width-4" y1="3" x2="width-4" y2="3"/>
+
+	<line color="shade/#669900/0.95" x1="width-5" y1="3" x2="width-5" y2="3"/>
+	<line color="shade/#669900/0.95" x1="width-4" y1="4" x2="width-4" y2="4"/>
+</draw_ops>
+<draw_ops name="rounded_corners_top_normal_unfocused">
+	<!--top left-->
+	<line color="shade/gtk:bg[NORMAL]/0.70" x1="3" y1="1" x2="4" y2="1"/>
+	<line color="shade/gtk:bg[NORMAL]/0.70" x1="1" y1="3" x2="1" y2="4"/>
+	<line color="shade/gtk:bg[NORMAL]/0.70" x1="2" y1="2" x2="2" y2="2"/>
+
+	<line color="shade/gtk:bg[NORMAL]/0.85" x1="3" y1="2" x2="4" y2="2"/>
+	<line color="shade/gtk:bg[NORMAL]/0.85" x1="2" y1="3" x2="2" y2="4"/>
+	<line color="shade/gtk:bg[NORMAL]/0.85" x1="3" y1="3" x2="3" y2="3"/>
+
+	<line color="shade/gtk:bg[NORMAL]/0.95" x1="4" y1="3" x2="4" y2="3"/>
+	<line color="shade/gtk:bg[NORMAL]/0.95" x1="3" y1="4" x2="3" y2="4"/>
+
+	<!--top right-->
+	<line color="shade/gtk:bg[NORMAL]/0.70" x1="width-5" y1="1" x2="width-4" y2="1"/>
+	<line color="shade/gtk:bg[NORMAL]/0.70" x1="width-2" y1="3" x2="width-2" y2="4"/>
+	<line color="shade/gtk:bg[NORMAL]/0.70" x1="width-3" y1="2" x2="width-3" y2="2"/>
+
+	<line color="shade/gtk:bg[NORMAL]/0.85" x1="width-5" y1="2" x2="width-4" y2="2"/>
+	<line color="shade/gtk:bg[NORMAL]/0.85" x1="width-3" y1="3" x2="width-3" y2="4"/>
+	<line color="shade/gtk:bg[NORMAL]/0.85" x1="width-4" y1="3" x2="width-4" y2="3"/>
+
+	<line color="shade/gtk:bg[NORMAL]/0.95" x1="width-5" y1="3" x2="width-5" y2="3"/>
+	<line color="shade/gtk:bg[NORMAL]/0.95" x1="width-4" y1="4" x2="width-4" y2="4"/>
+</draw_ops>
+
+<draw_ops name="rounded_corners_bottom_normal_focused">
+	<!--bottom left-->
+	<line color="shade/#669900/0.70" x1="3" y1="height-2" x2="4" y2="height-2"/>
+	<line color="shade/#669900/0.70" x1="1" y1="height-5" x2="1" y2="height-4"/>
+	<line color="shade/#669900/0.70" x1="2" y1="height-3" x2="2" y2="height-3"/>
+
+	<line color="shade/#669900/0.85" x1="3" y1="height-3" x2="4" y2="height-3"/>
+	<line color="shade/#669900/0.85" x1="2" y1="height-5" x2="2" y2="height-4"/>
+	<line color="shade/#669900/0.85" x1="3" y1="height-4" x2="3" y2="height-4"/>
+
+	<line color="shade/#669900/0.95" x1="4" y1="height-4" x2="4" y2="height-4"/>
+	<line color="shade/#669900/0.95" x1="3" y1="height-5" x2="3" y2="height-5"/>
+
+	<!--bottom right-->
+	<line color="shade/#669900/0.70" x1="width-5" y1="height-2" x2="width-4" y2="height-2"/>
+	<line color="shade/#669900/0.70" x1="width-2" y1="height-5" x2="width-2" y2="height-4"/>
+	<line color="shade/#669900/0.70" x1="width-3" y1="height-3" x2="width-3" y2="height-3"/>
+
+	<line color="shade/#669900/0.85" x1="width-5" y1="height-3" x2="width-4" y2="height-3"/>
+	<line color="shade/#669900/0.85" x1="width-3" y1="height-5" x2="width-3" y2="height-4"/>
+	<line color="shade/#669900/0.85" x1="width-4" y1="height-4" x2="width-4" y2="height-4"/>
+
+	<line color="shade/#669900/0.95" x1="width-5" y1="height-4" x2="width-5" y2="height-4"/>
+	<line color="shade/#669900/0.95" x1="width-4" y1="height-5" x2="width-4" y2="height-5"/>
+</draw_ops>
+<draw_ops name="rounded_corners_bottom_normal_unfocused">
+	<!--bottom left-->
+	<line color="shade/gtk:bg[NORMAL]/0.70" x1="3" y1="height-2" x2="4" y2="height-2"/>
+	<line color="shade/gtk:bg[NORMAL]/0.70" x1="1" y1="height-5" x2="1" y2="height-4"/>
+	<line color="shade/gtk:bg[NORMAL]/0.70" x1="2" y1="height-3" x2="2" y2="height-3"/>
+
+	<line color="shade/gtk:bg[NORMAL]/0.85" x1="3" y1="height-3" x2="4" y2="height-3"/>
+	<line color="shade/gtk:bg[NORMAL]/0.85" x1="2" y1="height-5" x2="2" y2="height-4"/>
+	<line color="shade/gtk:bg[NORMAL]/0.85" x1="3" y1="height-4" x2="3" y2="height-4"/>
+
+	<line color="shade/gtk:bg[NORMAL]/0.95" x1="4" y1="height-4" x2="4" y2="height-4"/>
+	<line color="shade/gtk:bg[NORMAL]/0.95" x1="3" y1="height-5" x2="3" y2="height-5"/>
+
+	<!--bottom right-->
+	<line color="shade/gtk:bg[NORMAL]/0.70" x1="width-5" y1="height-2" x2="width-4" y2="height-2"/>
+	<line color="shade/gtk:bg[NORMAL]/0.70" x1="width-2" y1="height-5" x2="width-2" y2="height-4"/>
+	<line color="shade/gtk:bg[NORMAL]/0.70" x1="width-3" y1="height-3" x2="width-3" y2="height-3"/>
+
+	<line color="shade/gtk:bg[NORMAL]/0.85" x1="width-5" y1="height-3" x2="width-4" y2="height-3"/>
+	<line color="shade/gtk:bg[NORMAL]/0.85" x1="width-3" y1="height-5" x2="width-3" y2="height-4"/>
+	<line color="shade/gtk:bg[NORMAL]/0.85" x1="width-4" y1="height-4" x2="width-4" y2="height-4"/>
+
+	<line color="shade/gtk:bg[NORMAL]/0.95" x1="width-5" y1="height-4" x2="width-5" y2="height-4"/>
+	<line color="shade/gtk:bg[NORMAL]/0.95" x1="width-4" y1="height-5" x2="width-4" y2="height-5"/>
+</draw_ops>
+
+<!--rounded corners (utility)-->
+<draw_ops name="rounded_corners_top_utility_focused">
+	<!--top left-->
+	<line color="shade/#669900/0.80" x1="3" y1="1" x2="4" y2="1"/>
+	<line color="shade/#669900/0.80" x1="1" y1="3" x2="1" y2="4"/>
+	<line color="shade/#669900/0.80" x1="2" y1="2" x2="2" y2="2"/>
+
+	<line color="shade/#669900/0.90" x1="3" y1="2" x2="4" y2="2"/>
+	<line color="shade/#669900/0.90" x1="2" y1="3" x2="2" y2="4"/>
+	<line color="shade/#669900/0.90" x1="3" y1="3" x2="3" y2="3"/>
+
+	<!--top right-->
+	<line color="shade/#669900/0.80" x1="width-5" y1="1" x2="width-4" y2="1"/>
+	<line color="shade/#669900/0.80" x1="width-2" y1="3" x2="width-2" y2="4"/>
+	<line color="shade/#669900/0.80" x1="width-3" y1="2" x2="width-3" y2="2"/>
+
+	<line color="shade/#669900/0.90" x1="width-5" y1="2" x2="width-4" y2="2"/>
+	<line color="shade/#669900/0.90" x1="width-3" y1="3" x2="width-3" y2="4"/>
+	<line color="shade/#669900/0.90" x1="width-4" y1="3" x2="width-4" y2="3"/>
+</draw_ops>
+<draw_ops name="rounded_corners_top_utility_unfocused">
+	<!--top left-->
+	<line color="shade/gtk:bg[NORMAL]/0.80" x1="3" y1="1" x2="4" y2="1"/>
+	<line color="shade/gtk:bg[NORMAL]/0.80" x1="1" y1="3" x2="1" y2="4"/>
+	<line color="shade/gtk:bg[NORMAL]/0.80" x1="2" y1="2" x2="2" y2="2"/>
+
+	<line color="shade/gtk:bg[NORMAL]/0.90" x1="3" y1="2" x2="4" y2="2"/>
+	<line color="shade/gtk:bg[NORMAL]/0.90" x1="2" y1="3" x2="2" y2="4"/>
+	<line color="shade/gtk:bg[NORMAL]/0.90" x1="3" y1="3" x2="3" y2="3"/>
+
+	<!--top right-->
+	<line color="shade/gtk:bg[NORMAL]/0.80" x1="width-5" y1="1" x2="width-4" y2="1"/>
+	<line color="shade/gtk:bg[NORMAL]/0.80" x1="width-2" y1="3" x2="width-2" y2="4"/>
+	<line color="shade/gtk:bg[NORMAL]/0.80" x1="width-3" y1="2" x2="width-3" y2="2"/>
+
+	<line color="shade/gtk:bg[NORMAL]/0.90" x1="width-5" y1="2" x2="width-4" y2="2"/>
+	<line color="shade/gtk:bg[NORMAL]/0.90" x1="width-3" y1="3" x2="width-3" y2="4"/>
+	<line color="shade/gtk:bg[NORMAL]/0.90" x1="width-4" y1="3" x2="width-4" y2="3"/>
+</draw_ops>
+
+<draw_ops name="rounded_corners_bottom_utility_focused">
+	<!--bottom left-->
+	<line color="shade/#669900/0.80" x1="3" y1="height-2" x2="4" y2="height-2"/>
+	<line color="shade/#669900/0.80" x1="1" y1="height-5" x2="1" y2="height-4"/>
+	<line color="shade/#669900/0.80" x1="2" y1="height-3" x2="2" y2="height-3"/>
+
+	<line color="shade/#669900/0.90" x1="3" y1="height-3" x2="4" y2="height-3"/>
+	<line color="shade/#669900/0.90" x1="2" y1="height-5" x2="2" y2="height-4"/>
+	<line color="shade/#669900/0.90" x1="3" y1="height-4" x2="3" y2="height-4"/>
+
+	<!--bottom right-->
+	<line color="shade/#669900/0.80" x1="width-5" y1="height-2" x2="width-4" y2="height-2"/>
+	<line color="shade/#669900/0.80" x1="width-2" y1="height-5" x2="width-2" y2="height-4"/>
+	<line color="shade/#669900/0.80" x1="width-3" y1="height-3" x2="width-3" y2="height-3"/>
+
+	<line color="shade/#669900/0.90" x1="width-5" y1="height-3" x2="width-4" y2="height-3"/>
+	<line color="shade/#669900/0.90" x1="width-3" y1="height-5" x2="width-3" y2="height-4"/>
+	<line color="shade/#669900/0.90" x1="width-4" y1="height-4" x2="width-4" y2="height-4"/>
+</draw_ops>
+<draw_ops name="rounded_corners_bottom_utility_unfocused">
+	<!--bottom left-->
+	<line color="shade/gtk:bg[NORMAL]/0.80" x1="3" y1="height-2" x2="4" y2="height-2"/>
+	<line color="shade/gtk:bg[NORMAL]/0.80" x1="1" y1="height-5" x2="1" y2="height-4"/>
+	<line color="shade/gtk:bg[NORMAL]/0.80" x1="2" y1="height-3" x2="2" y2="height-3"/>
+
+	<line color="shade/gtk:bg[NORMAL]/0.90" x1="3" y1="height-3" x2="4" y2="height-3"/>
+	<line color="shade/gtk:bg[NORMAL]/0.90" x1="2" y1="height-5" x2="2" y2="height-4"/>
+	<line color="shade/gtk:bg[NORMAL]/0.90" x1="3" y1="height-4" x2="3" y2="height-4"/>
+
+	<!--bottom right-->
+	<line color="shade/gtk:bg[NORMAL]/0.80" x1="width-5" y1="height-2" x2="width-4" y2="height-2"/>
+	<line color="shade/gtk:bg[NORMAL]/0.80" x1="width-2" y1="height-5" x2="width-2" y2="height-4"/>
+	<line color="shade/gtk:bg[NORMAL]/0.80" x1="width-3" y1="height-3" x2="width-3" y2="height-3"/>
+
+	<line color="shade/gtk:bg[NORMAL]/0.90" x1="width-5" y1="height-3" x2="width-4" y2="height-3"/>
+	<line color="shade/gtk:bg[NORMAL]/0.90" x1="width-3" y1="height-5" x2="width-3" y2="height-4"/>
+	<line color="shade/gtk:bg[NORMAL]/0.90" x1="width-4" y1="height-4" x2="width-4" y2="height-4"/>
+</draw_ops>
+
+
+
+<!--FRAMES-->
+<!--frames for normal, dialog, modal dialog-->
+<draw_ops name="frame_normal_focused">
+	<include name="bg_color_titlebar_normal_focused"/>
+	<include name="bg_color_border_normal_focused"/>
+	<include name="borders_outer_normal_focused"/>
+	<include name="borders_inner_normal_focused"/>
+</draw_ops>
+<draw_ops name="frame_normal_unfocused">
+	<include name="bg_color_titlebar_normal_unfocused"/>
+	<include name="bg_color_border_normal_unfocused"/>
+	<include name="borders_outer_normal_unfocused"/>
+	<include name="borders_inner_normal_unfocused"/>
+</draw_ops>
+
+<draw_ops name="frame_shaded_focused">
+	<include name="bg_color_titlebar_normal_focused"/>
+	<include name="borders_outer_normal_focused"/>
+	<include name="rounded_corners_top_normal_focused"/>
+	<include name="rounded_corners_bottom_normal_focused"/>
+</draw_ops>
+<draw_ops name="frame_shaded_unfocused">
+	<include name="bg_color_titlebar_normal_unfocused"/>
+	<include name="borders_outer_normal_unfocused"/>
+	<include name="rounded_corners_top_normal_unfocused"/>
+	<include name="rounded_corners_bottom_normal_unfocused"/>
+</draw_ops>
+
+<draw_ops name="frame_maximized_and_shaded_focused">
+	<include name="bg_color_titlebar_normal_focused"/>
+	<include name="borders_outer_normal_focused"/>
+	<include name="rounded_corners_bottom_normal_focused"/>
+</draw_ops>
+<draw_ops name="frame_maximized_and_shaded_unfocused">
+	<include name="bg_color_titlebar_normal_unfocused"/>
+	<include name="borders_outer_normal_unfocused"/>
+	<include name="rounded_corners_bottom_normal_unfocused"/>
+</draw_ops>
+
+<draw_ops name="frame_maximized_focused">
+	<include name="bg_color_titlebar_normal_focused"/>
+	<include name="borders_outer_maximized_focused"/>
+	<include name="borders_inner_maximized_focused"/>
+	<line color="shade/#669900/0.70" x1="0" y1="height-1" x2="width-1" y2="height-1"/>
+</draw_ops>
+<draw_ops name="frame_maximized_unfocused">
+	<include name="bg_color_titlebar_normal_unfocused"/>
+	<include name="borders_outer_maximized_unfocused"/>
+	<include name="borders_inner_maximized_unfocused"/>
+	<line color="shade/gtk:bg[NORMAL]/0.70" x1="0" y1="height-1" x2="width-1" y2="height-1"/>
+</draw_ops>
+
+
+<!--frames for utility, menu-->
+<draw_ops name="frame_utility_focused">
+	<include name="bg_color_titlebar_normal_focused"/>
+	<include name="bg_color_border_normal_focused"/>
+	<include name="borders_outer_utility_focused"/>
+	<include name="borders_inner_utility_focused"/>
+</draw_ops>
+<draw_ops name="frame_utility_unfocused">
+	<include name="bg_color_titlebar_normal_unfocused"/>
+	<include name="bg_color_border_normal_unfocused"/>
+	<include name="borders_outer_utility_unfocused"/>
+	<include name="borders_inner_utility_unfocused"/>
+</draw_ops>
+
+<draw_ops name="frame_utility_shaded_focused">
+	<include name="bg_color_titlebar_normal_focused"/>
+	<include name="borders_outer_utility_focused"/>
+	<include name="rounded_corners_top_utility_focused"/>
+	<include name="rounded_corners_bottom_utility_focused"/>
+</draw_ops>
+<draw_ops name="frame_utility_shaded_unfocused">
+	<include name="bg_color_titlebar_normal_unfocused"/>
+	<include name="borders_outer_utility_unfocused"/>
+	<include name="rounded_corners_top_utility_unfocused"/>
+	<include name="rounded_corners_bottom_utility_unfocused"/>
+</draw_ops>
+
+
+<!--frame for border-->
+<draw_ops name="frame_border_focused">
+	<include name="bg_color_border_border_focused"/>
+	<include name="borders_outer_utility_focused"/>
+	<include name="borders_inner_utility_focused"/>
+</draw_ops>
+<draw_ops name="frame_border_unfocused">
+	<include name="bg_color_border_border_unfocused"/>
+	<include name="borders_outer_utility_unfocused"/>
+	<include name="borders_inner_utility_unfocused"/>
+</draw_ops>
+
+
+
+<!--BUTTONS-->
+<!--button backgrounds-->
+<!--button background borders-->
+<draw_ops name="button_bg_border_focused">
+	<rectangle color="shade/#669900/1.02" filled="false" 
+		x="0" y="0" width="width-1" height="height-1"/>
+	<rectangle color="blend/#000000/#669900/0.74" filled="false" 
+		x="1" y="1" width="width-3" height="height-3"/>
+	<rectangle color="shade/#669900/1.14" filled="false" 
+		x="2" y="2" width="width-5" height="height-5"/>
+</draw_ops>
+<draw_ops name="button_bg_border_unfocused">
+	<rectangle color="shade/gtk:bg[NORMAL]/0.97" filled="false" 
+		x="0" y="0" width="width-1" height="height-1"/>
+	<rectangle color="blend/#000000/gtk:bg[NORMAL]/0.71" filled="false" 
+		x="1" y="1" width="width-3" height="height-3"/>
+	<rectangle color="shade/gtk:bg[NORMAL]/1.09" filled="false" 
+		x="2" y="2" width="width-5" height="height-5"/>
+</draw_ops>
+
+<draw_ops name="button_bg_red_border">
+	<rectangle color="shade/#669900/1.02" filled="false" 
+		x="0" y="0" width="width-1" height="height-1"/>
+	<rectangle color="blend/#000000/#669900/0.74" filled="false" 
+		x="1" y="1" width="width-3" height="height-3"/>
+	<rectangle color="shade/#C92843/1.14" filled="false" 
+		x="2" y="2" width="width-5" height="height-5"/>
+</draw_ops>
+
+
+<!--button background gradients-->
+<draw_ops name="button_bg_gradient_focused">
+	<gradient type="vertical" x="3" y="3" width="width-6" height="height-6">
+		<color value="shade/#669900/0.95"/>
+		<color value="shade/#669900/1.25"/>
+	</gradient>
+</draw_ops>
+<draw_ops name="button_bg_gradient_focused_prelight">
+	<gradient type="vertical" x="3" y="3" width="width-6" height="height-6">
+		<color value="shade/#669900/1.25"/>
+		<color value="shade/#669900/0.95"/>
+	</gradient>
+</draw_ops>
+
+<draw_ops name="button_bg_gradient_unfocused">
+	<gradient type="vertical" x="3" y="3" width="width-6" height="height-6">
+		<color value="shade/gtk:bg[NORMAL]/0.90"/>
+		<color value="shade/gtk:bg[NORMAL]/1.20"/>
+	</gradient>
+</draw_ops>
+<draw_ops name="button_bg_gradient_unfocused_prelight">
+	<gradient type="vertical" x="3" y="3" width="width-6" height="height-6">
+		<color value="shade/gtk:bg[NORMAL]/1.20"/>
+		<color value="shade/gtk:bg[NORMAL]/0.90"/>
+	</gradient>
+</draw_ops>
+
+<draw_ops name="button_bg_red_gradient">
+	<gradient type="vertical" x="3" y="3" width="width-6" height="height-6">
+		<color value="shade/#C92843/0.95"/>
+		<color value="shade/#C92843/1.25"/>
+	</gradient>
+</draw_ops>
+<draw_ops name="button_bg_red_gradient_prelight">
+	<gradient type="vertical" x="3" y="3" width="width-6" height="height-6">
+		<color value="shade/#C92843/1.25"/>
+		<color value="shade/#C92843/0.95"/>
+	</gradient>
+</draw_ops>
+
+
+<!--button backgrounds-->
+<draw_ops name="button_bg_focused">
+	<include name="button_bg_gradient_focused"/>
+	<include name="button_bg_border_focused"/>
+</draw_ops>
+<draw_ops name="button_bg_focused_prelight">
+	<include name="button_bg_gradient_focused_prelight"/>
+	<include name="button_bg_border_focused"/>
+</draw_ops>
+
+<draw_ops name="button_bg_unfocused">
+	<include name="button_bg_gradient_unfocused"/>
+	<include name="button_bg_border_unfocused"/>
+</draw_ops>
+<draw_ops name="button_bg_unfocused_prelight">
+	<include name="button_bg_gradient_unfocused_prelight"/>
+	<include name="button_bg_border_unfocused"/>
+</draw_ops>
+
+<draw_ops name="button_bg_red_focused">
+	<include name="button_bg_red_gradient"/>
+	<include name="button_bg_red_border"/>
+</draw_ops>
+<draw_ops name="button_bg_red_focused_prelight">
+	<include name="button_bg_red_gradient_prelight"/>
+	<include name="button_bg_red_border"/>
+</draw_ops>
+
+
+<!--button icons-->
+<draw_ops name="button_icon_close_focused">
+	<line color="#C92843" width="5" x1="2" y1="2" x2="width-3" y2="height-3"/>
+	<line color="#C92843" width="5" x1="2" y1="2" x2="width-3" y2="height-3"/>
+
+	<line color="#C92843" width="5" x1="width-3" y1="2" x2="2" y2="height-3"/>
+	<line color="#C92843" width="5" x1="width-3" y1="2" x2="2" y2="height-3"/>
+
+
+	<rectangle color="#C92843" filled="true" x="1" y="1" width="1" height="1"/>
+	<rectangle color="#C92843" filled="true" x="width-2" y="1" width="1" height="1"/>
+	<rectangle color="#C92843" filled="true" x="1" y="height-2" width="1" height="1"/>
+	<rectangle color="#C92843" filled="true" x="width-2" y="height-2" width="1" height="1"/>
+
+
+	<tint color="#C92843" alpha="0.60" x="2" y="0" width="2" height="1"/>
+	<tint color="#C92843" alpha="0.60" x="0" y="2" width="1" height="2"/>
+
+	<tint color="#C92843" alpha="0.60" x="width-4" y="0" width="2" height="1"/>
+	<tint color="#C92843" alpha="0.60" x="width-1" y="2" width="1" height="2"/>
+
+	<tint color="#C92843" alpha="0.60" x="0" y="height-4" width="1" height="2"/>
+	<tint color="#C92843" alpha="0.60" x="2" y="height-1" width="2" height="1"/>
+
+	<tint color="#C92843" alpha="0.60" x="width-1" y="height-4" width="1" height="2"/>
+	<tint color="#C92843" alpha="0.60" x="width-4" y="height-1" width="2" height="1"/>
+
+
+	<tint color="#C92843" alpha="0.13" x="1" y="0" width="1" height="1"/>
+	<tint color="#C92843" alpha="0.13" x="0" y="1" width="1" height="1"/>
+
+	<tint color="#C92843" alpha="0.13" x="width-2" y="0" width="1" height="1"/>
+	<tint color="#C92843" alpha="0.13" x="width-1" y="1" width="1" height="1"/>
+
+	<tint color="#C92843" alpha="0.13" x="0" y="height-2" width="1" height="1"/>
+	<tint color="#C92843" alpha="0.13" x="1" y="height-1" width="1" height="1"/>
+
+	<tint color="#C92843" alpha="0.13" x="width-1" y="height-2" width="1" height="1"/>
+	<tint color="#C92843" alpha="0.13" x="width-2" y="height-1" width="1" height="1"/>
+
+
+
+	<line color="#ffffff" width="3" x1="2" y1="2" x2="width-3" y2="height-3"/>
+	<line color="#ffffff" width="3" x1="2" y1="2" x2="width-3" y2="height-3"/>
+	<line color="#ffffff" width="3" x1="2" y1="2" x2="width-3" y2="height-3"/>
+	<line color="#ffffff" width="3" x1="2" y1="2" x2="width-3" y2="height-3"/>
+
+	<line color="#ffffff" width="3" x1="width-3" y1="2" x2="2" y2="height-3"/>
+	<line color="#ffffff" width="3" x1="width-3" y1="2" x2="2" y2="height-3"/>
+	<line color="#ffffff" width="3" x1="width-3" y1="2" x2="2" y2="height-3"/>
+	<line color="#ffffff" width="3" x1="width-3" y1="2" x2="2" y2="height-3"/>
+
+
+	<rectangle color="#ffffff" filled="true" x="2" y="1" width="2" height="1"/>
+	<rectangle color="#ffffff" filled="true" x="1" y="2" width="2" height="2"/>
+
+	<rectangle color="#ffffff" filled="true" x="width-4" y="1" width="2" height="1"/>
+	<rectangle color="#ffffff" filled="true" x="width-3" y="2" width="2" height="2"/>
+
+	<rectangle color="#ffffff" filled="true" x="1" y="height-4" width="2" height="2"/>
+	<rectangle color="#ffffff" filled="true" x="2" y="height-2" width="2" height="1"/>
+
+	<rectangle color="#ffffff" filled="true" x="width-3" y="height-4" width="2" height="2"/>
+	<rectangle color="#ffffff" filled="true" x="width-4" y="height-2" width="2" height="1"/>
+
+
+	<tint color="#ffffff" alpha="0.36" 
+		x="1" y="1" width="1" height="1"/>
+	<tint color="#ffffff" alpha="0.36" 
+		x="width-2" y="1" width="1" height="1"/>
+	<tint color="#ffffff" alpha="0.36" 
+		x="1" y="height-2" width="1" height="1"/>
+	<tint color="#ffffff" alpha="0.36" 
+		x="width-2" y="height-2" width="1" height="1"/>
+</draw_ops>
+<draw_ops name="button_icon_close_focused_pressed">
+	<line color="#C92843" width="5" x1="2" y1="2" x2="width-3" y2="height-3"/>
+	<line color="#C92843" width="5" x1="2" y1="2" x2="width-3" y2="height-3"/>
+
+	<line color="#C92843" width="5" x1="width-3" y1="2" x2="2" y2="height-3"/>
+	<line color="#C92843" width="5" x1="width-3" y1="2" x2="2" y2="height-3"/>
+
+
+	<rectangle color="#C92843" filled="true" x="1" y="1" width="1" height="1"/>
+	<rectangle color="#C92843" filled="true" x="width-2" y="1" width="1" height="1"/>
+	<rectangle color="#C92843" filled="true" x="1" y="height-2" width="1" height="1"/>
+	<rectangle color="#C92843" filled="true" x="width-2" y="height-2" width="1" height="1"/>
+
+
+	<tint color="#C92843" alpha="0.60" x="2" y="0" width="2" height="1"/>
+	<tint color="#C92843" alpha="0.60" x="0" y="2" width="1" height="2"/>
+
+	<tint color="#C92843" alpha="0.60" x="width-4" y="0" width="2" height="1"/>
+	<tint color="#C92843" alpha="0.60" x="width-1" y="2" width="1" height="2"/>
+
+	<tint color="#C92843" alpha="0.60" x="0" y="height-4" width="1" height="2"/>
+	<tint color="#C92843" alpha="0.60" x="2" y="height-1" width="2" height="1"/>
+
+	<tint color="#C92843" alpha="0.60" x="width-1" y="height-4" width="1" height="2"/>
+	<tint color="#C92843" alpha="0.60" x="width-4" y="height-1" width="2" height="1"/>
+
+
+	<tint color="#C92843" alpha="0.13" x="1" y="0" width="1" height="1"/>
+	<tint color="#C92843" alpha="0.13" x="0" y="1" width="1" height="1"/>
+
+	<tint color="#C92843" alpha="0.13" x="width-2" y="0" width="1" height="1"/>
+	<tint color="#C92843" alpha="0.13" x="width-1" y="1" width="1" height="1"/>
+
+	<tint color="#C92843" alpha="0.13" x="0" y="height-2" width="1" height="1"/>
+	<tint color="#C92843" alpha="0.13" x="1" y="height-1" width="1" height="1"/>
+
+	<tint color="#C92843" alpha="0.13" x="width-1" y="height-2" width="1" height="1"/>
+	<tint color="#C92843" alpha="0.13" x="width-2" y="height-1" width="1" height="1"/>
+
+
+
+	<line color="blend/#C92843/#ffffff/0.60" width="3" x1="2" y1="2" x2="width-3" y2="height-3"/>
+	<line color="blend/#C92843/#ffffff/0.60" width="3" x1="2" y1="2" x2="width-3" y2="height-3"/>
+	<line color="blend/#C92843/#ffffff/0.60" width="3" x1="2" y1="2" x2="width-3" y2="height-3"/>
+	<line color="blend/#C92843/#ffffff/0.60" width="3" x1="2" y1="2" x2="width-3" y2="height-3"/>
+
+	<line color="blend/#C92843/#ffffff/0.60" width="3" x1="width-3" y1="2" x2="2" y2="height-3"/>
+	<line color="blend/#C92843/#ffffff/0.60" width="3" x1="width-3" y1="2" x2="2" y2="height-3"/>
+	<line color="blend/#C92843/#ffffff/0.60" width="3" x1="width-3" y1="2" x2="2" y2="height-3"/>
+	<line color="blend/#C92843/#ffffff/0.60" width="3" x1="width-3" y1="2" x2="2" y2="height-3"/>
+
+
+	<rectangle color="blend/#C92843/#ffffff/0.60" filled="true" x="2" y="1" width="2" height="1"/>
+	<rectangle color="blend/#C92843/#ffffff/0.60" filled="true" x="1" y="2" width="2" height="2"/>
+
+	<rectangle color="blend/#C92843/#ffffff/0.60" filled="true" x="width-4" y="1" width="2" height="1"/>
+	<rectangle color="blend/#C92843/#ffffff/0.60" filled="true" x="width-3" y="2" width="2" height="2"/>
+
+	<rectangle color="blend/#C92843/#ffffff/0.60" filled="true" x="1" y="height-4" width="2" height="2"/>
+	<rectangle color="blend/#C92843/#ffffff/0.60" filled="true" x="2" y="height-2" width="2" height="1"/>
+
+	<rectangle color="blend/#C92843/#ffffff/0.60" filled="true" x="width-3" y="height-4" width="2" height="2"/>
+	<rectangle color="blend/#C92843/#ffffff/0.60" filled="true" x="width-4" y="height-2" width="2" height="1"/>
+
+
+	<tint color="blend/#C92843/#ffffff/0.60" alpha="0.36" 
+		x="1" y="1" width="1" height="1"/>
+	<tint color="blend/#C92843/#ffffff/0.60" alpha="0.36" 
+		x="width-2" y="1" width="1" height="1"/>
+	<tint color="blend/#C92843/#ffffff/0.60" alpha="0.36" 
+		x="1" y="height-2" width="1" height="1"/>
+	<tint color="blend/#C92843/#ffffff/0.60" alpha="0.36" 
+		x="width-2" y="height-2" width="1" height="1"/>
+</draw_ops>
+<draw_ops name="button_icon_close_unfocused">
+	<line color="gtk:bg[NORMAL]" width="5" x1="2" y1="2" x2="width-3" y2="height-3"/>
+	<line color="gtk:bg[NORMAL]" width="5" x1="2" y1="2" x2="width-3" y2="height-3"/>
+
+	<line color="gtk:bg[NORMAL]" width="5" x1="width-3" y1="2" x2="2" y2="height-3"/>
+	<line color="gtk:bg[NORMAL]" width="5" x1="width-3" y1="2" x2="2" y2="height-3"/>
+
+
+	<rectangle color="gtk:bg[NORMAL]" filled="true" x="1" y="1" width="1" height="1"/>
+	<rectangle color="gtk:bg[NORMAL]" filled="true" x="width-2" y="1" width="1" height="1"/>
+	<rectangle color="gtk:bg[NORMAL]" filled="true" x="1" y="height-2" width="1" height="1"/>
+	<rectangle color="gtk:bg[NORMAL]" filled="true" x="width-2" y="height-2" width="1" height="1"/>
+
+
+	<tint color="gtk:bg[NORMAL]" alpha="0.60" x="2" y="0" width="2" height="1"/>
+	<tint color="gtk:bg[NORMAL]" alpha="0.60" x="0" y="2" width="1" height="2"/>
+
+	<tint color="gtk:bg[NORMAL]" alpha="0.60" x="width-4" y="0" width="2" height="1"/>
+	<tint color="gtk:bg[NORMAL]" alpha="0.60" x="width-1" y="2" width="1" height="2"/>
+
+	<tint color="gtk:bg[NORMAL]" alpha="0.60" x="0" y="height-4" width="1" height="2"/>
+	<tint color="gtk:bg[NORMAL]" alpha="0.60" x="2" y="height-1" width="2" height="1"/>
+
+	<tint color="gtk:bg[NORMAL]" alpha="0.60" x="width-1" y="height-4" width="1" height="2"/>
+	<tint color="gtk:bg[NORMAL]" alpha="0.60" x="width-4" y="height-1" width="2" height="1"/>
+
+
+	<tint color="gtk:bg[NORMAL]" alpha="0.13" x="1" y="0" width="1" height="1"/>
+	<tint color="gtk:bg[NORMAL]" alpha="0.13" x="0" y="1" width="1" height="1"/>
+
+	<tint color="gtk:bg[NORMAL]" alpha="0.13" x="width-2" y="0" width="1" height="1"/>
+	<tint color="gtk:bg[NORMAL]" alpha="0.13" x="width-1" y="1" width="1" height="1"/>
+
+	<tint color="gtk:bg[NORMAL]" alpha="0.13" x="0" y="height-2" width="1" height="1"/>
+	<tint color="gtk:bg[NORMAL]" alpha="0.13" x="1" y="height-1" width="1" height="1"/>
+
+	<tint color="gtk:bg[NORMAL]" alpha="0.13" x="width-1" y="height-2" width="1" height="1"/>
+	<tint color="gtk:bg[NORMAL]" alpha="0.13" x="width-2" y="height-1" width="1" height="1"/>
+
+
+
+	<line color="blend/gtk:text[NORMAL]/gtk:bg[NORMAL]/0.40" width="3" x1="2" y1="2" x2="width-3" y2="height-3"/>
+	<line color="blend/gtk:text[NORMAL]/gtk:bg[NORMAL]/0.40" width="3" x1="2" y1="2" x2="width-3" y2="height-3"/>
+	<line color="blend/gtk:text[NORMAL]/gtk:bg[NORMAL]/0.40" width="3" x1="2" y1="2" x2="width-3" y2="height-3"/>
+	<line color="blend/gtk:text[NORMAL]/gtk:bg[NORMAL]/0.40" width="3" x1="2" y1="2" x2="width-3" y2="height-3"/>
+
+	<line color="blend/gtk:text[NORMAL]/gtk:bg[NORMAL]/0.40" width="3" x1="width-3" y1="2" x2="2" y2="height-3"/>
+	<line color="blend/gtk:text[NORMAL]/gtk:bg[NORMAL]/0.40" width="3" x1="width-3" y1="2" x2="2" y2="height-3"/>
+	<line color="blend/gtk:text[NORMAL]/gtk:bg[NORMAL]/0.40" width="3" x1="width-3" y1="2" x2="2" y2="height-3"/>
+	<line color="blend/gtk:text[NORMAL]/gtk:bg[NORMAL]/0.40" width="3" x1="width-3" y1="2" x2="2" y2="height-3"/>
+
+
+	<rectangle color="blend/gtk:text[NORMAL]/gtk:bg[NORMAL]/0.40" filled="true" x="2" y="1" width="2" height="1"/>
+	<rectangle color="blend/gtk:text[NORMAL]/gtk:bg[NORMAL]/0.40" filled="true" x="1" y="2" width="2" height="2"/>
+
+	<rectangle color="blend/gtk:text[NORMAL]/gtk:bg[NORMAL]/0.40" filled="true" x="width-4" y="1" width="2" height="1"/>
+	<rectangle color="blend/gtk:text[NORMAL]/gtk:bg[NORMAL]/0.40" filled="true" x="width-3" y="2" width="2" height="2"/>
+
+	<rectangle color="blend/gtk:text[NORMAL]/gtk:bg[NORMAL]/0.40" filled="true" x="1" y="height-4" width="2" height="2"/>
+	<rectangle color="blend/gtk:text[NORMAL]/gtk:bg[NORMAL]/0.40" filled="true" x="2" y="height-2" width="2" height="1"/>
+
+	<rectangle color="blend/gtk:text[NORMAL]/gtk:bg[NORMAL]/0.40" filled="true" x="width-3" y="height-4" width="2" height="2"/>
+	<rectangle color="blend/gtk:text[NORMAL]/gtk:bg[NORMAL]/0.40" filled="true" x="width-4" y="height-2" width="2" height="1"/>
+
+
+	<tint color="blend/gtk:text[NORMAL]/gtk:bg[NORMAL]/0.40" alpha="0.36" 
+		x="1" y="1" width="1" height="1"/>
+	<tint color="blend/gtk:text[NORMAL]/gtk:bg[NORMAL]/0.40" alpha="0.36" 
+		x="width-2" y="1" width="1" height="1"/>
+	<tint color="blend/gtk:text[NORMAL]/gtk:bg[NORMAL]/0.40" alpha="0.36" 
+		x="1" y="height-2" width="1" height="1"/>
+	<tint color="blend/gtk:text[NORMAL]/gtk:bg[NORMAL]/0.40" alpha="0.36" 
+		x="width-2" y="height-2" width="1" height="1"/>
+</draw_ops>
+<draw_ops name="button_icon_close_unfocused_pressed">
+	<line color="gtk:bg[NORMAL]" width="5" x1="2" y1="2" x2="width-3" y2="height-3"/>
+	<line color="gtk:bg[NORMAL]" width="5" x1="2" y1="2" x2="width-3" y2="height-3"/>
+
+	<line color="gtk:bg[NORMAL]" width="5" x1="width-3" y1="2" x2="2" y2="height-3"/>
+	<line color="gtk:bg[NORMAL]" width="5" x1="width-3" y1="2" x2="2" y2="height-3"/>
+
+
+	<rectangle color="gtk:bg[NORMAL]" filled="true" x="1" y="1" width="1" height="1"/>
+	<rectangle color="gtk:bg[NORMAL]" filled="true" x="width-2" y="1" width="1" height="1"/>
+	<rectangle color="gtk:bg[NORMAL]" filled="true" x="1" y="height-2" width="1" height="1"/>
+	<rectangle color="gtk:bg[NORMAL]" filled="true" x="width-2" y="height-2" width="1" height="1"/>
+
+
+	<tint color="gtk:bg[NORMAL]" alpha="0.60" x="2" y="0" width="2" height="1"/>
+	<tint color="gtk:bg[NORMAL]" alpha="0.60" x="0" y="2" width="1" height="2"/>
+
+	<tint color="gtk:bg[NORMAL]" alpha="0.60" x="width-4" y="0" width="2" height="1"/>
+	<tint color="gtk:bg[NORMAL]" alpha="0.60" x="width-1" y="2" width="1" height="2"/>
+
+	<tint color="gtk:bg[NORMAL]" alpha="0.60" x="0" y="height-4" width="1" height="2"/>
+	<tint color="gtk:bg[NORMAL]" alpha="0.60" x="2" y="height-1" width="2" height="1"/>
+
+	<tint color="gtk:bg[NORMAL]" alpha="0.60" x="width-1" y="height-4" width="1" height="2"/>
+	<tint color="gtk:bg[NORMAL]" alpha="0.60" x="width-4" y="height-1" width="2" height="1"/>
+
+
+	<tint color="gtk:bg[NORMAL]" alpha="0.13" x="1" y="0" width="1" height="1"/>
+	<tint color="gtk:bg[NORMAL]" alpha="0.13" x="0" y="1" width="1" height="1"/>
+
+	<tint color="gtk:bg[NORMAL]" alpha="0.13" x="width-2" y="0" width="1" height="1"/>
+	<tint color="gtk:bg[NORMAL]" alpha="0.13" x="width-1" y="1" width="1" height="1"/>
+
+	<tint color="gtk:bg[NORMAL]" alpha="0.13" x="0" y="height-2" width="1" height="1"/>
+	<tint color="gtk:bg[NORMAL]" alpha="0.13" x="1" y="height-1" width="1" height="1"/>
+
+	<tint color="gtk:bg[NORMAL]" alpha="0.13" x="width-1" y="height-2" width="1" height="1"/>
+	<tint color="gtk:bg[NORMAL]" alpha="0.13" x="width-2" y="height-1" width="1" height="1"/>
+
+
+
+	<line color="gtk:text[NORMAL]" width="3" x1="2" y1="2" x2="width-3" y2="height-3"/>
+	<line color="gtk:text[NORMAL]" width="3" x1="2" y1="2" x2="width-3" y2="height-3"/>
+	<line color="gtk:text[NORMAL]" width="3" x1="2" y1="2" x2="width-3" y2="height-3"/>
+	<line color="gtk:text[NORMAL]" width="3" x1="2" y1="2" x2="width-3" y2="height-3"/>
+
+	<line color="gtk:text[NORMAL]" width="3" x1="width-3" y1="2" x2="2" y2="height-3"/>
+	<line color="gtk:text[NORMAL]" width="3" x1="width-3" y1="2" x2="2" y2="height-3"/>
+	<line color="gtk:text[NORMAL]" width="3" x1="width-3" y1="2" x2="2" y2="height-3"/>
+	<line color="gtk:text[NORMAL]" width="3" x1="width-3" y1="2" x2="2" y2="height-3"/>
+
+
+	<rectangle color="gtk:text[NORMAL]" filled="true" x="2" y="1" width="2" height="1"/>
+	<rectangle color="gtk:text[NORMAL]" filled="true" x="1" y="2" width="2" height="2"/>
+
+	<rectangle color="gtk:text[NORMAL]" filled="true" x="width-4" y="1" width="2" height="1"/>
+	<rectangle color="gtk:text[NORMAL]" filled="true" x="width-3" y="2" width="2" height="2"/>
+
+	<rectangle color="gtk:text[NORMAL]" filled="true" x="1" y="height-4" width="2" height="2"/>
+	<rectangle color="gtk:text[NORMAL]" filled="true" x="2" y="height-2" width="2" height="1"/>
+
+	<rectangle color="gtk:text[NORMAL]" filled="true" x="width-3" y="height-4" width="2" height="2"/>
+	<rectangle color="gtk:text[NORMAL]" filled="true" x="width-4" y="height-2" width="2" height="1"/>
+
+
+	<tint color="gtk:text[NORMAL]" alpha="0.36" 
+		x="1" y="1" width="1" height="1"/>
+	<tint color="gtk:text[NORMAL]" alpha="0.36" 
+		x="width-2" y="1" width="1" height="1"/>
+	<tint color="gtk:text[NORMAL]" alpha="0.36" 
+		x="1" y="height-2" width="1" height="1"/>
+	<tint color="gtk:text[NORMAL]" alpha="0.36" 
+		x="width-2" y="height-2" width="1" height="1"/>
+</draw_ops>
+
+<draw_ops name="button_icon_maximize_focused">
+	<rectangle color="#669900" filled="false" 
+		x="0" y="0" width="width-1" height="height-1"/>
+
+	<rectangle color="#669900" filled="false" 
+		x="1+(1`max`(3`min`height/8-1))" 
+		y="1+(2`max`height/4)" 
+		width="width-3-2*(1`max`(3`min`height/8-1))" 
+		height="height-3-(2`max`height/4)-(1`max`(3`min`height/8-1))"/>
+
+	<rectangle color="#ffffff" filled="true" 
+		x="1" y="1" width="width-2" height="2`max`height/4"/>
+	<rectangle color="#ffffff" filled="true" 
+		x="1" 
+		y="1+(2`max`height/4)" 
+		width="1`max`(3`min`height/8-1)" 
+		height="height-2-(2`max`height/4)-(1`max`(3`min`height/8-1))"/>
+	<rectangle color="#ffffff" filled="true" 
+		x="width-1-(1`max`(3`min`height/8-1))" 
+		y="1+(2`max`height/4)" 
+		width="1`max`(3`min`height/8-1)" 
+		height="height-2-(2`max`height/4)-(1`max`(3`min`height/8-1))"/>
+	<rectangle color="#ffffff" filled="true" 
+		x="1" y="height-1-(1`max`(3`min`height/8-1))" 
+		width="width-2" height="1`max`(3`min`height/8-1)"/>
+</draw_ops>
+<draw_ops name="button_icon_maximize_focused_pressed">
+	<rectangle color="#669900" filled="false" 
+		x="0" y="0" width="width-1" height="height-1"/>
+
+	<rectangle color="#669900" filled="false" 
+		x="1+(1`max`(3`min`height/8-1))" 
+		y="1+(2`max`height/4)" 
+		width="width-3-2*(1`max`(3`min`height/8-1))" 
+		height="height-3-(2`max`height/4)-(1`max`(3`min`height/8-1))"/>
+
+	<rectangle color="blend/#669900/#ffffff/0.60" filled="true" 
+		x="1" y="1" width="width-2" height="2`max`height/4"/>
+	<rectangle color="blend/#669900/#ffffff/0.60" filled="true" 
+		x="1" 
+		y="1+(2`max`height/4)" 
+		width="1`max`(3`min`height/8-1)" 
+		height="height-2-(2`max`height/4)-(1`max`(3`min`height/8-1))"/>
+	<rectangle color="blend/#669900/#ffffff/0.60" filled="true" 
+		x="width-1-(1`max`(3`min`height/8-1))" 
+		y="1+(2`max`height/4)" 
+		width="1`max`(3`min`height/8-1)" 
+		height="height-2-(2`max`height/4)-(1`max`(3`min`height/8-1))"/>
+	<rectangle color="blend/#669900/#ffffff/0.60" filled="true" 
+		x="1" y="height-1-(1`max`(3`min`height/8-1))" 
+		width="width-2" height="1`max`(3`min`height/8-1)"/>
+</draw_ops>
+<draw_ops name="button_icon_maximize_unfocused">
+	<rectangle color="gtk:bg[NORMAL]" filled="false" 
+		x="0" y="0" width="width-1" height="height-1"/>
+
+	<rectangle color="gtk:bg[NORMAL]" filled="false" 
+		x="1+(1`max`(3`min`height/8-1))" 
+		y="1+(2`max`height/4)" 
+		width="width-3-2*(1`max`(3`min`height/8-1))" 
+		height="height-3-(2`max`height/4)-(1`max`(3`min`height/8-1))"/>
+
+	<rectangle color="blend/gtk:text[NORMAL]/gtk:bg[NORMAL]/0.40" filled="true" 
+		x="1" y="1" width="width-2" height="2`max`height/4"/>
+	<rectangle color="blend/gtk:text[NORMAL]/gtk:bg[NORMAL]/0.40" filled="true" 
+		x="1" 
+		y="1+(2`max`height/4)" 
+		width="1`max`(3`min`height/8-1)" 
+		height="height-2-(2`max`height/4)-(1`max`(3`min`height/8-1))"/>
+	<rectangle color="blend/gtk:text[NORMAL]/gtk:bg[NORMAL]/0.40" filled="true" 
+		x="width-1-(1`max`(3`min`height/8-1))" 
+		y="1+(2`max`height/4)" 
+		width="1`max`(3`min`height/8-1)" 
+		height="height-2-(2`max`height/4)-(1`max`(3`min`height/8-1))"/>
+	<rectangle color="blend/gtk:text[NORMAL]/gtk:bg[NORMAL]/0.40" filled="true" 
+		x="1" y="height-1-(1`max`(3`min`height/8-1))" 
+		width="width-2" height="1`max`(3`min`height/8-1)"/>
+</draw_ops>
+<draw_ops name="button_icon_maximize_unfocused_pressed">
+	<rectangle color="gtk:bg[NORMAL]" filled="false" 
+		x="0" y="0" width="width-1" height="height-1"/>
+
+	<rectangle color="gtk:bg[NORMAL]" filled="false" 
+		x="1+(1`max`(3`min`height/8-1))" 
+		y="1+(2`max`height/4)" 
+		width="width-3-2*(1`max`(3`min`height/8-1))" 
+		height="height-3-(2`max`height/4)-(1`max`(3`min`height/8-1))"/>
+
+	<rectangle color="gtk:text[NORMAL]" filled="true" 
+		x="1" y="1" width="width-2" height="2`max`height/4"/>
+	<rectangle color="gtk:text[NORMAL]" filled="true" 
+		x="1" 
+		y="1+(2`max`height/4)" 
+		width="1`max`(3`min`height/8-1)" 
+		height="height-2-(2`max`height/4)-(1`max`(3`min`height/8-1))"/>
+	<rectangle color="gtk:text[NORMAL]" filled="true" 
+		x="width-1-(1`max`(3`min`height/8-1))" 
+		y="1+(2`max`height/4)" 
+		width="1`max`(3`min`height/8-1)" 
+		height="height-2-(2`max`height/4)-(1`max`(3`min`height/8-1))"/>
+	<rectangle color="gtk:text[NORMAL]" filled="true" 
+		x="1" y="height-1-(1`max`(3`min`height/8-1))" 
+		width="width-2" height="1`max`(3`min`height/8-1)"/>
+</draw_ops>
+
+<draw_ops name="button_icon_restore_focused">
+	<!--back window-->
+	<!--upper horizontal-->
+	<line color="#669900" x1="width/3" y1="0" x2="width-1" y2="0"/>
+	<!--left vertical-->
+	<line color="#669900" x1="width/3" y1="1" x2="width/3" y2="height/3-1"/>
+	<!--right vertical-->
+	<line color="#669900" x1="width-1" y1="1" x2="width-1" y2="height-height/3-2"/>
+	<!--bottom horizontal-->
+	<line color="#669900" 
+		x1="width-width/3" y1="height-height/3-1" x2="width-1" y2="height-height/3-1"/>
+
+	<line color="#669900" 
+		x1="width/3+1+(1`max`(3`min`height/8-1))" y1="1+(2`max`height/4-1)" 
+		x2="width-2-(1`max`(3`min`height/8-1))" y2="1+(2`max`height/4-1)"/>
+	<line color="#669900" 
+		x1="width/3+1+(1`max`(3`min`height/8-1))" y1="1+(2`max`height/4-1)" 
+		x2="width/3+1+(1`max`(3`min`height/8-1))" y2="height/3-1"/>
+	<line color="#669900" 
+		x1="width-2-(1`max`(3`min`height/8-1))" y1="2+(2`max`height/4-1)" 
+		x2="width-2-(1`max`(3`min`height/8-1))" y2="height-height/3-3-(1`max`(3`min`height/8-1))"/>
+	<line color="#669900" 
+		x1="width-width/3" y1="height-height/3-2-(1`max`(3`min`height/8-1))" 
+		x2="width-2-(1`max`(3`min`height/8-1))" y2="height-height/3-2-(1`max`(3`min`height/8-1))"/>
+
+	<rectangle color="#ffffff" filled="true" 
+		x="width/3+1" y="1" width="width-width/3-2" height="2`max`height/4-1"/>
+	<rectangle color="#ffffff" filled="true" 
+		x="width/3+1" y="2`max`height/4-1" 
+		width="1`max`(3`min`height/8-1)" height="height/3-(2`max`height/4-1)"/>
+	<rectangle color="#ffffff" filled="true" 
+		x="width-1-(1`max`(3`min`height/8-1))" 
+		y="1+(2`max`height/4-1)" 
+		width="1`max`(3`min`height/8-1)" 
+		height="height-height/3-2-(2`max`height/4-1)-(1`max`(3`min`height/8-1))"/>
+	<rectangle color="#ffffff" filled="true" 
+		x="width-width/3" y="height-height/3-1-(1`max`(3`min`height/8-1))" 
+		width="width/3-1" height="1`max`(3`min`height/8-1)"/>
+
+	<!--front window-->
+	<rectangle color="#669900" filled="false" 
+		x="0" y="height/3" width="width-width/3-1" height="height-height/3-1"/>
+	<rectangle color="#669900" filled="false" 
+		x="1+(1`max`(3`min`height/8-1))" 
+		y="height/3+1+(2`max`height/4-1)" 
+		width="width-width/3-3-2*(1`max`(3`min`height/8-1))" 
+		height="height-height/3-3-(2`max`height/4-1)-(1`max`(3`min`height/8-1))"/>
+
+	<rectangle color="#ffffff" filled="true" 
+		x="1" y="height/3+1" width="width-width/3-2" height="2`max`height/4-1"/>
+	<rectangle color="#ffffff" filled="true" 
+		x="1" 
+		y="height/3+1+(2`max`height/4-1)" 
+		width="1`max`(3`min`height/8-1)" 
+		height="height-height/3-2-(2`max`height/4-1)-(1`max`(3`min`height/8-1))"/>
+	<rectangle color="#ffffff" filled="true" 
+		x="width-width/3-1-(1`max`(3`min`height/8-1))" 
+		y="height/3+1+(2`max`height/4-1)" 
+		width="1`max`(3`min`height/8-1)" 
+		height="height-height/3-2-(2`max`height/4-1)-(1`max`(3`min`height/8-1))"/>
+	<rectangle color="#ffffff" filled="true" 
+		x="1" y="height-1-(1`max`(3`min`height/8-1))" 
+		width="width-width/3-2" height="1`max`(3`min`height/8-1)"/>
+</draw_ops>
+<draw_ops name="button_icon_restore_focused_pressed">
+	<!--back window-->
+	<!--upper horizontal-->
+	<line color="#669900" x1="width/3" y1="0" x2="width-1" y2="0"/>
+	<!--left vertical-->
+	<line color="#669900" x1="width/3" y1="1" x2="width/3" y2="height/3-1"/>
+	<!--right vertical-->
+	<line color="#669900" x1="width-1" y1="1" x2="width-1" y2="height-height/3-2"/>
+	<!--bottom horizontal-->
+	<line color="#669900" 
+		x1="width-width/3" y1="height-height/3-1" x2="width-1" y2="height-height/3-1"/>
+
+	<line color="#669900" 
+		x1="width/3+1+(1`max`(3`min`height/8-1))" y1="1+(2`max`height/4-1)" 
+		x2="width-2-(1`max`(3`min`height/8-1))" y2="1+(2`max`height/4-1)"/>
+	<line color="#669900" 
+		x1="width/3+1+(1`max`(3`min`height/8-1))" y1="1+(2`max`height/4-1)" 
+		x2="width/3+1+(1`max`(3`min`height/8-1))" y2="height/3-1"/>
+	<line color="#669900" 
+		x1="width-2-(1`max`(3`min`height/8-1))" y1="2+(2`max`height/4-1)" 
+		x2="width-2-(1`max`(3`min`height/8-1))" y2="height-height/3-3-(1`max`(3`min`height/8-1))"/>
+	<line color="#669900" 
+		x1="width-width/3" y1="height-height/3-2-(1`max`(3`min`height/8-1))" 
+		x2="width-2-(1`max`(3`min`height/8-1))" y2="height-height/3-2-(1`max`(3`min`height/8-1))"/>
+
+	<rectangle color="blend/#669900/#ffffff/0.60" filled="true" 
+		x="width/3+1" y="1" width="width-width/3-2" height="2`max`height/4-1"/>
+	<rectangle color="blend/#669900/#ffffff/0.60" filled="true" 
+		x="width/3+1" y="2`max`height/4-1" 
+		width="1`max`(3`min`height/8-1)" height="height/3-(2`max`height/4-1)"/>
+	<rectangle color="blend/#669900/#ffffff/0.60" filled="true" 
+		x="width-1-(1`max`(3`min`height/8-1))" 
+		y="1+(2`max`height/4-1)" 
+		width="1`max`(3`min`height/8-1)" 
+		height="height-height/3-2-(2`max`height/4-1)-(1`max`(3`min`height/8-1))"/>
+	<rectangle color="blend/#669900/#ffffff/0.60" filled="true" 
+		x="width-width/3" y="height-height/3-1-(1`max`(3`min`height/8-1))" 
+		width="width/3-1" height="1`max`(3`min`height/8-1)"/>
+
+	<!--front window-->
+	<rectangle color="#669900" filled="false" 
+		x="0" y="height/3" width="width-width/3-1" height="height-height/3-1"/>
+	<rectangle color="#669900" filled="false" 
+		x="1+(1`max`(3`min`height/8-1))" 
+		y="height/3+1+(2`max`height/4-1)" 
+		width="width-width/3-3-2*(1`max`(3`min`height/8-1))" 
+		height="height-height/3-3-(2`max`height/4-1)-(1`max`(3`min`height/8-1))"/>
+
+	<rectangle color="blend/#669900/#ffffff/0.60" filled="true" 
+		x="1" y="height/3+1" width="width-width/3-2" height="2`max`height/4-1"/>
+	<rectangle color="blend/#669900/#ffffff/0.60" filled="true" 
+		x="1" 
+		y="height/3+1+(2`max`height/4-1)" 
+		width="1`max`(3`min`height/8-1)" 
+		height="height-height/3-2-(2`max`height/4-1)-(1`max`(3`min`height/8-1))"/>
+	<rectangle color="blend/#669900/#ffffff/0.60" filled="true" 
+		x="width-width/3-1-(1`max`(3`min`height/8-1))" 
+		y="height/3+1+(2`max`height/4-1)" 
+		width="1`max`(3`min`height/8-1)" 
+		height="height-height/3-2-(2`max`height/4-1)-(1`max`(3`min`height/8-1))"/>
+	<rectangle color="blend/#669900/#ffffff/0.60" filled="true" 
+		x="1" y="height-1-(1`max`(3`min`height/8-1))" 
+		width="width-width/3-2" height="1`max`(3`min`height/8-1)"/>
+</draw_ops>
+<draw_ops name="button_icon_restore_unfocused">
+	<!--back window-->
+	<!--upper horizontal-->
+	<line color="gtk:bg[NORMAL]" x1="width/3" y1="0" x2="width-1" y2="0"/>
+	<!--left vertical-->
+	<line color="gtk:bg[NORMAL]" x1="width/3" y1="1" x2="width/3" y2="height/3-1"/>
+	<!--right vertical-->
+	<line color="gtk:bg[NORMAL]" x1="width-1" y1="1" x2="width-1" y2="height-height/3-2"/>
+	<!--bottom horizontal-->
+	<line color="gtk:bg[NORMAL]" 
+		x1="width-width/3" y1="height-height/3-1" x2="width-1" y2="height-height/3-1"/>
+
+	<line color="gtk:bg[NORMAL]" 
+		x1="width/3+1+(1`max`(3`min`height/8-1))" y1="1+(2`max`height/4-1)" 
+		x2="width-2-(1`max`(3`min`height/8-1))" y2="1+(2`max`height/4-1)"/>
+	<line color="gtk:bg[NORMAL]" 
+		x1="width/3+1+(1`max`(3`min`height/8-1))" y1="1+(2`max`height/4-1)" 
+		x2="width/3+1+(1`max`(3`min`height/8-1))" y2="height/3-1"/>
+	<line color="gtk:bg[NORMAL]" 
+		x1="width-2-(1`max`(3`min`height/8-1))" y1="2+(2`max`height/4-1)" 
+		x2="width-2-(1`max`(3`min`height/8-1))" y2="height-height/3-3-(1`max`(3`min`height/8-1))"/>
+	<line color="gtk:bg[NORMAL]" 
+		x1="width-width/3" y1="height-height/3-2-(1`max`(3`min`height/8-1))" 
+		x2="width-2-(1`max`(3`min`height/8-1))" y2="height-height/3-2-(1`max`(3`min`height/8-1))"/>
+
+	<rectangle color="blend/gtk:text[NORMAL]/gtk:bg[NORMAL]/0.40" filled="true" 
+		x="width/3+1" y="1" width="width-width/3-2" height="2`max`height/4-1"/>
+	<rectangle color="blend/gtk:text[NORMAL]/gtk:bg[NORMAL]/0.40" filled="true" 
+		x="width/3+1" y="2`max`height/4-1" 
+		width="1`max`(3`min`height/8-1)" height="height/3-(2`max`height/4-1)"/>
+	<rectangle color="blend/gtk:text[NORMAL]/gtk:bg[NORMAL]/0.40" filled="true" 
+		x="width-1-(1`max`(3`min`height/8-1))" 
+		y="1+(2`max`height/4-1)" 
+		width="1`max`(3`min`height/8-1)" 
+		height="height-height/3-2-(2`max`height/4-1)-(1`max`(3`min`height/8-1))"/>
+	<rectangle color="blend/gtk:text[NORMAL]/gtk:bg[NORMAL]/0.40" filled="true" 
+		x="width-width/3" y="height-height/3-1-(1`max`(3`min`height/8-1))" 
+		width="width/3-1" height="1`max`(3`min`height/8-1)"/>
+
+	<!--front window-->
+	<rectangle color="gtk:bg[NORMAL]" filled="false" x="0" y="height/3" 
+		width="width-width/3-1" height="height-height/3-1"/>
+	<rectangle color="gtk:bg[NORMAL]" filled="false" 
+		x="1+(1`max`(3`min`height/8-1))" 
+		y="height/3+1+(2`max`height/4-1)" 
+		width="width-width/3-3-2*(1`max`(3`min`height/8-1))" 
+		height="height-height/3-3-(2`max`height/4-1)-(1`max`(3`min`height/8-1))"/>
+
+	<rectangle color="blend/gtk:text[NORMAL]/gtk:bg[NORMAL]/0.40" filled="true" 
+		x="1" y="height/3+1" width="width-width/3-2" height="2`max`height/4-1"/>
+	<rectangle color="blend/gtk:text[NORMAL]/gtk:bg[NORMAL]/0.40" filled="true" 
+		x="1" 
+		y="height/3+1+(2`max`height/4-1)" 
+		width="1`max`(3`min`height/8-1)" 
+		height="height-height/3-2-(2`max`height/4-1)-(1`max`(3`min`height/8-1))"/>
+	<rectangle color="blend/gtk:text[NORMAL]/gtk:bg[NORMAL]/0.40" filled="true" 
+		x="width-width/3-1-(1`max`(3`min`height/8-1))" 
+		y="height/3+1+(2`max`height/4-1)" 
+		width="1`max`(3`min`height/8-1)" 
+		height="height-height/3-2-(2`max`height/4-1)-(1`max`(3`min`height/8-1))"/>
+	<rectangle color="blend/gtk:text[NORMAL]/gtk:bg[NORMAL]/0.40" filled="true" 
+		x="1" y="height-1-(1`max`(3`min`height/8-1))" 
+		width="width-width/3-2" height="1`max`(3`min`height/8-1)"/>
+</draw_ops>
+<draw_ops name="button_icon_restore_unfocused_pressed">
+	<!--back window-->
+	<!--upper horizontal-->
+	<line color="gtk:bg[NORMAL]" x1="width/3" y1="0" x2="width-1" y2="0"/>
+	<!--left vertical-->
+	<line color="gtk:bg[NORMAL]" x1="width/3" y1="1" x2="width/3" y2="height/3-1"/>
+	<!--right vertical-->
+	<line color="gtk:bg[NORMAL]" x1="width-1" y1="1" x2="width-1" y2="height-height/3-2"/>
+	<!--bottom horizontal-->
+	<line color="gtk:bg[NORMAL]" 
+		x1="width-width/3" y1="height-height/3-1" x2="width-1" y2="height-height/3-1"/>
+
+	<line color="gtk:bg[NORMAL]" 
+		x1="width/3+1+(1`max`(3`min`height/8-1))" y1="1+(2`max`height/4-1)" 
+		x2="width-2-(1`max`(3`min`height/8-1))" y2="1+(2`max`height/4-1)"/>
+	<line color="gtk:bg[NORMAL]" 
+		x1="width/3+1+(1`max`(3`min`height/8-1))" y1="1+(2`max`height/4-1)" 
+		x2="width/3+1+(1`max`(3`min`height/8-1))" y2="height/3-1"/>
+	<line color="gtk:bg[NORMAL]" 
+		x1="width-2-(1`max`(3`min`height/8-1))" y1="2+(2`max`height/4-1)" 
+		x2="width-2-(1`max`(3`min`height/8-1))" y2="height-height/3-3-(1`max`(3`min`height/8-1))"/>
+	<line color="gtk:bg[NORMAL]" 
+		x1="width-width/3" y1="height-height/3-2-(1`max`(3`min`height/8-1))" 
+		x2="width-2-(1`max`(3`min`height/8-1))" y2="height-height/3-2-(1`max`(3`min`height/8-1))"/>
+
+	<rectangle color="gtk:text[NORMAL]" filled="true" 
+		x="width/3+1" y="1" width="width-width/3-2" height="2`max`height/4-1"/>
+	<rectangle color="gtk:text[NORMAL]" filled="true" 
+		x="width/3+1" y="2`max`height/4-1" 
+		width="1`max`(3`min`height/8-1)" height="height/3-(2`max`height/4-1)"/>
+	<rectangle color="gtk:text[NORMAL]" filled="true" 
+		x="width-1-(1`max`(3`min`height/8-1))" 
+		y="1+(2`max`height/4-1)" 
+		width="1`max`(3`min`height/8-1)" 
+		height="height-height/3-2-(2`max`height/4-1)-(1`max`(3`min`height/8-1))"/>
+	<rectangle color="gtk:text[NORMAL]" filled="true" 
+		x="width-width/3" y="height-height/3-1-(1`max`(3`min`height/8-1))" 
+		width="width/3-1" height="1`max`(3`min`height/8-1)"/>
+
+	<!--front window-->
+	<rectangle color="gtk:bg[NORMAL]" filled="false" x="0" y="height/3" 
+		width="width-width/3-1" height="height-height/3-1"/>
+	<rectangle color="gtk:bg[NORMAL]" filled="false" 
+		x="1+(1`max`(3`min`height/8-1))" 
+		y="height/3+1+(2`max`height/4-1)" 
+		width="width-width/3-3-2*(1`max`(3`min`height/8-1))" 
+		height="height-height/3-3-(2`max`height/4-1)-(1`max`(3`min`height/8-1))"/>
+
+	<rectangle color="gtk:text[NORMAL]" filled="true" 
+		x="1" y="height/3+1" width="width-width/3-2" height="2`max`height/4-1"/>
+	<rectangle color="gtk:text[NORMAL]" filled="true" 
+		x="1" 
+		y="height/3+1+(2`max`height/4-1)" 
+		width="1`max`(3`min`height/8-1)" 
+		height="height-height/3-2-(2`max`height/4-1)-(1`max`(3`min`height/8-1))"/>
+	<rectangle color="gtk:text[NORMAL]" filled="true" 
+		x="width-width/3-1-(1`max`(3`min`height/8-1))" 
+		y="height/3+1+(2`max`height/4-1)" 
+		width="1`max`(3`min`height/8-1)" 
+		height="height-height/3-2-(2`max`height/4-1)-(1`max`(3`min`height/8-1))"/>
+	<rectangle color="gtk:text[NORMAL]" filled="true" 
+		x="1" y="height-1-(1`max`(3`min`height/8-1))" 
+		width="width-width/3-2" height="1`max`(3`min`height/8-1)"/>
+</draw_ops>
+
+<draw_ops name="button_icon_minimize_focused">
+	<rectangle color="#ffffff" filled="true" 
+		x="1" y="height-1-(2`max`height/4)" width="width-2" height="2`max`height/4"/>
+	<rectangle color="#669900" filled="false" 
+		x="0" y="height-2-(2`max`height/4)" width="width-1" height="(2`max`height/4)+1"/>
+</draw_ops>
+<draw_ops name="button_icon_minimize_focused_pressed">
+	<rectangle color="blend/#669900/#ffffff/0.60" filled="true" 
+		x="1" y="height-1-(2`max`height/4)" width="width-2" height="2`max`height/4"/>
+	<rectangle color="#669900" filled="false" 
+		x="0" y="height-2-(2`max`height/4)" width="width-1" height="(2`max`height/4)+1"/>
+</draw_ops>
+<draw_ops name="button_icon_minimize_unfocused">
+	<rectangle color="blend/gtk:text[NORMAL]/gtk:bg[NORMAL]/0.40" filled="true" 
+		x="1" y="height-1-(2`max`height/4)" width="width-2" height="2`max`height/4"/>
+	<rectangle color="gtk:bg[NORMAL]" filled="false" 
+		x="0" y="height-2-(2`max`height/4)" width="width-1" height="(2`max`height/4)+1"/>
+</draw_ops>
+<draw_ops name="button_icon_minimize_unfocused_pressed">
+	<rectangle color="gtk:text[NORMAL]" filled="true" 
+		x="1" y="height-1-(2`max`height/4)" width="width-2" height="2`max`height/4"/>
+	<rectangle color="gtk:bg[NORMAL]" filled="false" 
+		x="0" y="height-2-(2`max`height/4)" width="width-1" height="(2`max`height/4)+1"/>
+</draw_ops>
+
+
+<!--buttons-->
+<draw_ops name="button_close_focused">
+	<include name="button_bg_red_focused" 
+		x="0" y="0" width="width-width%2" height="height-height%2"/>
+	<include name="button_icon_close_focused" 
+		x="(width-width%2-(Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2))/2" 
+		y="(height-height%2-(Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2))/2" 
+		width="Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2" 
+		height="Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2"/>
+</draw_ops>
+<draw_ops name="button_close_focused_prelight">
+	<include name="button_bg_red_focused_prelight" 
+		x="0" y="0" width="width-width%2" height="height-height%2"/>
+	<include name="button_icon_close_focused" 
+		x="(width-width%2-(Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2))/2" 
+		y="(height-height%2-(Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2))/2" 
+		width="Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2" 
+		height="Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2"/>
+</draw_ops>
+<draw_ops name="button_close_focused_pressed">
+	<include name="button_bg_red_focused" 
+		x="0" y="0" width="width-width%2" height="height-height%2"/>
+	<include name="button_icon_close_focused_pressed" 
+		x="(width-width%2-(Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2))/2" 
+		y="(height-height%2-(Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2))/2" 
+		width="Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2" 
+		height="Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2"/>
+</draw_ops>
+
+<draw_ops name="button_close_unfocused">
+	<include name="button_bg_unfocused" 
+		x="0" y="0" width="width-width%2" height="height-height%2"/>
+	<include name="button_icon_close_unfocused" 
+		x="(width-width%2-(Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2))/2" 
+		y="(height-height%2-(Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2))/2" 
+		width="Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2" 
+		height="Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2"/>
+</draw_ops>
+<draw_ops name="button_close_unfocused_prelight">
+	<include name="button_bg_unfocused_prelight" 
+		x="0" y="0" width="width-width%2" height="height-height%2"/>
+	<include name="button_icon_close_unfocused" 
+		x="(width-width%2-(Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2))/2" 
+		y="(height-height%2-(Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2))/2" 
+		width="Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2" 
+		height="Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2"/>
+</draw_ops>
+<draw_ops name="button_close_unfocused_pressed">
+	<include name="button_bg_unfocused" 
+		x="0" y="0" width="width-width%2" height="height-height%2"/>
+	<include name="button_icon_close_unfocused_pressed" 
+		x="(width-width%2-(Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2))/2" 
+		y="(height-height%2-(Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2))/2" 
+		width="Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2" 
+		height="Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2"/>
+</draw_ops>
+
+<draw_ops name="button_maximize_focused">
+	<include name="button_bg_focused" 
+		x="0" y="0" width="width-width%2" height="height-height%2"/>
+	<include name="button_icon_maximize_focused" 
+		x="(width-width%2-(Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2))/2" 
+		y="(height-height%2-(Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2))/2" 
+		width="Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2" 
+		height="Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2"/>
+</draw_ops>
+<draw_ops name="button_maximize_focused_prelight">
+	<include name="button_bg_focused_prelight" 
+		x="0" y="0" width="width-width%2" height="height-height%2"/>
+	<include name="button_icon_maximize_focused" 
+		x="(width-width%2-(Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2))/2" 
+		y="(height-height%2-(Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2))/2" 
+		width="Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2" 
+		height="Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2"/>
+</draw_ops>
+<draw_ops name="button_maximize_focused_pressed">
+	<include name="button_bg_focused" 
+		x="0" y="0" width="width-width%2" height="height-height%2"/>
+	<include name="button_icon_maximize_focused_pressed" 
+		x="(width-width%2-(Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2))/2" 
+		y="(height-height%2-(Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2))/2" 
+		width="Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2" 
+		height="Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2"/>
+</draw_ops>
+
+<draw_ops name="button_maximize_unfocused">
+	<include name="button_bg_unfocused" 
+		x="0" y="0" width="width-width%2" height="height-height%2"/>
+	<include name="button_icon_maximize_unfocused" 
+		x="(width-width%2-(Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2))/2" 
+		y="(height-height%2-(Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2))/2" 
+		width="Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2" 
+		height="Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2"/>
+</draw_ops>
+<draw_ops name="button_maximize_unfocused_prelight">
+	<include name="button_bg_unfocused_prelight" 
+		x="0" y="0" width="width-width%2" height="height-height%2"/>
+	<include name="button_icon_maximize_unfocused" 
+		x="(width-width%2-(Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2))/2" 
+		y="(height-height%2-(Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2))/2" 
+		width="Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2" 
+		height="Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2"/>
+</draw_ops>
+<draw_ops name="button_maximize_unfocused_pressed">
+	<include name="button_bg_unfocused" 
+		x="0" y="0" width="width-width%2" height="height-height%2"/>
+	<include name="button_icon_maximize_unfocused_pressed" 
+		x="(width-width%2-(Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2))/2" 
+		y="(height-height%2-(Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2))/2" 
+		width="Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2" 
+		height="Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2"/>
+</draw_ops>
+
+<draw_ops name="button_restore_focused">
+	<include name="button_bg_focused" 
+		x="0" y="0" width="width-width%2" height="height-height%2"/>
+	<include name="button_icon_restore_focused" 
+		x="(width-width%2-(Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2))/2" 
+		y="(height-height%2-(Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2))/2" 
+		width="Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2" 
+		height="Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2"/>
+</draw_ops>
+<draw_ops name="button_restore_focused_prelight">
+	<include name="button_bg_focused_prelight" 
+		x="0" y="0" width="width-width%2" height="height-height%2"/>
+	<include name="button_icon_restore_focused" 
+		x="(width-width%2-(Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2))/2" 
+		y="(height-height%2-(Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2))/2" 
+		width="Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2" 
+		height="Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2"/>
+</draw_ops>
+<draw_ops name="button_restore_focused_pressed">
+	<include name="button_bg_focused" 
+		x="0" y="0" width="width-width%2" height="height-height%2"/>
+	<include name="button_icon_restore_focused_pressed" 
+		x="(width-width%2-(Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2))/2" 
+		y="(height-height%2-(Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2))/2" 
+		width="Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2" 
+		height="Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2"/>
+</draw_ops>
+
+<draw_ops name="button_restore_unfocused">
+	<include name="button_bg_unfocused" 
+		x="0" y="0" width="width-width%2" height="height-height%2"/>
+	<include name="button_icon_restore_unfocused" 
+		x="(width-width%2-(Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2))/2" 
+		y="(height-height%2-(Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2))/2" 
+		width="Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2" 
+		height="Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2"/>
+</draw_ops>
+<draw_ops name="button_restore_unfocused_prelight">
+	<include name="button_bg_unfocused_prelight" 
+		x="0" y="0" width="width-width%2" height="height-height%2"/>
+	<include name="button_icon_restore_unfocused" 
+		x="(width-width%2-(Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2))/2" 
+		y="(height-height%2-(Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2))/2" 
+		width="Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2" 
+		height="Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2"/>
+</draw_ops>
+<draw_ops name="button_restore_unfocused_pressed">
+	<include name="button_bg_unfocused" 
+		x="0" y="0" width="width-width%2" height="height-height%2"/>
+	<include name="button_icon_restore_unfocused_pressed" 
+		x="(width-width%2-(Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2))/2" 
+		y="(height-height%2-(Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2))/2" 
+		width="Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2" 
+		height="Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2"/>
+</draw_ops>
+
+<draw_ops name="button_minimize_focused">
+	<include name="button_bg_focused" 
+		x="0" y="0" width="width-width%2" height="height-height%2"/>
+	<include name="button_icon_minimize_focused" 
+		x="(width-width%2-(Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2))/2" 
+		y="(height-height%2-(Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2))/2" 
+		width="Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2" 
+		height="Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2"/>
+</draw_ops>
+<draw_ops name="button_minimize_focused_prelight">
+	<include name="button_bg_focused_prelight" 
+		x="0" y="0" width="width-width%2" height="height-height%2"/>
+	<include name="button_icon_minimize_focused" 
+		x="(width-width%2-(Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2))/2" 
+		y="(height-height%2-(Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2))/2" 
+		width="Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2" 
+		height="Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2"/>
+</draw_ops>
+<draw_ops name="button_minimize_focused_pressed">
+	<include name="button_bg_focused" 
+		x="0" y="0" width="width-width%2" height="height-height%2"/>
+	<include name="button_icon_minimize_focused_pressed" 
+		x="(width-width%2-(Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2))/2" 
+		y="(height-height%2-(Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2))/2" 
+		width="Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2" 
+		height="Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2"/>
+</draw_ops>
+
+<draw_ops name="button_minimize_unfocused">
+	<include name="button_bg_unfocused" 
+		x="0" y="0" width="width-width%2" height="height-height%2"/>
+	<include name="button_icon_minimize_unfocused" 
+		x="(width-width%2-(Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2))/2" 
+		y="(height-height%2-(Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2))/2" 
+		width="Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2" 
+		height="Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2"/>
+</draw_ops>
+<draw_ops name="button_minimize_unfocused_prelight">
+	<include name="button_bg_unfocused_prelight" 
+		x="0" y="0" width="width-width%2" height="height-height%2"/>
+	<include name="button_icon_minimize_unfocused" 
+		x="(width-width%2-(Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2))/2" 
+		y="(height-height%2-(Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2))/2" 
+		width="Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2" 
+		height="Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2"/>
+</draw_ops>
+<draw_ops name="button_minimize_unfocused_pressed">
+	<include name="button_bg_unfocused" 
+		x="0" y="0" width="width-width%2" height="height-height%2"/>
+	<include name="button_icon_minimize_unfocused_pressed" 
+		x="(width-width%2-(Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2))/2" 
+		y="(height-height%2-(Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2))/2" 
+		width="Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2" 
+		height="Imin`max`((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100-
+			(((height-Bpad*2)*Isize-((height-Bpad*2)*Isize)%100)/100)%2"/>
+</draw_ops>
+
+<draw_ops name="button_menu_focused">
+	<icon x="(width-mini_icon_width)/2" y="(height-mini_icon_height)/2" 
+		width="mini_icon_width" height="mini_icon_height"/>
+
+	<!--icon size follows titlebar height (doesn't work well with compiz desktop effects)-->
+	<!--<icon x="(width-(Imin`max`height-Bpad*2))/2" y="(height-(Imin`max`height-Bpad*2))/2" 
+		width="Imin`max`height-Bpad*2" height="Imin`max`height-Bpad*2"/>-->
+</draw_ops>
+<draw_ops name="button_menu_focused_prelight">
+	<icon x="(width-mini_icon_width)/2" y="(height-mini_icon_height)/2" 
+		width="mini_icon_width" height="mini_icon_height" alpha="0.75"/>
+
+	<!--icon size follows titlebar height (doesn't work well with compiz desktop effects)-->
+	<!--<icon x="(width-(Imin`max`height-Bpad*2))/2" y="(height-(Imin`max`height-Bpad*2))/2" 
+		width="Imin`max`height-Bpad*2" height="Imin`max`height-Bpad*2" alpha="0.75"/>-->
+</draw_ops>
+<draw_ops name="button_menu_focused_pressed">
+	<icon x="(width-mini_icon_width)/2" y="(height-mini_icon_height)/2" 
+		width="mini_icon_width" height="mini_icon_height" alpha="0.50"/>
+
+	<!--icon size follows titlebar height (doesn't work well with compiz desktop effects)-->
+	<!--<icon x="(width-(Imin`max`height-Bpad*2))/2" y="(height-(Imin`max`height-Bpad*2))/2" 
+		width="Imin`max`height-Bpad*2" height="Imin`max`height-Bpad*2" alpha="0.50"/>-->
+</draw_ops>
+
+
+
+<!--TITLE-->
+<!--title text-->
+<draw_ops name="title_text_focused">
+	<title color="shade/#669900/0.35" x="1" y="1"/>
+	<title color="#ffffff" x="0" y="0"/>
+</draw_ops>
+<draw_ops name="title_text_unfocused">
+	<title color="shade/gtk:bg[NORMAL]/1.20" x="1" y="1"/>
+	<title color="blend/gtk:text[NORMAL]/gtk:bg[NORMAL]/0.3" x="0" y="0"/>
+</draw_ops>
+
+
+<!--title writing directions and alignment-->
+<!--for left-to-right direction writing-->
+<!--title align center-->
+<draw_ops name="title_ltr_center_focused">
+	<include name="title_text_focused" 
+		x="0`max`(width-title_width-1)/2" y="0`max`(height-title_height)/2"/>
+</draw_ops>
+<draw_ops name="title_ltr_center_unfocused">
+	<include name="title_text_unfocused" 
+		x="0`max`(width-title_width-1)/2" y="0`max`(height-title_height)/2"/>
+</draw_ops>
+
+<!--title align left-->
+<draw_ops name="title_ltr_left_focused">
+	<include name="title_text_focused" x="0" y="0`max`(height-title_height)/2"/>
+</draw_ops>
+<draw_ops name="title_ltr_left_unfocused">
+	<include name="title_text_unfocused" x="0" y="0`max`(height-title_height)/2"/>
+</draw_ops>
+
+<!--title align right-->
+<draw_ops name="title_ltr_right_focused">
+	<include name="title_text_focused" 
+		x="0`max`width-title_width-1" y="0`max`(height-title_height)/2"/>
+</draw_ops>
+<draw_ops name="title_ltr_right_unfocused">
+	<include name="title_text_unfocused" 
+		x="0`max`width-title_width-1" y="0`max`(height-title_height)/2"/>
+</draw_ops>
+
+
+<!--for right-to-left direction writing-->
+<!--title align center-->
+<draw_ops name="title_rtl_center_focused">
+	<include name="title_text_focused" 
+		x="width-title_width-1`min`(width-title_width-1)/2" 
+		y="0`max`(height-title_height)/2"/>
+</draw_ops>
+<draw_ops name="title_rtl_center_unfocused">
+	<include name="title_text_unfocused" 
+		x="width-title_width-1`min`(width-title_width-1)/2" 
+		y="0`max`(height-title_height)/2"/>
+</draw_ops>
+
+<!--title align left-->
+<draw_ops name="title_rtl_left_focused">
+	<include name="title_text_focused" 
+		x="width-title_width-1`min`0" y="0`max`(height-title_height)/2"/>
+</draw_ops>
+<draw_ops name="title_rtl_left_unfocused">
+	<include name="title_text_unfocused" 
+		x="width-title_width-1`min`0" y="0`max`(height-title_height)/2"/>
+</draw_ops>
+
+<!--title align right-->
+<draw_ops name="title_rtl_right_focused">
+	<include name="title_text_focused" 
+		x="width-title_width-1" y="0`max`(height-title_height)/2"/>
+</draw_ops>
+<draw_ops name="title_rtl_right_unfocused">
+	<include name="title_text_unfocused" 
+		x="width-title_width-1" y="0`max`(height-title_height)/2"/>
+</draw_ops>
+
+
+<!--titles-->
+<draw_ops name="title_focused">
+	<include name="title_ltr_center_focused"/>
+</draw_ops>
+<draw_ops name="title_unfocused">
+	<include name="title_ltr_center_unfocused"/>
+</draw_ops>
+
+
+
+<!--MENU icons-->
+<draw_ops name="menu_icon_close">
+	<line color="gtk:fg[NORMAL]" width="3" x1="1" y1="1" x2="width-1" y2="height-1"/>
+	<line color="gtk:fg[NORMAL]" width="3" x1="width-1" y1="0" x2="1" y2="height-2"/>
+	<line color="gtk:fg[NORMAL]" width="1" x1="0" y1="1" x2="2" y2="0"/>
+	<line color="gtk:fg[NORMAL]" width="1" x1="0" y1="height-2" x2="2" y2="height-1"/>
+</draw_ops>
+
+<draw_ops name="menu_icon_maximize">
+	<rectangle color="gtk:fg[NORMAL]" filled="true" 
+		x="0" y="0" width="width" height="3`max`(height+2)/4"/>
+	<rectangle color="gtk:fg[NORMAL]" filled="true" 
+		x="0" 
+		y="3`max`(height+2)/4" 
+		width="1`max`(3`min`height/10)" 
+		height="height-(3`max`(height+2)/4)-(1`max`(3`min`height/10))"/>
+	<rectangle color="gtk:fg[NORMAL]" filled="true" 
+		x="width-(1`max`(3`min`height/10))" 
+		y="3`max`(height+2)/4" 
+		width="1`max`(3`min`height/10)" 
+		height="height-(3`max`(height+2)/4)-(1`max`(3`min`height/10))"/>
+	<rectangle color="gtk:fg[NORMAL]" filled="true" 
+		x="0" y="height-(1`max`(3`min`height/10))" 
+		width="width" height="1`max`(3`min`height/10)"/>
+</draw_ops>
+
+<draw_ops name="menu_icon_restore">
+	<!--back window-->
+	<!--top horizontal-->
+	<rectangle color="gtk:fg[NORMAL]" filled="true" 
+		x="width/3" y="0" width="width-width/3" height="2`max`height/4"/>
+	<!--left vertical-->
+	<rectangle color="gtk:fg[NORMAL]" filled="true" 
+		x="width/3" y="(2`max`height/4)-1" 
+		width="1`max`(3`min`height/10)" height="height/3-(2`max`height/4)"/>
+	<!--right vertical-->
+	<rectangle color="gtk:fg[NORMAL]" filled="true" 
+		x="width-(1`max`(3`min`height/10))" 
+		y="2`max`height/4" 
+		width="1`max`(3`min`height/10)" 
+		height="height-height/3-(2`max`height/4)-(1`max`(3`min`height/10))"/>
+	<!--bottom horizontal-->
+	<rectangle color="gtk:fg[NORMAL]" filled="true" 
+		x="width-width/3+1" y="height-height/3-(1`max`(3`min`height/10))" 
+		width="width/3-1" height="1`max`(3`min`height/10)"/>
+
+	<!--front window-->
+	<rectangle color="gtk:fg[NORMAL]" filled="true" 
+		x="0" y="height/3" width="width-width/3" height="2`max`height/4"/>
+	<rectangle color="gtk:fg[NORMAL]" filled="true" 
+		x="0" 
+		y="height/3+(2`max`height/4)" 
+		width="1`max`(3`min`height/10)" 
+		height="height-height/3-(2`max`height/4)-(1`max`(3`min`height/10))"/>
+	<rectangle color="gtk:fg[NORMAL]" filled="true" 
+		x="width-width/3-(1`max`(3`min`height/10))" 
+		y="height/3+(2`max`height/4)" 
+		width="1`max`(3`min`height/10)" 
+		height="height-height/3-(2`max`height/4)-(1`max`(3`min`height/10))"/>
+	<rectangle color="gtk:fg[NORMAL]" filled="true" 
+		x="0" y="height-(1`max`(3`min`height/10))" 
+		width="width-width/3" height="1`max`(3`min`height/10)"/>
+</draw_ops>
+
+<draw_ops name="menu_icon_minimize">
+	<rectangle color="gtk:fg[NORMAL]" filled="true" 
+		x="0" y="height-(3`max`(height+2)/4)" width="width" height="(3`max`(height+2)/4)"/>
+</draw_ops>
+
+
+
+<!--OTHER-->
+<!--blank draw_ops for indrawn titlebar-->
+<draw_ops name="blank">
+	<!--blank-->
+</draw_ops>
+<!--::: draw_ops END :::-->
+
+
+
+
+
+<!--::: frame_style BEGINNING :::-->
+<!--frame_styles for normal (dialog, modal dialog)-->
+<frame_style name="normal_focused" geometry="normal">
+	<piece position="entire_background" draw_ops="frame_normal_focused"/>
+	<piece position="title" draw_ops="title_focused"/>
+	<button function="close" state="normal" draw_ops="button_close_focused"/>
+	<button function="close" state="pressed" draw_ops="button_close_focused_pressed"/>
+	<button function="close" state="prelight" draw_ops="button_close_focused_prelight"/>
+	<button function="maximize" state="normal" draw_ops="button_maximize_focused"/>
+	<button function="maximize" state="pressed" draw_ops="button_maximize_focused_pressed"/>
+	<button function="maximize" state="prelight" draw_ops="button_maximize_focused_prelight"/>
+	<button function="minimize" state="normal" draw_ops="button_minimize_focused"/>
+	<button function="minimize" state="pressed" draw_ops="button_minimize_focused_pressed"/>
+	<button function="minimize" state="prelight" draw_ops="button_minimize_focused_prelight"/>
+	<button function="menu" state="normal" draw_ops="button_menu_focused"/>
+	<button function="menu" state="pressed" draw_ops="button_menu_focused_pressed"/>
+	<button function="menu" state="prelight" draw_ops="button_menu_focused_prelight"/>
+</frame_style>
+<frame_style name="normal_unfocused" geometry="normal">
+	<piece position="entire_background" draw_ops="frame_normal_unfocused"/>
+	<piece position="title" draw_ops="title_unfocused"/>
+	<button function="close" state="normal" draw_ops="button_close_unfocused"/>
+	<button function="close" state="pressed" draw_ops="button_close_unfocused_pressed"/>
+	<button function="close" state="prelight" draw_ops="button_close_unfocused_prelight"/>
+	<button function="maximize" state="normal" draw_ops="button_maximize_unfocused"/>
+	<button function="maximize" state="pressed" draw_ops="button_maximize_unfocused_pressed"/>
+	<button function="maximize" state="prelight" draw_ops="button_maximize_unfocused_prelight"/>
+	<button function="minimize" state="normal" draw_ops="button_minimize_unfocused"/>
+	<button function="minimize" state="pressed" draw_ops="button_minimize_unfocused_pressed"/>
+	<button function="minimize" state="prelight" draw_ops="button_minimize_unfocused_prelight"/>
+	<button function="menu" state="normal" draw_ops="button_menu_focused"/>
+	<button function="menu" state="pressed" draw_ops="button_menu_focused_pressed"/>
+	<button function="menu" state="prelight" draw_ops="button_menu_focused_prelight"/>
+</frame_style>
+
+<frame_style name="normal_maximized_focused" parent="normal_focused" geometry="normal_maximized">
+	<piece position="entire_background" draw_ops="frame_maximized_focused"/>
+	<button function="maximize" state="normal" draw_ops="button_restore_focused"/>
+	<button function="maximize" state="pressed" draw_ops="button_restore_focused_pressed"/>
+	<button function="maximize" state="prelight" draw_ops="button_restore_focused_prelight"/>
+</frame_style>
+<frame_style name="normal_maximized_unfocused" parent="normal_unfocused" geometry="normal_maximized">
+	<piece position="entire_background" draw_ops="frame_maximized_unfocused"/>
+	<button function="maximize" state="normal" draw_ops="button_restore_unfocused"/>
+	<button function="maximize" state="pressed" draw_ops="button_restore_unfocused_pressed"/>
+	<button function="maximize" state="prelight" draw_ops="button_restore_unfocused_prelight"/>
+</frame_style>
+
+<frame_style name="normal_shaded_focused" parent="normal_focused" geometry="shaded">
+	<piece position="entire_background" draw_ops="frame_shaded_focused"/>
+</frame_style>
+<frame_style name="normal_shaded_unfocused" parent="normal_unfocused" geometry="shaded">
+	<piece position="entire_background" draw_ops="frame_shaded_unfocused"/>
+</frame_style>
+
+<frame_style name="normal_maximized_and_shaded_focused" 
+		parent="normal_maximized_focused" geometry="shaded_maximized">
+	<piece position="entire_background" draw_ops="frame_maximized_and_shaded_focused"/>
+</frame_style>
+<frame_style name="normal_maximized_and_shaded_unfocused" 
+		parent="normal_maximized_unfocused" geometry="shaded_maximized">
+	<piece position="entire_background" draw_ops="frame_maximized_and_shaded_unfocused"/>
+</frame_style>
+
+
+<!--frame_styles for utility, menu-->
+<frame_style name="utility_focused" parent="normal_focused" geometry="utility">
+	<piece position="entire_background" draw_ops="frame_utility_focused"/>
+</frame_style>
+<frame_style name="utility_unfocused" parent="normal_unfocused" geometry="utility">
+	<piece position="entire_background" draw_ops="frame_utility_unfocused"/>
+</frame_style>
+
+<frame_style name="utility_shaded_focused" parent="normal_focused" geometry="utility_shaded">
+	<piece position="entire_background" draw_ops="frame_utility_shaded_focused"/>
+</frame_style>
+<frame_style name="utility_shaded_unfocused" parent="normal_unfocused" geometry="utility_shaded">
+	<piece position="entire_background" draw_ops="frame_utility_shaded_unfocused"/>
+</frame_style>
+
+
+<!--frame_styles for border-->
+<frame_style name="border_focused" parent="normal_focused" geometry="border">
+	<piece position="entire_background" draw_ops="frame_border_focused"/>
+	<piece position="title" draw_ops="blank"/>
+</frame_style>
+<frame_style name="border_unfocused" parent="normal_unfocused" geometry="border">
+	<piece position="entire_background" draw_ops="frame_border_unfocused"/>
+	<piece position="title" draw_ops="blank"/>
+</frame_style>
+<!--::: frame_style END :::-->
+
+
+
+
+
+<!--::: frame_style_set BEGINNING :::-->
+<frame_style_set name="normal">
+	<!--for normal, dialog, modal dialog-->
+	<frame focus="yes" state="normal" resize="both" style="normal_focused"/>
+	<frame focus="no" state="normal" resize="both" style="normal_unfocused"/>
+	<frame focus="yes" state="maximized" style="normal_maximized_focused"/>
+	<frame focus="no" state="maximized" style="normal_maximized_unfocused"/>
+	<frame focus="yes" state="shaded" style="normal_shaded_focused"/>
+	<frame focus="no" state="shaded" style="normal_shaded_unfocused"/>
+	<frame focus="yes" state="maximized_and_shaded" style="normal_maximized_and_shaded_focused"/>
+	<frame focus="no" state="maximized_and_shaded" style="normal_maximized_and_shaded_unfocused"/>
+</frame_style_set>
+<frame_style_set name="utility">
+	<frame focus="yes" state="normal" resize="both" style="utility_focused"/>
+	<frame focus="no" state="normal" resize="both" style="utility_unfocused"/>
+	<frame focus="yes" state="maximized" style="normal_maximized_focused"/>
+	<frame focus="no" state="maximized" style="normal_maximized_unfocused"/>
+	<frame focus="yes" state="shaded" style="utility_shaded_focused"/>
+	<frame focus="no" state="shaded" style="utility_shaded_unfocused"/>
+	<frame focus="yes" state="maximized_and_shaded" style="normal_maximized_and_shaded_focused"/>
+	<frame focus="no" state="maximized_and_shaded" style="normal_maximized_and_shaded_unfocused"/>
+</frame_style_set>
+<frame_style_set name="border">
+	<frame focus="yes" state="normal" resize="both" style="border_focused"/>
+	<frame focus="no" state="normal" resize="both" style="border_unfocused"/>
+	<frame focus="yes" state="maximized" style="border_focused"/>
+	<frame focus="no" state="maximized" style="border_unfocused"/>
+	<frame focus="yes" state="shaded" style="border_focused"/>
+	<frame focus="no" state="shaded" style="border_unfocused"/>
+	<frame focus="yes" state="maximized_and_shaded" style="border_focused"/>
+	<frame focus="no" state="maximized_and_shaded" style="border_unfocused"/>
+</frame_style_set>
+<!--::: frame_style_set END :::-->
+
+
+
+
+
+<!--::: window BEGINNING :::-->
+<window type="normal" style_set="normal"/>
+<window type="dialog" style_set="normal"/>
+<window type="modal_dialog" style_set="normal"/>
+<window type="utility" style_set="utility"/>
+<window type="menu" style_set="utility"/>
+<window type="border" style_set="border"/>
+<!--::: window END :::-->
+
+
+
+
+
+<!--::: menu_icon BEGINNING :::-->
+<menu_icon function="close" state="normal" draw_ops="menu_icon_close"/>
+<menu_icon function="maximize" state="normal" draw_ops="menu_icon_maximize"/>
+<menu_icon function="unmaximize" state="normal" draw_ops="menu_icon_restore"/>
+<menu_icon function="minimize" state="normal" draw_ops="menu_icon_minimize"/>
+<!--::: menu_icon END :::-->
+
+</metacity_theme>
