@@ -1,15 +1,8 @@
 /**************
  * GtkInfoBar *
  **************/
-infobar {
-
-  $_bg_info_bar: desaturate(invert($selected_bg_color), 30%);
-  &.info {$_bg_info_bar: $hint_bg;}
-  &.question {$_bg_info_bar: $hint_bg;}
-  &.warning {$_bg_info_bar: $warning_color;}
-  &.error {$_bg_info_bar: $error_color}
-  
-  @include relief($_bg_info_bar);
+@mixin infobar($_bg_info_bar) {
+    @include relief($_bg_info_bar);
 
     button {
       // FIXME: extend selection mode buttons
@@ -32,5 +25,18 @@ infobar {
     selection { background-color: darken($bg_color, 10%); }
 
     *:link { color: $link_color; }
+}
+
+infobar {
+
+  @include infobar(desaturate(invert($selected_bg_color), 30%));
+
+  
+  &.info {@include infobar($hint_bg);}
+  &.question {@include infobar($hint_bg);}
+  &.warning {@include infobar($warning_color);}
+  &.error {@include infobar($error_color)}
+  
+  
   
 }

@@ -1254,13 +1254,13 @@ paned > separator { border-width: 1px; min-width: 6px; min-height: 6px; }
 
 /************** GtkInfoBar * */
 /************** GtkInfoBar * */
-infobar { background-color: #CC0000; border-left-color: #ff1a1a; border-top-color: #ff1a1a; border-right-color: #990000; border-bottom-color: #990000; }
+infobar { background-color: #a17de8; border-left-color: #d0bef4; border-top-color: #d0bef4; border-right-color: #8152e0; border-bottom-color: #8152e0; }
 
-infobar button { border-width: 2px; color: #EDF0F5; background-color: #CC0000; border-left-color: #ff1a1a; border-top-color: #ff1a1a; border-right-color: #990000; border-bottom-color: #990000; }
+infobar button { border-width: 2px; color: #EDF0F5; background-color: #a17de8; border-left-color: #d0bef4; border-top-color: #d0bef4; border-right-color: #8152e0; border-bottom-color: #8152e0; }
 
-infobar button:hover { border-width: 2px; background-color: #e60000; border-left-color: #ff3333; border-top-color: #ff3333; border-right-color: #b30000; border-bottom-color: #b30000; }
+infobar button:hover { border-width: 2px; background-color: #b093ec; border-left-color: #e0d4f7; border-top-color: #e0d4f7; border-right-color: #9167e4; border-bottom-color: #9167e4; }
 
-infobar button:active, infobar button:checked { border-width: 2px; background-color: #CC0000; border-left-color: #990000; border-top-color: #990000; border-right-color: #ff1a1a; border-bottom-color: #ff1a1a; }
+infobar button:active, infobar button:checked { border-width: 2px; background-color: #a17de8; border-left-color: #8152e0; border-top-color: #8152e0; border-right-color: #d0bef4; border-bottom-color: #d0bef4; }
 
 infobar button:disabled { border-width: 2px; color: #7c675a; background-color: #493e37; border-left-color: #756358; border-top-color: #756358; border-right-color: #2c2521; border-bottom-color: #2c2521; }
 
@@ -1269,6 +1269,70 @@ infobar button label, infobar button { color: #EDF0F5; }
 infobar selection { background-color: #252525; }
 
 infobar *:link { color: #99c1f1; }
+
+infobar.info { background-color: #203d79; border-left-color: #305cb6; border-top-color: #305cb6; border-right-color: #152951; border-bottom-color: #152951; }
+
+infobar.info button { border-width: 2px; color: #EDF0F5; background-color: #203d79; border-left-color: #305cb6; border-top-color: #305cb6; border-right-color: #152951; border-bottom-color: #152951; }
+
+infobar.info button:hover { border-width: 2px; background-color: #25478d; border-left-color: #3566ca; border-top-color: #3566ca; border-right-color: #1b3365; border-bottom-color: #1b3365; }
+
+infobar.info button:active, infobar.info button:checked { border-width: 2px; background-color: #203d79; border-left-color: #152951; border-top-color: #152951; border-right-color: #305cb6; border-bottom-color: #305cb6; }
+
+infobar.info button:disabled { border-width: 2px; color: #7c675a; background-color: #493e37; border-left-color: #756358; border-top-color: #756358; border-right-color: #2c2521; border-bottom-color: #2c2521; }
+
+infobar.info button label, infobar.info button { color: #EDF0F5; }
+
+infobar.info selection { background-color: #252525; }
+
+infobar.info *:link { color: #99c1f1; }
+
+infobar.question { background-color: #203d79; border-left-color: #305cb6; border-top-color: #305cb6; border-right-color: #152951; border-bottom-color: #152951; }
+
+infobar.question button { border-width: 2px; color: #EDF0F5; background-color: #203d79; border-left-color: #305cb6; border-top-color: #305cb6; border-right-color: #152951; border-bottom-color: #152951; }
+
+infobar.question button:hover { border-width: 2px; background-color: #25478d; border-left-color: #3566ca; border-top-color: #3566ca; border-right-color: #1b3365; border-bottom-color: #1b3365; }
+
+infobar.question button:active, infobar.question button:checked { border-width: 2px; background-color: #203d79; border-left-color: #152951; border-top-color: #152951; border-right-color: #305cb6; border-bottom-color: #305cb6; }
+
+infobar.question button:disabled { border-width: 2px; color: #7c675a; background-color: #493e37; border-left-color: #756358; border-top-color: #756358; border-right-color: #2c2521; border-bottom-color: #2c2521; }
+
+infobar.question button label, infobar.question button { color: #EDF0F5; }
+
+infobar.question selection { background-color: #252525; }
+
+infobar.question *:link { color: #99c1f1; }
+
+infobar.warning { background-color: #f57900; border-left-color: #ffa043; border-top-color: #ffa043; border-right-color: #c26000; border-bottom-color: #c26000; }
+
+infobar.warning button { border-width: 2px; color: #EDF0F5; background-color: #f57900; border-left-color: #ffa043; border-top-color: #ffa043; border-right-color: #c26000; border-bottom-color: #c26000; }
+
+infobar.warning button:hover { border-width: 2px; background-color: #ff8610; border-left-color: #ffad5c; border-top-color: #ffad5c; border-right-color: #dc6c00; border-bottom-color: #dc6c00; }
+
+infobar.warning button:active, infobar.warning button:checked { border-width: 2px; background-color: #f57900; border-left-color: #c26000; border-top-color: #c26000; border-right-color: #ffa043; border-bottom-color: #ffa043; }
+
+infobar.warning button:disabled { border-width: 2px; color: #7c675a; background-color: #493e37; border-left-color: #756358; border-top-color: #756358; border-right-color: #2c2521; border-bottom-color: #2c2521; }
+
+infobar.warning button label, infobar.warning button { color: #EDF0F5; }
+
+infobar.warning selection { background-color: #252525; }
+
+infobar.warning *:link { color: #99c1f1; }
+
+infobar.error { background-color: #CC0000; border-left-color: #ff1a1a; border-top-color: #ff1a1a; border-right-color: #990000; border-bottom-color: #990000; }
+
+infobar.error button { border-width: 2px; color: #EDF0F5; background-color: #CC0000; border-left-color: #ff1a1a; border-top-color: #ff1a1a; border-right-color: #990000; border-bottom-color: #990000; }
+
+infobar.error button:hover { border-width: 2px; background-color: #e60000; border-left-color: #ff3333; border-top-color: #ff3333; border-right-color: #b30000; border-bottom-color: #b30000; }
+
+infobar.error button:active, infobar.error button:checked { border-width: 2px; background-color: #CC0000; border-left-color: #990000; border-top-color: #990000; border-right-color: #ff1a1a; border-bottom-color: #ff1a1a; }
+
+infobar.error button:disabled { border-width: 2px; color: #7c675a; background-color: #493e37; border-left-color: #756358; border-top-color: #756358; border-right-color: #2c2521; border-bottom-color: #2c2521; }
+
+infobar.error button label, infobar.error button { color: #EDF0F5; }
+
+infobar.error selection { background-color: #252525; }
+
+infobar.error *:link { color: #99c1f1; }
 
 /************ Tooltips * */
 tooltip { border-radius: 0; box-shadow: none; text-shadow: none; }
