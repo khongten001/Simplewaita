@@ -3005,6 +3005,7 @@ separator {
   min-width: 0px;
   min-height: 0px;
   statusbar &, .osd &, osd & {@include relief($hint_bg);}
+  headerbar:not(:backdrop) & {@include relief($titlebar_active_bg);}
 }
 
 

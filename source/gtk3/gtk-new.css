@@ -559,6 +559,14 @@ window.devel headerbar.titlebar:not(.selection-mode):backdrop { background: #3f3
 
 .path-bar button.slider-button { padding-left: 0; padding-right: 0; }
 
+#NautilusPathBar { background: none; border-radius: 0px; }
+
+.nautilus-list-view listview > row { border-radius: 0px; margin: 0pX; }
+
+#NautilusViewCell { border-radius: 0px; }
+
+#NautilusViewCell box { margin: 0px; }
+
 /************** Tree Views * */
 treeview.view { border-left-color: #909194; border-top-color: #3f3e3e; }
 
@@ -1097,6 +1105,8 @@ scrolledwindow junction:dir(rtl) { border-image-slice: 0 1 0 0; }
 separator { border-width: 2px; border-style: solid; background-color: #3f3e3e; border-left-color: #666464; border-top-color: #666464; border-right-color: #252525; border-bottom-color: #252525; min-width: 0px; min-height: 0px; }
 
 statusbar separator, .osd separator, osd separator { background-color: #203d79; border-left-color: #305cb6; border-top-color: #305cb6; border-right-color: #152951; border-bottom-color: #152951; }
+
+headerbar:not(:backdrop) separator { background-color: #507800; border-left-color: #83c500; border-top-color: #83c500; border-right-color: #2e4500; border-bottom-color: #2e4500; }
 
 /********* Lists * */
 list { color: #EDF0F5; background-color: #323232; border-color: #111010; }

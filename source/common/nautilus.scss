@@ -10,3 +10,18 @@
     
     }
 }
+
+#NautilusPathBar {
+    background: none;
+    border-radius: 0px;
+}
+
+.nautilus-list-view listview > row {
+border-radius: 0px;
+margin: 0pX
+}
+
+#NautilusViewCell {
+    border-radius: 0px;
+    & box { margin: 0px;}
+}

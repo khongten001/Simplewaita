@@ -122,6 +122,7 @@ gridview {
   > child {
     padding: 3px;
     transition: $focus_transition;
+    border-radius: 0px; //for libadwaita
 
     @include focus-ring();
 
@@ -473,6 +474,7 @@ button {
     &:disabled {
       @include button(insensitive);
       -gtk-icon-filter: opacity(0.5);
+      filter: none; //for libadwaita
 
       &:active,
       &:checked { @include button(insensitive-active); }
@@ -2732,6 +2734,7 @@ separator {
   min-width: 0px;
   min-height: 0px;
   statusbar &, .osd &, osd & {@include relief($hint_bg);}
+  headerbar:not(:backdrop) & {@include relief($titlebar_active_bg);}
 }
 
 
@@ -3699,6 +3702,61 @@ menubutton {
   border-style: solid;
   @include relief($card_bg_color);
   box-shadow: none;
+}
+
+tabbox {
+    background-color: $bg_color;
+    & > tabboxchild > tab {
+        @extend %button_basic;
+        border-radius: 0px;
+        @include button(normal);
+
+        @include focus-ring();
+
+        &:hover {
+          @include button(hover);
+          -gtk-icon-filter: brightness(1.2);
+        }
+
+        &.keyboard-activating,
+        &:active {
+          @include button(active);
+
+          transition-duration: 50ms;
+        }
+
+        &:selected:hover:not(:active) { @include button(checked-hover); }
+        &:selected, &:selected:active { @include button(checked-active); }
+
+        //removed backdrop
+
+        &:disabled {
+          @include button(insensitive);
+          -gtk-icon-filter: opacity(0.5);
+          filter: none; //for libadwaita
+
+          &:active,
+          &:selected { @include button(insensitive-active); }
+        }
+    }
+}
+
+splitbutton {
+    @extend %button_basic;
+    border-radius: 0px;
+    padding: 0px;
+    @include button(normal);
+    &:disabled {
+          @include button(insensitive);}
+    & > separator {border: none;}
+    & > button, menubutton { margin: $border_width;}
+}
+
+.floating-bar {
+    border: $border_width solid;
+    border-radius: 0px;
+    @include relief($hint_bg);
+    color: $hint_fg;
 }
 
 @import '../common/undershoot.scss';
