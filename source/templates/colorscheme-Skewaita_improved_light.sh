@@ -9,22 +9,22 @@
 
 # Improved Skewaita: light, with grayish tones and light green accents, VERY easy on the eyes
 
-vwindow_fg="#241f31"
-vwindow_bg="#908f8d"
-vtext_widget_fg="#241f31"
-vtext_widget_bg="#a7a7a7"
+vwindow_fg="#2f2f2f"
+vwindow_bg="#C9C9C9"
+vtext_widget_fg="#2f2f2f"
+vtext_widget_bg="#E3E3E3"
 
 vselected_fg="#000000"
 vselected_bg="#b0dd7e"
 
-vbutton_fg="#241f31"
-vbutton_bg="#bcbeb9"
+vbutton_fg="#2f2f2f"
+vbutton_bg="#DADADA"
 vbutton_checked_bg=$vselected_bg
 vbutton_checked_fg=$vselected_fg
 
 
 vdisabled_fg="#552222"
-vdisabled_bg="#938989"
+vdisabled_bg="#B5A9A9"
 
 # Usually an automatic fg color on these backgrounds should check this value!
 
@@ -40,7 +40,7 @@ vtitlebar_backdrop_fg=$vwindow_fg
 vtitlebar_backdrop_bg=$vwindow_bg
 
 vhint_fg="#002269"
-vhint_bg="#6789b4"
+vhint_bg="#85B1E8"
 
 vosd_fg=$vhint_fg
 vosd_bg=$vhint_bg
