@@ -1017,7 +1017,7 @@ button.color {
     &, overlay { border-radius: 0; }
 
     @if $variant == 'light' {
-      box-shadow: 0 1px _text_shadow_color();
+      //box-shadow: 0 1px _text_shadow_color();
 
       .osd & { box-shadow: none; }
     }
