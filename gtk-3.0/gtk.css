@@ -345,8 +345,6 @@ modelbutton.flat arrow.right { -gtk-icon-source: -gtk-icontheme("pan-end-symboli
 
 button.color { padding: 4px; }
 
-button.color colorswatch:only-child { box-shadow: 0 1px _text_shadow_color(); }
-
 button.color colorswatch:only-child, button.color colorswatch:only-child overlay { border-radius: 0; }
 
 .osd button.color colorswatch:only-child { box-shadow: none; }
