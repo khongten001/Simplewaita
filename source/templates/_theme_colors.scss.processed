@@ -4,11 +4,11 @@ $text_widget_fg: #2f2f2f;
 $text_widget_bg: #E3E3E3;
 
 $selected_fg: #000000;
-$selected_bg: #b0dd7e;
+$selected_bg: #7dba39;
 
 $button_fg: #2f2f2f;
 $button_bg: #DADADA;
-$button_checked_bg: #b0dd7e;
+$button_checked_bg: #7dba39;
 $button_checked_fg: #000000;
 
 
@@ -22,7 +22,7 @@ $successc: #00b8a8;
 
 
 $titlebar_active_fg: #000000;
-$titlebar_active_bg: #b0dd7e;
+$titlebar_active_bg: #7dba39;
 
 $titlebar_backdrop_fg: #2f2f2f;
 $titlebar_backdrop_bg: #C9C9C9;

@@ -15,7 +15,7 @@ vtext_widget_fg="#2f2f2f"
 vtext_widget_bg="#E3E3E3"
 
 vselected_fg="#000000"
-vselected_bg="#b0dd7e"
+vselected_bg="#7dba39"
 
 vbutton_fg="#2f2f2f"
 vbutton_bg="#DADADA"
