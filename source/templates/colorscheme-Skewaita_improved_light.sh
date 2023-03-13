@@ -29,7 +29,7 @@ vdisabled_bg="#B5A9A9"
 # Usually an automatic fg color on these backgrounds should check this value!
 
 vwarningc="#f57900"
-verrorc="#990000"
+verrorc="#e10000"
 vsuccessc="#00b8a8"
 
 
@@ -40,7 +40,7 @@ vtitlebar_backdrop_fg=$vwindow_fg
 vtitlebar_backdrop_bg=$vwindow_bg
 
 vhint_fg="#002269"
-vhint_bg="#85B1E8"
+vhint_bg="#c4deff"
 
 vosd_fg=$vhint_fg
 vosd_bg=$vhint_bg

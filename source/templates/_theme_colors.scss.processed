@@ -17,7 +17,7 @@ $disabled_bg: #B5A9A9;
 
 /*Usually an automatic fg color on these backgrounds should check this value!*/
 $warningc: #f57900;
-$errorc: #990000;
+$errorc: #e10000;
 $successc: #00b8a8;
 
 
@@ -28,10 +28,10 @@ $titlebar_backdrop_fg: #2f2f2f;
 $titlebar_backdrop_bg: #C9C9C9;
 
 $hint_fg: #002269;
-$hint_bg: #85B1E8;
+$hint_bg: #c4deff;
 
 $osd_fg: #002269;
-$osd_bg: #85B1E8;
+$osd_bg: #c4deff;
 
 $link_fg: #004B91;
 $link_visited_fg: #680091;

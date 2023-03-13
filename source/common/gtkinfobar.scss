@@ -29,13 +29,13 @@
 
 infobar {
 
-  @include infobar(desaturate(invert($selected_bg_color), 30%));
+  @include infobar(mix($hint_bg, $selected_bg_color, 50%));
 
   
-  &.info {@include infobar($hint_bg);}
+  &.info {@include infobar(mix($hint_bg, $success_color, 50%));}
   &.question {@include infobar($hint_bg);}
   &.warning {@include infobar($warning_color);}
-  &.error {@include infobar($error_color)}
+  &.error {@include infobar(mix($error_color,$bg_color,30%))}
   
   
   
