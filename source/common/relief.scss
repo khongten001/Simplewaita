@@ -4,10 +4,13 @@
 
 
 @function highlight_border ($c) {
-	@return lighten($c, 15%);
+	$mixValue: lightness($c);
+	@return mix(white,$c, $mixValue);
 }
+
 @function shadow_border ($c) {
-	@return darken($c, 10%);
+	$mixValue: (100% - lightness($c)) / 2;
+	@return mix(black,$c, $mixValue);//darken($c, 10%);
 }
 
 
