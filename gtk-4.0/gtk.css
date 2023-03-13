@@ -558,13 +558,13 @@ infobar.question selection { background-color: #b0b0b0; }
 
 infobar.question *:link { color: #004B91; }
 
-infobar.warning { background-color: #f57900; border-left-color: #ffa043; border-top-color: #ffa043; border-right-color: #c26000; border-bottom-color: #c26000; }
+infobar.warning { background-color: #f57900; border-left-color: #fab97b; border-top-color: #fab97b; border-right-color: #b55a00; border-bottom-color: #b55a00; }
 
 infobar.warning button { border-width: 2px; color: #2f2f2f; background-color: #f57900; border-left-color: #ffa043; border-top-color: #ffa043; border-right-color: #c26000; border-bottom-color: #c26000; }
 
-infobar.warning button:hover { border-width: 2px; background-color: #ff8610; border-left-color: #ffad5c; border-top-color: #ffad5c; border-right-color: #dc6c00; border-bottom-color: #dc6c00; }
+infobar.warning button:hover { border-width: 2px; background-color: #ff8610; border-left-color: #ffc68f; border-top-color: #ffc68f; border-right-color: #c3660c; border-bottom-color: #c3660c; }
 
-infobar.warning button:active, infobar.warning button:checked { border-width: 2px; background-color: #f57900; border-left-color: #c26000; border-top-color: #c26000; border-right-color: #ffa043; border-bottom-color: #ffa043; }
+infobar.warning button:active, infobar.warning button:checked { border-width: 2px; background-color: #f57900; border-left-color: #b55a00; border-top-color: #b55a00; border-right-color: #fab97b; border-bottom-color: #fab97b; }
 
 infobar.warning button:disabled { border-width: 2px; color: #552222; background-color: #B5A9A9; border-left-color: #d8d2d2; border-top-color: #d8d2d2; border-right-color: #9d8e8e; border-bottom-color: #9d8e8e; }
 
