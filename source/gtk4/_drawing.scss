@@ -26,8 +26,8 @@ $gtk: 4;
   }
 
   &:#{$focus-state} #{$target} {
-    outline-color: $fc;
-    outline-width: $width;
+    outline-color: transparent; //$fc;
+    outline-width: 0;//$width;
     outline-offset: $offset;
   }
 }

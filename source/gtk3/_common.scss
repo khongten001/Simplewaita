@@ -495,7 +495,7 @@ button {
     @include button(normal);
 
     @at-root %button_basic_flat,
-    &.flat:not(:hover):not(:active):not(:checked):not(:disabled) {
+    &.flat:not(:hover):not(:active):not(:checked):not(:disabled):not(:focus) {
       @include button(undecorated);
       // to avoid adiacent buttons borders clashing when transitioning, the transition on the normal state is set
       // to none, while it's added back in the hover state, so the button decoration will fade in on hover, but
@@ -506,7 +506,7 @@ button {
 		
     }
 
-    &:hover {
+    &:hover, &:focus {
       @include button(hover);
       -gtk-icon-effect: highlight;
     }
@@ -524,7 +524,7 @@ button {
       //transition-duration: 50ms;
     }
     
-    &:checked:hover:not(:active) {
+    &:checked:hover:not(:active), &:checked:focus:not(:active) {
      	@include button(checked-hover);
     }
 
@@ -608,7 +608,7 @@ button {
     //border: none;
     box-shadow: none;
 
-    &:hover {
+    &:hover, &:focus {
       @include button(osd-hover);
 
       //border: none;
@@ -643,7 +643,7 @@ button {
   .osd & {
     @include button(normal, $osd_bg_color, $osd_fg_color);
 
-    &:hover { @include button(hover, $osd_bg_color, $osd_fg_color); }
+    &:hover, &:focus { @include button(hover, $osd_bg_color, $osd_fg_color); }
 
     &:active,
     &:checked { @include button(active, $osd_bg_color, $osd_fg_color); }
@@ -659,7 +659,7 @@ button {
       //text-shadow: 0 1px black;
       //-gtk-icon-shadow: 0 1px black;
 
-      &:hover { @include button(hover, $osd_bg_color, $osd_fg_color); }
+      &:hover, &:focus { @include button(hover, $osd_bg_color, $osd_fg_color); }
 
       &:disabled {
         @include button(insensitive);
@@ -673,6 +673,7 @@ button {
 
       &:active,
       &:checked { @include button(active, $osd_bg_color, $osd_fg_color); }
+      
     }
   }
 
@@ -688,7 +689,7 @@ button {
         color: $b_color; //FIXME: does it work on the dark variant?
       }
 
-      &:hover { @include button(hover, $b_color, white); }
+      &:hover, &:focus { @include button(hover, $b_color, white); }
 
       &:active,
       &:checked { @include button(active, $b_color, white); }
@@ -712,7 +713,7 @@ button {
       .osd & {
         @include button(osd, $b_color);
 
-        &:hover { @include button(osd-hover, $b_color); }
+        &:hover, &:focus { @include button(osd-hover, $b_color); }
 
         &:active,
         &:checked { &:backdrop, & { @include button(osd-active, $b_color); }}

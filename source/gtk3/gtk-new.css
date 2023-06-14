@@ -9,6 +9,8 @@ label:disabled selection, .selection-mode button.titlebutton:disabled, label:dis
 
 .selection-mode button.titlebutton:backdrop, label:backdrop:selected, calendar:backdrop:selected, row:backdrop:selected, treeview.view:backdrop:selected, modelbutton.flat:backdrop:selected, .menuitem.button.flat:backdrop:selected, spinbutton:not(.vertical) selection:backdrop, entry selection:backdrop, flowbox flowboxchild:backdrop:selected, .view text selection:backdrop, iconview text selection:backdrop, textview text selection:backdrop:focus, textview text selection:backdrop, .view:backdrop:selected, iconview:backdrop:selected, .view text:backdrop:selected, iconview text:backdrop:selected, textview text:backdrop:selected { color: #d1ff96; background-color: #669900; }
 
+.nemo-desktop-window stack { background: none; border: none; }
+
 * { padding: 0; -GtkToolButton-icon-spacing: 4; -GtkTextView-error-underline-color: #CC0000; -GtkScrolledWindow-scrollbar-spacing: 0; -GtkToolItemGroup-expander-size: 11; -GtkWidget-text-handle-width: 20; -GtkWidget-text-handle-height: 24; -GtkDialog-button-spacing: 4; -GtkDialog-action-area-border: 0; outline-color: alpha(currentColor,0.3); outline-style: dashed; outline-offset: -3px; outline-width: 1px; -gtk-outline-radius: 0px; -gtk-secondary-caret-color: #669900; }
 
 /*************** Base States * */
@@ -172,15 +174,15 @@ treeview entry.flat:focus, treeview entry:focus { border-color: #669900; }
 
 button.titlebutton, scrollbar slider, notebook > header > tabs > arrow, notebook.frame > header > tabs > arrow, .nautilus-path-bar .path-buttons-box button, calendar.button, button { min-height: 1.6em; min-width: 1.6em; padding: 2px 4px; border: 2px solid; border-radius: 0px; transition: none; border-width: 2px; color: #EDF0F5; background-color: #4e584d; border-left-color: #878e87; border-top-color: #878e87; border-right-color: #343a33; border-bottom-color: #343a33; }
 
-button.sidebar-button, notebook > header > tabs > arrow, notebook.frame > header > tabs > arrow, .nautilus-path-bar .path-buttons-box button, scrollbar slider.flat:not(:hover):not(:active):not(:checked):not(:disabled), notebook > header > tabs > arrow.flat:not(:hover):not(:active):not(:checked):not(:disabled), calendar.flat.button:not(:hover):not(:active):not(:checked):not(:disabled), button.flat:not(:hover):not(:active):not(:checked):not(:disabled) { border-width: 2px; border-color: transparent; background-color: transparent; background-image: none; text-shadow: none; -gtk-icon-shadow: none; transition: none; }
+button.sidebar-button, notebook > header > tabs > arrow, notebook.frame > header > tabs > arrow, .nautilus-path-bar .path-buttons-box button, scrollbar slider.flat:not(:hover):not(:active):not(:checked):not(:disabled):not(:focus), notebook > header > tabs > arrow.flat:not(:hover):not(:active):not(:checked):not(:disabled):not(:focus), calendar.flat.button:not(:hover):not(:active):not(:checked):not(:disabled):not(:focus), button.flat:not(:hover):not(:active):not(:checked):not(:disabled):not(:focus) { border-width: 2px; border-color: transparent; background-color: transparent; background-image: none; text-shadow: none; -gtk-icon-shadow: none; transition: none; }
 
-scrollbar slider:hover, notebook > header > tabs > arrow:hover, notebook.frame > header > tabs > arrow:hover, .nautilus-path-bar .path-buttons-box button:hover, calendar.button:hover, button:hover { border-width: 2px; background-color: #5a6659; border-left-color: #989f97; border-top-color: #989f97; border-right-color: #3e463d; border-bottom-color: #3e463d; -gtk-icon-effect: highlight; }
+scrollbar slider:hover, notebook > header > tabs > arrow:hover, notebook.frame > header > tabs > arrow:hover, .nautilus-path-bar .path-buttons-box button:hover, scrollbar slider:focus, notebook > header > tabs > arrow:focus, notebook.frame > header > tabs > arrow:focus, .nautilus-path-bar .path-buttons-box button:focus, calendar.button:hover, calendar.button:focus, button:hover, button:focus { border-width: 2px; background-color: #5a6659; border-left-color: #989f97; border-top-color: #989f97; border-right-color: #3e463d; border-bottom-color: #3e463d; -gtk-icon-effect: highlight; }
 
 scrollbar slider:active, notebook > header > tabs > arrow:active, notebook.frame > header > tabs > arrow:active, .nautilus-path-bar .path-buttons-box button:active, calendar.button:active, button:active { border-width: 2px; background-color: #4e584d; border-left-color: #343a33; border-top-color: #343a33; border-right-color: #878e87; border-bottom-color: #878e87; }
 
 scrollbar slider:checked, notebook > header > tabs > arrow:checked, notebook.frame > header > tabs > arrow:checked, .nautilus-path-bar .path-buttons-box button:checked, calendar.button:checked, button:checked, button:checked:active { border-width: 2px; color: #d1ff96; background-color: #669900; border-left-color: #426300; border-top-color: #426300; border-right-color: #94b84d; border-bottom-color: #94b84d; }
 
-scrollbar slider:checked:hover:not(:active), notebook > header > tabs > arrow:checked:hover:not(:active), calendar.button:checked:hover:not(:active), button:checked:hover:not(:active) { border-width: 2px; color: #d1ff96; background-color: #77b300; border-left-color: #507800; border-top-color: #507800; border-right-color: #a7cd59; border-bottom-color: #a7cd59; }
+scrollbar slider:checked:hover:not(:active), notebook > header > tabs > arrow:checked:hover:not(:active), scrollbar slider:checked:focus:not(:active), notebook > header > tabs > arrow:checked:focus:not(:active), calendar.button:checked:hover:not(:active), calendar.button:checked:focus:not(:active), button:checked:hover:not(:active), button:checked:focus:not(:active) { border-width: 2px; color: #d1ff96; background-color: #77b300; border-left-color: #507800; border-top-color: #507800; border-right-color: #a7cd59; border-bottom-color: #a7cd59; }
 
 scrollbar slider:disabled, notebook > header > tabs > arrow:disabled, notebook.frame > header > tabs > arrow:disabled, .nautilus-path-bar .path-buttons-box button:disabled, calendar.button:disabled, button:disabled { border-width: 2px; color: #7c675a; background-color: #493e37; border-left-color: #776e69; border-top-color: #776e69; border-right-color: #2e2722; border-bottom-color: #2e2722; }
 
@@ -204,7 +206,7 @@ calendar.osd.button, button.osd { min-width: 26px; min-height: 32px; color: #66c
 
 calendar.osd.image-button.button, button.osd.image-button { min-width: 34px; }
 
-calendar.osd.button:hover, button.osd:hover { border-width: 2px; color: #66cbec; background-color: #25478d; border-left-color: #7288b5; border-top-color: #7288b5; border-right-color: #19305f; border-bottom-color: #19305f; box-shadow: none; }
+calendar.osd.button:hover, calendar.osd.button:focus, button.osd:hover, button.osd:focus { border-width: 2px; color: #66cbec; background-color: #25478d; border-left-color: #7288b5; border-top-color: #7288b5; border-right-color: #19305f; border-bottom-color: #19305f; box-shadow: none; }
 
 calendar.osd.button:active, calendar.osd.button:checked, button.osd:active, button.osd:checked { border-width: 2px; color: #66cbec; background-color: #25478d; border-left-color: #19305f; border-top-color: #19305f; border-right-color: #7288b5; border-bottom-color: #7288b5; box-shadow: none; }
 
@@ -212,7 +214,7 @@ calendar.osd.button:disabled, button.osd:disabled { border-width: 2px; color: #7
 
 .app-notification button, .app-notification.frame button, .csd popover.background.touch-selection button, .csd popover.background.magnifier button, popover.background.touch-selection button, popover.background.magnifier button, .osd calendar.button, .osd button { border-width: 2px; color: #66cbec; background-color: #203d79; border-left-color: #6377a1; border-top-color: #6377a1; border-right-color: #15284f; border-bottom-color: #15284f; }
 
-.app-notification button:hover, popover.background.touch-selection button:hover, popover.background.magnifier button:hover, .osd calendar.button:hover, .osd button:hover { border-width: 2px; background-color: #25478d; border-left-color: #7288b5; border-top-color: #7288b5; border-right-color: #19305f; border-bottom-color: #19305f; }
+.app-notification button:hover, popover.background.touch-selection button:hover, popover.background.magnifier button:hover, .app-notification button:focus, popover.background.touch-selection button:focus, popover.background.magnifier button:focus, .osd calendar.button:hover, .osd calendar.button:focus, .osd button:hover, .osd button:focus { border-width: 2px; background-color: #25478d; border-left-color: #7288b5; border-top-color: #7288b5; border-right-color: #19305f; border-bottom-color: #19305f; }
 
 .app-notification button:active, popover.background.touch-selection button:active, popover.background.magnifier button:active, .app-notification button:checked, popover.background.touch-selection button:checked, popover.background.magnifier button:checked, .osd calendar.button:active, .osd calendar.button:checked, .osd button:active, .osd button:checked { border-width: 2px; background-color: #203d79; border-left-color: #15284f; border-top-color: #15284f; border-right-color: #6377a1; border-bottom-color: #6377a1; }
 
@@ -222,7 +224,7 @@ calendar.osd.button:disabled, button.osd:disabled { border-width: 2px; color: #7
 
 .app-notification button.flat:not(:hover):not(:active):not(:checked):not(:disabled), popover.background.touch-selection button.flat:not(:hover):not(:active):not(:checked):not(:disabled), popover.background.magnifier button.flat:not(:hover):not(:active):not(:checked):not(:disabled), .osd calendar.flat.button:not(:hover):not(:active):not(:checked):not(:disabled), .osd button.flat:not(:hover):not(:active):not(:checked):not(:disabled) { border-width: 2px; border-color: transparent; background-color: transparent; background-image: none; text-shadow: none; -gtk-icon-shadow: none; }
 
-.app-notification button.flat:hover, popover.background.touch-selection button.flat:hover, popover.background.magnifier button.flat:hover, .osd calendar.flat.button:hover, .osd button.flat:hover { border-width: 2px; background-color: #25478d; border-left-color: #7288b5; border-top-color: #7288b5; border-right-color: #19305f; border-bottom-color: #19305f; }
+.app-notification button.flat:hover, popover.background.touch-selection button.flat:hover, popover.background.magnifier button.flat:hover, .app-notification button.flat:focus, popover.background.touch-selection button.flat:focus, popover.background.magnifier button.flat:focus, .osd calendar.flat.button:hover, .osd calendar.flat.button:focus, .osd button.flat:hover, .osd button.flat:focus { border-width: 2px; background-color: #25478d; border-left-color: #7288b5; border-top-color: #7288b5; border-right-color: #19305f; border-bottom-color: #19305f; }
 
 .app-notification button.flat:disabled, popover.background.touch-selection button.flat:disabled, popover.background.magnifier button.flat:disabled, .osd calendar.flat.button:disabled, .osd button.flat:disabled { border-width: 2px; color: #7c675a; background-color: #493e37; border-left-color: #776e69; border-top-color: #776e69; border-right-color: #2e2722; border-bottom-color: #2e2722; background-color: #493e37; background-image: none; border-color: transparent; box-shadow: none; }
 
@@ -232,7 +234,7 @@ calendar.suggested-action.button, button.suggested-action { border-width: 2px; c
 
 calendar.suggested-action.flat.button, button.suggested-action.flat { border-width: 2px; border-color: transparent; background-color: transparent; background-image: none; text-shadow: none; -gtk-icon-shadow: none; color: #26ab62; }
 
-calendar.suggested-action.button:hover, button.suggested-action:hover { border-width: 2px; background-color: #2bbf6e; border-left-color: #8dddb1; border-top-color: #8dddb1; border-right-color: #1f8c50; border-bottom-color: #1f8c50; }
+calendar.suggested-action.button:hover, calendar.suggested-action.button:focus, button.suggested-action:hover, button.suggested-action:focus { border-width: 2px; background-color: #2bbf6e; border-left-color: #8dddb1; border-top-color: #8dddb1; border-right-color: #1f8c50; border-bottom-color: #1f8c50; }
 
 calendar.suggested-action.button:active, calendar.suggested-action.button:checked, button.suggested-action:active, button.suggested-action:checked { border-width: 2px; background-color: #26ab62; border-left-color: #1b7845; border-top-color: #1b7845; border-right-color: #7fcda2; border-bottom-color: #7fcda2; }
 
@@ -244,7 +246,7 @@ calendar.suggested-action.button:disabled:active, calendar.suggested-action.butt
 
 .osd calendar.suggested-action.button, .osd button.suggested-action { border-width: 2px; color: #66cbec; background-color: #203d79; border-left-color: #6377a1; border-top-color: #6377a1; border-right-color: #15284f; border-bottom-color: #15284f; }
 
-.osd calendar.suggested-action.button:hover, .osd button.suggested-action:hover { border-width: 2px; color: #66cbec; background-color: #25478d; border-left-color: #7288b5; border-top-color: #7288b5; border-right-color: #19305f; border-bottom-color: #19305f; }
+.osd calendar.suggested-action.button:hover, .osd calendar.suggested-action.button:focus, .osd button.suggested-action:hover, .osd button.suggested-action:focus { border-width: 2px; color: #66cbec; background-color: #25478d; border-left-color: #7288b5; border-top-color: #7288b5; border-right-color: #19305f; border-bottom-color: #19305f; }
 
 .osd calendar.suggested-action.button:active, .osd calendar.suggested-action.button:checked, .osd button.suggested-action:active:backdrop, .osd button.suggested-action:active, .osd button.suggested-action:checked:backdrop, .osd button.suggested-action:checked { border-width: 2px; color: #66cbec; background-color: #25478d; border-left-color: #19305f; border-top-color: #19305f; border-right-color: #7288b5; border-bottom-color: #7288b5; }
 
@@ -254,7 +256,7 @@ calendar.destructive-action.button, button.destructive-action { border-width: 2p
 
 calendar.destructive-action.flat.button, button.destructive-action.flat { border-width: 2px; border-color: transparent; background-color: transparent; background-image: none; text-shadow: none; -gtk-icon-shadow: none; color: #CC0000; }
 
-calendar.destructive-action.button:hover, button.destructive-action:hover { border-width: 2px; background-color: #e60000; border-left-color: #f17373; border-top-color: #f17373; border-right-color: #a60000; border-bottom-color: #a60000; }
+calendar.destructive-action.button:hover, calendar.destructive-action.button:focus, button.destructive-action:hover, button.destructive-action:focus { border-width: 2px; background-color: #e60000; border-left-color: #f17373; border-top-color: #f17373; border-right-color: #a60000; border-bottom-color: #a60000; }
 
 calendar.destructive-action.button:active, calendar.destructive-action.button:checked, button.destructive-action:active, button.destructive-action:checked { border-width: 2px; background-color: #CC0000; border-left-color: #8f0000; border-top-color: #8f0000; border-right-color: #e06666; border-bottom-color: #e06666; }
 
@@ -266,7 +268,7 @@ calendar.destructive-action.button:disabled:active, calendar.destructive-action.
 
 .osd calendar.destructive-action.button, .osd button.destructive-action { border-width: 2px; color: #66cbec; background-color: #203d79; border-left-color: #6377a1; border-top-color: #6377a1; border-right-color: #15284f; border-bottom-color: #15284f; }
 
-.osd calendar.destructive-action.button:hover, .osd button.destructive-action:hover { border-width: 2px; color: #66cbec; background-color: #25478d; border-left-color: #7288b5; border-top-color: #7288b5; border-right-color: #19305f; border-bottom-color: #19305f; }
+.osd calendar.destructive-action.button:hover, .osd calendar.destructive-action.button:focus, .osd button.destructive-action:hover, .osd button.destructive-action:focus { border-width: 2px; color: #66cbec; background-color: #25478d; border-left-color: #7288b5; border-top-color: #7288b5; border-right-color: #19305f; border-bottom-color: #19305f; }
 
 .osd calendar.destructive-action.button:active, .osd calendar.destructive-action.button:checked, .osd button.destructive-action:active:backdrop, .osd button.destructive-action:active, .osd button.destructive-action:checked:backdrop, .osd button.destructive-action:checked { border-width: 2px; color: #66cbec; background-color: #25478d; border-left-color: #19305f; border-top-color: #19305f; border-right-color: #7288b5; border-bottom-color: #7288b5; }
 
