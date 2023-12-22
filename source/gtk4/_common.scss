@@ -1159,6 +1159,11 @@ dropdown > button > box {
 
 dropdown,
 combobox {
+  button {
+    min-height: $_entry_height;
+    min-width: $_entry_height;
+    padding: 2px;
+  }
   arrow {
     -gtk-icon-source: -gtk-icontheme('pan-down-symbolic');
     min-height: 16px;
@@ -1513,7 +1518,7 @@ headerbar {
     border-color: transparent;
   }
 
-  separator { background-color: $borders_color; }  // FIXME: use darker border?
+  //separator { background-color: $borders_color; }  // FIXME: use darker border?
 
   @extend %titlebar;
 }
@@ -2297,7 +2302,7 @@ treeview.view radio:selected { &:selected, &:focus, & { @extend %radio; }} // Th
   //margin: 1px;
 
   &:disabled {
-    background-color: mix($insensitive_bg_color, $insensitive_fg_color, 80%);
+    background-color: mix($insensitive_bg_color, $insensitive_fg_color, 50%);
     //border-color: transparent;
   }
 
@@ -2739,7 +2744,10 @@ separator {
   min-width: 0px;
   min-height: 0px;
   statusbar &, .osd &, osd & {@include relief($hint_bg);}
-  headerbar:not(:backdrop) & {@include relief($titlebar_active_bg);}
+  .titlebar:not(:backdrop) & {@include relief($titlebar_active_bg);}
+  button & {@include relief($button_bg);}
+  :disabled & {@include relief($insensitive_bg_color);}
+  button:checked & {@include relief($button_checked_bg);}
 }
 
 

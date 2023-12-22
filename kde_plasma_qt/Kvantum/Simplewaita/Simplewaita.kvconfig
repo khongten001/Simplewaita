@@ -385,6 +385,7 @@ frame=true
 inherits=PanelButtonCommand
 frame.element=tooltip
 interior.element=tooltip
+text.normal.color=white
 frame.top=2
 frame.bottom=2
 frame.left=2

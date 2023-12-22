@@ -426,6 +426,8 @@ treeview spinbutton:not(.vertical) entry { min-height: 0; }
 /************** ComboBoxes * */
 combobox arrow { -gtk-icon-source: -gtk-icontheme("pan-down-symbolic"); min-height: 16px; min-width: 16px; }
 
+combobox button { min-height: 1.6em; min-width: 1.6em; padding: 2px; }
+
 combobox:drop(active) { box-shadow: none; }
 
 /************ Toolbars * */
@@ -533,8 +535,6 @@ window stack headerbar:first-child:backdrop, window stack headerbar:first-child,
 window.tiled headerbar, window.tiled headerbar:first-child, window.tiled headerbar:last-child, window.tiled headerbar:only-child, window.tiled headerbar:backdrop, window.tiled headerbar:backdrop:first-child, window.tiled headerbar:backdrop:last-child, window.tiled headerbar:backdrop:only-child, window.tiled-top headerbar, window.tiled-top headerbar:first-child, window.tiled-top headerbar:last-child, window.tiled-top headerbar:only-child, window.tiled-top headerbar:backdrop, window.tiled-top headerbar:backdrop:first-child, window.tiled-top headerbar:backdrop:last-child, window.tiled-top headerbar:backdrop:only-child, window.tiled-right headerbar, window.tiled-right headerbar:first-child, window.tiled-right headerbar:last-child, window.tiled-right headerbar:only-child, window.tiled-right headerbar:backdrop, window.tiled-right headerbar:backdrop:first-child, window.tiled-right headerbar:backdrop:last-child, window.tiled-right headerbar:backdrop:only-child, window.tiled-bottom headerbar, window.tiled-bottom headerbar:first-child, window.tiled-bottom headerbar:last-child, window.tiled-bottom headerbar:only-child, window.tiled-bottom headerbar:backdrop, window.tiled-bottom headerbar:backdrop:first-child, window.tiled-bottom headerbar:backdrop:last-child, window.tiled-bottom headerbar:backdrop:only-child, window.tiled-left headerbar, window.tiled-left headerbar:first-child, window.tiled-left headerbar:last-child, window.tiled-left headerbar:only-child, window.tiled-left headerbar:backdrop, window.tiled-left headerbar:backdrop:first-child, window.tiled-left headerbar:backdrop:last-child, window.tiled-left headerbar:backdrop:only-child, window.maximized headerbar, window.maximized headerbar:first-child, window.maximized headerbar:last-child, window.maximized headerbar:only-child, window.maximized headerbar:backdrop, window.maximized headerbar:backdrop:first-child, window.maximized headerbar:backdrop:last-child, window.maximized headerbar:backdrop:only-child, window.fullscreen headerbar, window.fullscreen headerbar:first-child, window.fullscreen headerbar:last-child, window.fullscreen headerbar:only-child, window.fullscreen headerbar:backdrop, window.fullscreen headerbar:backdrop:first-child, window.fullscreen headerbar:backdrop:last-child, window.fullscreen headerbar:backdrop:only-child, window.solid-csd headerbar, window.solid-csd headerbar:first-child, window.solid-csd headerbar:last-child, window.solid-csd headerbar:only-child, window.solid-csd headerbar:backdrop, window.solid-csd headerbar:backdrop:first-child, window.solid-csd headerbar:backdrop:last-child, window.solid-csd headerbar:backdrop:only-child { border-top-left-radius: 0; border-top-right-radius: 0; }
 
 window.csd > .titlebar:not(headerbar) { padding: 0; background-color: transparent; background-image: none; border-style: none; border-color: transparent; box-shadow: none; }
-
-.titlebar:not(headerbar) separator { background-color: #252525; }
 
 window.devel headerbar.titlebar:not(.selection-mode) { background: #3f3e3e cross-fade(10% -gtk-icontheme("system-run-symbolic"), image(transparent)) 90% 0/256px 256px no-repeat, linear-gradient(to right, transparent 65%, rgba(102, 153, 0, 0.1)), linear-gradient(to top, #2d2c2c 3px, #323131); }
 
@@ -953,7 +953,7 @@ levelbar > trough:disabled, progressbar trough:disabled, scale fill:disabled, sc
 
 progressbar progress, scale highlight { border: none; border-radius: 0px; background-color: #669900; }
 
-progressbar progress:disabled, scale highlight:disabled { background-color: #53463e; }
+progressbar progress:disabled, scale highlight:disabled { background-color: #635349; }
 
 scale { min-height: 10px; min-width: 10px; padding: 12px; }
 
@@ -1098,7 +1098,13 @@ separator { border-width: 2px; border-style: solid; background-color: #3f3e3e; b
 
 statusbar separator, .osd separator, osd separator { background-color: #203d79; border-left-color: #6377a1; border-top-color: #6377a1; border-right-color: #15284f; border-bottom-color: #15284f; }
 
-headerbar:not(:backdrop) separator { background-color: #507800; border-left-color: #79983c; border-top-color: #79983c; border-right-color: #314a00; border-bottom-color: #314a00; }
+.titlebar:not(:backdrop) separator { background-color: #507800; border-left-color: #79983c; border-top-color: #79983c; border-right-color: #314a00; border-bottom-color: #314a00; }
+
+button separator { background-color: #4e584d; border-left-color: #878e87; border-top-color: #878e87; border-right-color: #343a33; border-bottom-color: #343a33; }
+
+:disabled separator { background-color: #493e37; border-left-color: #776e69; border-top-color: #776e69; border-right-color: #2e2722; border-bottom-color: #2e2722; }
+
+button:checked separator { background-color: #669900; border-left-color: #94b84d; border-top-color: #94b84d; border-right-color: #426300; border-bottom-color: #426300; }
 
 /********* Lists * */
 list { color: #EDF0F5; background-color: #323232; border-color: #252525; }
