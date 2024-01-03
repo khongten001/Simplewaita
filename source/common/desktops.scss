@@ -1,0 +1,38 @@
+// Other desktops fixes
+
+// XFCE
+
+
+XfdesktopIconView.view {
+    text-shadow: 0 0 2px $base_color, 0 0 2px $base_color, 0 0 2px $base_color;
+    color: $text_color;
+    background-color: transparent;
+    
+    .rubberband {
+        background-color: gtkalpha($selected_bg_color, 0.5);
+    }
+}
+
+XfdesktopIconView.view:active {
+    text-shadow: none;
+    color: $selected_fg_color;
+    background-color: gtkalpha($selected_bg_color, 0.5);
+}
+
+#XfceNotifyWindow {
+    
+      color: $hint_fg;
+      border-radius: $window_radius;
+      border-width: $border_width;
+      border-style: solid;
+      @include relief($hint_bg);
+      label {color: $hint_fg}
+      label #summary { font-weight: bold; }
+      
+      button { 
+        @include button(osd);
+        &:hover {@include button(osd-hover); }
+        &:active {@include button(osd-active);}
+      }
+
+  }

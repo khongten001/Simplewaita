@@ -1667,6 +1667,12 @@ undershoot.left { background-size: 0.5em 100%; background-position: left; }
 
 undershoot.right { background-size: 0.5em 100%; background-position: right; }
 
+XfdesktopIconView.view { text-shadow: 0 0 2px #323232, 0 0 2px #323232, 0 0 2px #323232; color: #EDF0F5; background-color: transparent; }
+
+XfdesktopIconView.view .rubberband { background-color: alpha(#669900,0.5); }
+
+XfdesktopIconView.view:active { text-shadow: none; color: #d1ff96; background-color: alpha(#669900,0.5); }
+
 #XfceNotifyWindow { color: #66cbec; border-radius: 0px; border-width: 2px; border-style: solid; background-color: #203d79; border-left-color: #6377a1; border-top-color: #6377a1; border-right-color: #15284f; border-bottom-color: #15284f; }
 
 #XfceNotifyWindow label { color: #66cbec; }
