@@ -1532,6 +1532,8 @@ XfdesktopIconView.view:active { text-shadow: none; color: #d1ff96; background-co
 
 #XfceNotifyWindow button:active { border-width: 2px; color: #66cbec; background-color: #25478d; border-left-color: #19305f; border-top-color: #19305f; border-right-color: #7288b5; border-bottom-color: #7288b5; }
 
+.nemo-desktop-window notebook { border: none; }
+
 /* GTK NAMED COLORS ---------------- use responsibly! */
 /*
 widget text/foreground color */

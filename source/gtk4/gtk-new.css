@@ -8,13 +8,13 @@ $selected_bg_color: if($variant == 'light', #3584e4, darken(#3584e4, 20%));*/
 /*Usually an automatic fg color on these backgrounds should check this value!*/
 /*************************** Check and Radio buttons * */
 /*************************** Check and Radio buttons * */
-calendar > grid > label.day-number:selected, row:selected, columnview.view:selected:focus, columnview.view:selected, treeview.view:selected:focus, treeview.view:selected, modelbutton.flat:selected, modelbutton.flat:hover:not(.osd):not(:checked):not(:active):not(:disabled):not(:backdrop), modelbutton.flat:focus:not(.osd):not(:checked):not(:active):not(:disabled):not(:backdrop), gridview > child:selected, flowbox > flowboxchild:selected, .view:selected:focus, iconview:selected:focus, .view:selected, iconview:selected, textview > text:selected:focus, textview > text:selected { background-color: #669900; color: #d1ff96; }
+calendar > grid > label.day-number:selected, row:selected, columnview.view:selected:focus, columnview.view:selected, treeview.view:selected:focus, treeview.view:selected, modelbutton.flat:selected, modelbutton.flat:hover:not(.osd):not(:checked):not(:active):not(:disabled):not(:backdrop), modelbutton.flat:focus:not(.osd):not(:checked):not(:active):not(:disabled):not(:backdrop), .entry:selected:focus, .entry:selected, gridview > child:selected, flowbox > flowboxchild:selected, .view:selected:focus, iconview:selected:focus, .view:selected, iconview:selected, textview > text:selected:focus, textview > text:selected { background-color: #669900; color: #d1ff96; }
 
-label:selected, calendar > grid > label.day-number:selected, row:selected, columnview.view:selected:focus, columnview.view:selected, treeview.view:selected:focus, treeview.view:selected, modelbutton.flat:selected, modelbutton.flat:hover:not(.osd):not(:checked):not(:active):not(:disabled):not(:backdrop), modelbutton.flat:focus:not(.osd):not(:checked):not(:active):not(:disabled):not(:backdrop), gridview > child:selected, flowbox > flowboxchild:selected, .view:selected:focus, iconview:selected:focus, .view:selected, iconview:selected, textview > text:selected:focus, textview > text:selected { color: #d1ff96; }
+label:selected, calendar > grid > label.day-number:selected, row:selected, columnview.view:selected:focus, columnview.view:selected, treeview.view:selected:focus, treeview.view:selected, modelbutton.flat:selected, modelbutton.flat:hover:not(.osd):not(:checked):not(:active):not(:disabled):not(:backdrop), modelbutton.flat:focus:not(.osd):not(:checked):not(:active):not(:disabled):not(:backdrop), .entry:selected:focus, .entry:selected, gridview > child:selected, flowbox > flowboxchild:selected, .view:selected:focus, iconview:selected:focus, .view:selected, iconview:selected, textview > text:selected:focus, textview > text:selected { color: #d1ff96; }
 
-label:disabled > selection, label:disabled:selected, calendar > grid > label.day-number:disabled:selected, row:disabled:selected, columnview.view:disabled:selected, treeview.view:disabled:selected, modelbutton.flat:disabled:selected, modelbutton.flat:disabled:hover:not(.osd):not(:checked):not(:active):not(:disabled):not(:backdrop), modelbutton.flat:disabled:focus:not(.osd):not(:checked):not(:active):not(:disabled):not(:backdrop), gridview > child:disabled:selected, flowbox > flowboxchild:disabled:selected, .view:disabled:selected, iconview:disabled:selected, textview > text:disabled:selected { color: #9ccc4b; }
+label:disabled > selection, label:disabled:selected, calendar > grid > label.day-number:disabled:selected, row:disabled:selected, columnview.view:disabled:selected, treeview.view:disabled:selected, modelbutton.flat:disabled:selected, modelbutton.flat:disabled:hover:not(.osd):not(:checked):not(:active):not(:disabled):not(:backdrop), modelbutton.flat:disabled:focus:not(.osd):not(:checked):not(:active):not(:disabled):not(:backdrop), .entry:disabled:selected, gridview > child:disabled:selected, flowbox > flowboxchild:disabled:selected, .view:disabled:selected, iconview:disabled:selected, textview > text:disabled:selected { color: #9ccc4b; }
 
-label:backdrop:selected, calendar > grid > label.day-number:backdrop:selected, row:backdrop:selected, columnview.view:backdrop:selected, treeview.view:backdrop:selected, modelbutton.flat:backdrop:selected, modelbutton.flat:backdrop:hover:not(.osd):not(:checked):not(:active):not(:disabled):not(:backdrop), modelbutton.flat:backdrop:focus:not(.osd):not(:checked):not(:active):not(:disabled):not(:backdrop), gridview > child:backdrop:selected, flowbox > flowboxchild:backdrop:selected, .view:backdrop:selected, iconview:backdrop:selected, textview > text:backdrop:selected { color: #d1ff96; background-color: #669900; }
+label:backdrop:selected, calendar > grid > label.day-number:backdrop:selected, row:backdrop:selected, columnview.view:backdrop:selected, treeview.view:backdrop:selected, modelbutton.flat:backdrop:selected, modelbutton.flat:backdrop:hover:not(.osd):not(:checked):not(:active):not(:disabled):not(:backdrop), modelbutton.flat:backdrop:focus:not(.osd):not(:checked):not(:active):not(:disabled):not(:backdrop), .entry:backdrop:selected, gridview > child:backdrop:selected, flowbox > flowboxchild:backdrop:selected, .view:backdrop:selected, iconview:backdrop:selected, textview > text:backdrop:selected { color: #d1ff96; background-color: #669900; }
 
 .nemo-desktop-window stack { background: none; border: none; }
 
@@ -209,6 +209,8 @@ treeview entry:focus-within:dir(rtl), treeview entry:focus-within:dir(ltr) { bac
 treeview entry.flat, treeview entry { border-radius: 0; background-image: none; background-color: #323232; }
 
 treeview entry.flat:focus-within, treeview entry:focus-within { border-color: #669900; }
+
+.entry:selected:focus, .entry:selected { border-radius: 0px; }
 
 /******************* Editable Labels * */
 editablelabel > stack > text { color: #EDF0F5; background-color: #323232; border-left-color: #1e1e1e; border-top-color: #1e1e1e; border-right-color: #5a5a5a; border-bottom-color: #5a5a5a; }
@@ -1684,6 +1686,8 @@ XfdesktopIconView.view:active { text-shadow: none; color: #d1ff96; background-co
 #XfceNotifyWindow button:hover { border-width: 2px; color: #66cbec; background-color: #25478d; border-left-color: #7288b5; border-top-color: #7288b5; border-right-color: #19305f; border-bottom-color: #19305f; }
 
 #XfceNotifyWindow button:active { border-width: 2px; color: #66cbec; background-color: #25478d; border-left-color: #19305f; border-top-color: #19305f; border-right-color: #7288b5; border-bottom-color: #7288b5; }
+
+.nemo-desktop-window notebook { border: none; }
 
 /* GTK NAMED COLORS ---------------- use responsibly! */
 /*
