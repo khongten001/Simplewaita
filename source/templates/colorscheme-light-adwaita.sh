@@ -48,6 +48,7 @@ vosd_bg=$vhint_bg
 vlink_fg="#004B91"
 vlink_visited_fg="#680091"
 
-
+vbutton_radius="0px"
+vwindow_radius="0px"
 # export	vwindow_fg	vwindow_bg	vtext_widget_fg	vtext_widget_bg		vselected_fg	vselected_bg		vbutton_fg	vbutton_bg	vbutton_checked_bg	vbutton_checked_fg			vdisabled_fg	vdisabled_bg				vwarningc	verrorc	vsuccessc			vtitlebar_active_fg	vtitlebar_active_bg		vtitlebar_backdrop_fg	vtitlebar_backdrop_bg		vhint_fg	vhint_bg		vosd_fg	vosd_bg		vlink_fg	vlink_visited_fg
 

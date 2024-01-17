@@ -22,7 +22,7 @@ $successc: #33d17a;
 
 
 $titlebar_active_fg: #d1ff96;
-$titlebar_active_bg: #669900;
+$titlebar_active_bg: #507800;
 
 $titlebar_backdrop_fg: #EDF0F5;
 $titlebar_backdrop_bg: #3f3e3e;

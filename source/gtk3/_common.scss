@@ -458,6 +458,16 @@ treeview entry {
   }
 }
 
+.entry {
+	&:selected {
+	    &:focus, & {
+	      @extend %selected_items;
+
+	      border-radius: $button_radius;
+	    }
+	  }
+}
+
 /******************************************************
  * Buttons                                            * 
  ******************************************************/
