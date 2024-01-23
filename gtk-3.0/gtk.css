@@ -202,7 +202,7 @@ row:selected button.sidebar-button:not(:active):not(:checked):not(:hover):not(di
 
 row:selected button.sidebar-button:not(:active):not(:checked):not(:hover):not(disabled):backdrop, row:selected calendar.flat.button:not(:active):not(:checked):not(:hover):not(disabled):backdrop, row:selected button.flat:not(:active):not(:checked):not(:hover):not(disabled):backdrop { color: #EDF0F5; }
 
-calendar.osd.button, button.osd { min-width: 26px; min-height: 32px; color: #66cbec; border-radius: 0; border-width: 2px; color: #66cbec; background-color: #203d79; border-left-color: #6377a1; border-top-color: #6377a1; border-right-color: #15284f; border-bottom-color: #15284f; box-shadow: none; }
+calendar.osd.button, button.osd { min-width: 26px; min-height: 32px; color: #66cbec; border-radius: 0px; border-width: 2px; color: #66cbec; background-color: #203d79; border-left-color: #6377a1; border-top-color: #6377a1; border-right-color: #15284f; border-bottom-color: #15284f; box-shadow: none; }
 
 calendar.osd.image-button.button, button.osd.image-button { min-width: 34px; }
 
@@ -1537,8 +1537,6 @@ XfdesktopIconView.view:active { text-shadow: none; color: #d1ff96; background-co
 .nautilus-window .top-bar .collapse-spacing { padding: 0; }
 
 .nautilus-window .nautilus-list-view columnview, .nautilus-window .nautilus-list-view listview, .nautilus-window .nautilus-list-view cell { padding: 0; margin: 0; }
-
-.nautilus-window .nautilus-list-view scrolledwindow columnview { padding-right: 1em; }
 
 .nautilus-window .nautilus-list-view row { margin: 0; }
 

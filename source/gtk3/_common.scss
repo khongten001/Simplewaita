@@ -611,7 +611,7 @@ button {
     &.image-button { min-width: 34px; }
 
     color: $osd_fg_color;
-    border-radius: 0;
+    border-radius: $button_radius;
 
     @include button(osd);
 

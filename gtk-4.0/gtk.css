@@ -170,6 +170,16 @@ spinbutton.vertical > text.error:focus-within, spinbutton.error:focus-within:not
 
 spinbutton.vertical > text.error > selection, spinbutton.error:not(.vertical) > selection, entry.error > selection { background-color: #CC0000; }
 
+spinbutton.vertical > text.success, spinbutton.success:not(.vertical), entry.success { color: #33d17a; transition-property: outline, outline-width, outline-offset, outline-color; transition-duration: 300ms; animation-timing-function: ease-in-out; }
+
+spinbutton.vertical > text.success, spinbutton.success:not(.vertical), entry.success { outline: 0 solid transparent; outline-offset: 4px; }
+
+spinbutton.vertical > text.success:focus-within, spinbutton.success:focus-within:not(.vertical), entry.success:focus-within { outline-color: transparent; outline-width: 0; outline-offset: -2px; }
+
+spinbutton.vertical > text.success:focus-within, spinbutton.success:focus-within:not(.vertical), entry.success:focus-within { background-color: #323232; border-left-color: #279e5c; border-top-color: #279e5c; border-right-color: #9be8be; border-bottom-color: #9be8be; }
+
+spinbutton.vertical > text.success > selection, spinbutton.success:not(.vertical) > selection, entry.success > selection { background-color: #33d17a; }
+
 spinbutton.vertical > text.warning, spinbutton.warning:not(.vertical), entry.warning { color: #f57900; transition-property: outline, outline-width, outline-offset, outline-color; transition-duration: 300ms; animation-timing-function: ease-in-out; }
 
 spinbutton.vertical > text.warning, spinbutton.warning:not(.vertical), entry.warning { outline: 0 solid transparent; outline-offset: 4px; }
@@ -201,6 +211,8 @@ spinbutton.vertical > text > progress, spinbutton:not(.vertical) > progress, ent
 spinbutton.vertical > text progress > trough > progress, spinbutton:not(.vertical) progress > trough > progress, entry progress > trough > progress { background-color: transparent; background-image: none; border-radius: 0; border-width: 0 0 2px; border-color: #669900; border-style: solid; box-shadow: none; }
 
 spinbutton.vertical > text.error, spinbutton.error:not(.vertical), entry.error { color: #CC0000; }
+
+.linked spinbutton.vertical > text, .linked spinbutton:not(.vertical), .linked entry { margin: 0; }
 
 treeview entry:focus-within:dir(rtl), treeview entry:focus-within:dir(ltr) { background-color: #323232; transition-property: color, background; }
 
@@ -254,7 +266,7 @@ dropdown:drop(active) button.combo, combobox:drop(active) button.combo, splitbut
 
 row:selected button.sidebar-button:not(:active):not(:checked):not(:hover):not(disabled), row:selected button.flat:not(:active):not(:checked):not(:hover):not(disabled) { color: #d1ff96; border-color: transparent; }
 
-button.osd { min-width: 26px; min-height: 32px; color: #66cbec; border-radius: 5px; border-width: 2px; color: #66cbec; background-color: #203d79; border-left-color: #6377a1; border-top-color: #6377a1; border-right-color: #15284f; border-bottom-color: #15284f; box-shadow: none; }
+button.osd { min-width: 26px; min-height: 32px; color: #66cbec; border-radius: 0px; border-width: 2px; color: #66cbec; background-color: #203d79; border-left-color: #6377a1; border-top-color: #6377a1; border-right-color: #15284f; border-bottom-color: #15284f; box-shadow: none; }
 
 button.osd.image-button { min-width: 30px; }
 
@@ -350,11 +362,15 @@ stacksidebar row.needs-attention > label:dir(rtl), stackswitcher > button.needs-
 
 .linked:not(.vertical) > filechooserbutton > combobox:dir(rtl):not(:last-child) > box > button.combo, .linked:not(.vertical) > appchooserbutton > combobox:dir(rtl):not(:last-child) > box > button.combo, .linked:not(.vertical) > combobox:dir(rtl):not(:last-child) > box > button.combo, .linked:not(.vertical) > filechooserbutton > combobox:dir(ltr):not(:first-child) > box > button.combo, .linked:not(.vertical) > appchooserbutton > combobox:dir(ltr):not(:first-child) > box > button.combo, .linked:not(.vertical) > combobox:dir(ltr):not(:first-child) > box > button.combo, dropdown.linked button:nth-child(2):dir(ltr), combobox.linked button:nth-child(2):dir(ltr), .linked:not(.vertical) > menubutton:dir(rtl):not(:last-child) > button, .linked:not(.vertical) > dropdown:dir(rtl):not(:last-child) > button, .linked:not(.vertical) > colorbutton:dir(rtl):not(:last-child) > button, .linked:not(.vertical) > fontbutton:dir(rtl):not(:last-child) > button, .linked:not(.vertical) > filechooserbutton:dir(rtl):not(:last-child) > button, .linked:not(.vertical) > menubutton:dir(ltr):not(:first-child) > button, .linked:not(.vertical) > dropdown:dir(ltr):not(:first-child) > button, .linked:not(.vertical) > colorbutton:dir(ltr):not(:first-child) > button, .linked:not(.vertical) > fontbutton:dir(ltr):not(:first-child) > button, .linked:not(.vertical) > filechooserbutton:dir(ltr):not(:first-child) > button, .linked:not(.vertical) > button:dir(rtl):not(:last-child), .linked:not(.vertical) > button:dir(ltr):not(:first-child) { border-top-left-radius: 0; border-bottom-left-radius: 0; }
 
-.linked:not(.vertical) > filechooserbutton > combobox:dir(rtl):not(:first-child) > box > button.combo, .linked:not(.vertical) > appchooserbutton > combobox:dir(rtl):not(:first-child) > box > button.combo, .linked:not(.vertical) > combobox:dir(rtl):not(:first-child) > box > button.combo, .linked:not(.vertical) > filechooserbutton > combobox:dir(ltr):not(:last-child) > box > button.combo, .linked:not(.vertical) > appchooserbutton > combobox:dir(ltr):not(:last-child) > box > button.combo, .linked:not(.vertical) > combobox:dir(ltr):not(:last-child) > box > button.combo, dropdown.linked button:nth-child(2):dir(rtl), combobox.linked button:nth-child(2):dir(rtl), .linked:not(.vertical) > menubutton:dir(rtl):not(:first-child) > button, .linked:not(.vertical) > dropdown:dir(rtl):not(:first-child) > button, .linked:not(.vertical) > colorbutton:dir(rtl):not(:first-child) > button, .linked:not(.vertical) > fontbutton:dir(rtl):not(:first-child) > button, .linked:not(.vertical) > filechooserbutton:dir(rtl):not(:first-child) > button, .linked:not(.vertical) > menubutton:dir(ltr):not(:last-child) > button, .linked:not(.vertical) > dropdown:dir(ltr):not(:last-child) > button, .linked:not(.vertical) > colorbutton:dir(ltr):not(:last-child) > button, .linked:not(.vertical) > fontbutton:dir(ltr):not(:last-child) > button, .linked:not(.vertical) > filechooserbutton:dir(ltr):not(:last-child) > button, .linked:not(.vertical) > button:dir(rtl):not(:first-child), .linked:not(.vertical) > button:dir(ltr):not(:last-child) { border-right-style: none; border-top-right-radius: 0; border-bottom-right-radius: 0; }
+.linked:not(.vertical) > filechooserbutton > combobox:dir(rtl):not(:first-child) > box > button.combo, .linked:not(.vertical) > appchooserbutton > combobox:dir(rtl):not(:first-child) > box > button.combo, .linked:not(.vertical) > combobox:dir(rtl):not(:first-child) > box > button.combo, .linked:not(.vertical) > filechooserbutton > combobox:dir(ltr):not(:last-child) > box > button.combo, .linked:not(.vertical) > appchooserbutton > combobox:dir(ltr):not(:last-child) > box > button.combo, .linked:not(.vertical) > combobox:dir(ltr):not(:last-child) > box > button.combo, dropdown.linked button:nth-child(2):dir(rtl), combobox.linked button:nth-child(2):dir(rtl), .linked:not(.vertical) > menubutton:dir(rtl):not(:first-child) > button, .linked:not(.vertical) > dropdown:dir(rtl):not(:first-child) > button, .linked:not(.vertical) > colorbutton:dir(rtl):not(:first-child) > button, .linked:not(.vertical) > fontbutton:dir(rtl):not(:first-child) > button, .linked:not(.vertical) > filechooserbutton:dir(rtl):not(:first-child) > button, .linked:not(.vertical) > menubutton:dir(ltr):not(:last-child) > button, .linked:not(.vertical) > dropdown:dir(ltr):not(:last-child) > button, .linked:not(.vertical) > colorbutton:dir(ltr):not(:last-child) > button, .linked:not(.vertical) > fontbutton:dir(ltr):not(:last-child) > button, .linked:not(.vertical) > filechooserbutton:dir(ltr):not(:last-child) > button, .linked:not(.vertical) > button:dir(rtl):not(:first-child), .linked:not(.vertical) > button:dir(ltr):not(:last-child) { border-top-right-radius: 0; border-bottom-right-radius: 0; }
+
+.linked:not(.vertical) > button { margin: 0; }
 
 .linked.vertical > filechooserbutton > combobox:not(:first-child) > box > button.combo, .linked.vertical > appchooserbutton > combobox:not(:first-child) > box > button.combo, .linked.vertical > combobox:not(:first-child) > box > button.combo, .linked.vertical > menubutton:not(:first-child) > button, .linked.vertical > dropdown:not(:first-child) > button, .linked.vertical > colorbutton:not(:first-child) > button, .linked.vertical > fontbutton:not(:first-child) > button, .linked.vertical > filechooserbutton:not(:first-child) > button, .linked.vertical > button:not(:first-child) { border-top-left-radius: 0; border-top-right-radius: 0; }
 
-.linked.vertical > filechooserbutton > combobox:not(:last-child) > box > button.combo, .linked.vertical > appchooserbutton > combobox:not(:last-child) > box > button.combo, .linked.vertical > combobox:not(:last-child) > box > button.combo, .linked.vertical > menubutton:not(:last-child) > button, .linked.vertical > dropdown:not(:last-child) > button, .linked.vertical > colorbutton:not(:last-child) > button, .linked.vertical > fontbutton:not(:last-child) > button, .linked.vertical > filechooserbutton:not(:last-child) > button, .linked.vertical > button:not(:last-child) { border-bottom-style: none; border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
+.linked.vertical > filechooserbutton > combobox:not(:last-child) > box > button.combo, .linked.vertical > appchooserbutton > combobox:not(:last-child) > box > button.combo, .linked.vertical > combobox:not(:last-child) > box > button.combo, .linked.vertical > menubutton:not(:last-child) > button, .linked.vertical > dropdown:not(:last-child) > button, .linked.vertical > colorbutton:not(:last-child) > button, .linked.vertical > fontbutton:not(:last-child) > button, .linked.vertical > filechooserbutton:not(:last-child) > button, .linked.vertical > button:not(:last-child) { border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
+
+.linked.vertical > button { margin: 0; }
 
 .scale-popup button:hover, button.link, button.link:hover, button.link:active, button.link:checked, modelbutton.flat:not(:hover):not(:active):not(:checked):not(:disabled) { background-color: transparent; background-image: none; border-color: transparent; text-shadow: none; -gtk-icon-shadow: none; }
 
@@ -1053,7 +1069,7 @@ treeview.view radio:indeterminate:selected, radio:indeterminate { -gtk-icon-sour
 treeview.view check:selected:focus, treeview.view check:selected, treeview.view radio:selected:focus, treeview.view radio:selected { color: #d1ff96; }
 
 /************ GtkScale * */
-levelbar > trough, progressbar > trough, scale > trough > fill, scale > trough { border: 2px solid; background-color: #323131; border-left-color: #1e1d1d; border-top-color: #1e1d1d; border-right-color: #5a5959; border-bottom-color: #5a5959; outline: none; }
+levelbar > trough, progressbar > trough, scale > trough > fill, scale > trough { border: 2px solid; background-color: #323131; border-left-color: #1e1d1d; border-top-color: #1e1d1d; border-right-color: #5a5959; border-bottom-color: #5a5959; outline: none; border-radius: 0px; }
 
 levelbar > trough:disabled, progressbar > trough:disabled, scale > trough > fill:disabled, scale > trough:disabled { background-color: #493e37; border-left-color: #2e2722; border-top-color: #2e2722; border-right-color: #776e69; border-bottom-color: #776e69; }
 
@@ -1071,7 +1087,7 @@ scale > trough { outline: 0 solid transparent; outline-offset: 16px; }
 
 scale:focus:focus-visible > trough { outline-color: transparent; outline-width: 0; outline-offset: 10px; }
 
-scale > trough { transition: none; }
+scale > trough { transition: none; border-radius: 0px; }
 
 scale.fine-tune > trough > slider, scale.fine-tune > trough > slider:active, scale.fine-tune > trough > slider:hover, scale.fine-tune > trough > slider:focus { background-color: #203d79; border-left-color: #6377a1; border-top-color: #6377a1; border-right-color: #15284f; border-bottom-color: #15284f; }
 
@@ -1079,7 +1095,7 @@ scale > trough > fill { background-color: #4c6519; }
 
 scale > trough > fill:disabled { background-color: #3e3834; }
 
-scale > trough > slider { min-height: 18px; min-width: 18px; margin: -7px; border-width: 2px; border-style: solid; border-radius: 0px; border-width: 2px; color: #EDF0F5; background-color: #4e584d; border-left-color: #878e87; border-top-color: #878e87; border-right-color: #343a33; border-bottom-color: #343a33; }
+scale > trough > slider { min-height: 18px; min-width: 18px; margin: -7px; border-width: 2px; border-style: solid; border-radius: 0px; box-shadow: none; border-width: 2px; color: #EDF0F5; background-color: #4e584d; border-left-color: #878e87; border-top-color: #878e87; border-right-color: #343a33; border-bottom-color: #343a33; }
 
 scale > trough > slider:hover { border-width: 2px; background-color: #5a6659; border-left-color: #989f97; border-top-color: #989f97; border-right-color: #3e463d; border-bottom-color: #3e463d; }
 
@@ -1245,6 +1261,8 @@ button separator { background-color: #4e584d; border-left-color: #878e87; border
 button:checked separator { background-color: #669900; border-left-color: #94b84d; border-top-color: #94b84d; border-right-color: #426300; border-bottom-color: #426300; }
 
 /********* Lists * */
+scrolledwindow > viewport { padding-right: 1em; }
+
 listview, list { color: #EDF0F5; background-color: #323232; border-color: #252525; border-radius: 0; box-shadow: none; }
 
 listview > row:first-child, listview row:last-child, list > row:first-child, list row:last-child { border-radius: 0; }
@@ -1256,8 +1274,6 @@ listview > row.expander, list > row.expander { padding: 0px; }
 listview > row.expander .row-header, list > row.expander .row-header { padding: 2px; }
 
 listview.horizontal row.separator, list.horizontal row.separator { border-left: 1px solid #575859; }
-
-scrolledwindow listview, scrolledwindow list { padding-right: 1em; }
 
 row { transition-property: outline, outline-width, outline-offset, outline-color; transition-duration: 300ms; animation-timing-function: ease-in-out; }
 
@@ -1688,8 +1704,6 @@ XfdesktopIconView.view:active { text-shadow: none; color: #d1ff96; background-co
 .nautilus-window .top-bar .collapse-spacing { padding: 0; }
 
 .nautilus-window .nautilus-list-view columnview, .nautilus-window .nautilus-list-view listview, .nautilus-window .nautilus-list-view cell { padding: 0; margin: 0; }
-
-.nautilus-window .nautilus-list-view scrolledwindow columnview { padding-right: 1em; }
 
 .nautilus-window .nautilus-list-view row { margin: 0; }
 

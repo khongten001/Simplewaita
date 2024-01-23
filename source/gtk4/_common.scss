@@ -337,6 +337,7 @@ entry {
 
     // entry error and warning style
     @each $e_type, $e_color in (error, $error_color),
+                                (success, $success_color),
                                (warning, $warning_color) {
       &.#{$e_type} {
         color: $e_color;
@@ -397,6 +398,9 @@ entry {
 
 
   &.error { color: $error_color; }
+  .linked & {
+    margin: 0; //for libadwaita
+  }
 }
 
 treeview entry {
@@ -584,7 +588,7 @@ button {
     }
 
     color: $osd_fg_color;
-    border-radius: 5px;
+    border-radius: $button_radius;
 
     @include button(osd);
 
@@ -758,7 +762,7 @@ button {
 }
 
 %linked_not_right {
-  border-right-style: none;
+  //border-right-style: none;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
@@ -774,6 +778,7 @@ button {
     &:not(:first-child) { @extend %linked_not_right; }
     &:not(:last-child) { @extend %linked_not_left; }
   }
+  margin: 0;
 }
 
 %linked_not_top {
@@ -782,12 +787,13 @@ button {
 }
 
 %linked_not_bottom {
-  border-bottom-style: none;
+  //border-bottom-style: none;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
 
 %linked_vertical {
+  margin: 0;
   &:not(:first-child) { @extend %linked_not_top; }
 
   &:not(:last-child) { @extend %linked_not_bottom; }
@@ -2289,6 +2295,7 @@ treeview.view radio:selected { &:selected, &:focus, & { @extend %radio; }} // Th
   border: $border_width solid;// $borders_color;
   @include relief($dark_fill, sunken);
   outline: none; //cancelling libadwaita
+  border-radius: $button_radius;
   //padding:1px;
 
   //headerbar & { background-color: darken($dark_fill,8%); } //3504
@@ -2347,6 +2354,7 @@ scale {
   // those are inside the trough node, I need them to show their own border over the trough one, so negative margin
   > trough {
     transition: $focus_transition;
+    border-radius: $button_radius;
 
     //> fill,
     //> highlight { margin: -1px; }
@@ -2414,6 +2422,7 @@ scale {
     border-width: $border_width;
     border-style: solid;
     border-radius: $button_radius;
+    box-shadow: none; //overwriting adwaita
     @include button(normal);
 
     &:hover { @include button(hover); }
@@ -2770,6 +2779,12 @@ separator {
 /*********
  * Lists *
  *********/
+ 
+// this is to prevent transient scrollbars to appear on top of content (or even controls!)
+scrolledwindow > viewport {
+padding-right: 1em;
+}
+
 listview,
 list {
   color: $text_color;
@@ -2792,9 +2807,9 @@ list {
   &.separators:not(.horizontal) > row:not(.separator) {
     //border-bottom: 1px solid $_treeview_borders_color;
   }
-  scrolledwindow & {
-    padding-right: 1em;
-  }
+  //scrolledwindow & {
+  //  padding-right: 1em;
+  //}
 
 }
 
