@@ -1400,8 +1400,8 @@ windowcontrols {
  * Header bars *
  ***************/
 %titlebar,
-headerbar {
-  padding: 0 6px;
+headerbar { //.top-bar is for Nautilus. This is not included in '../common/desktops.scss';
+  padding: 4px;
   min-height: $_headerbar_height;
   //border-width: 0 0 1px;
   //border-style: solid;
@@ -1487,6 +1487,7 @@ headerbar {
 }
 
 headerbar {
+
   > windowhandle > box {
     &,
     > box.start,
@@ -1501,8 +1502,8 @@ headerbar {
   separator:not(.sidebar),
   button,
   menubutton {
-    margin-top: 6px;
-    margin-bottom: 6px;
+    //margin-top: 6px;
+    //margin-bottom: 6px;
   }
 
   // Reset margins for buttons inside menubutton
@@ -2827,7 +2828,7 @@ columnview {
 
     // align horizontal sizing with header buttons
     > cell {
-      padding: 8px 6px;
+      padding: 2px;
 
       &:not(:first-child) {
         border-left: 1px solid transparent;
@@ -2837,7 +2838,7 @@ columnview {
 
   // make column separators visible when :show-column-separators is true
   &.column-separators > listview > row > cell {
-    border-left-color: $_treeview_borders_color;
+    //border-left-color: $_treeview_borders_color;
   }
 
   // shrink vertically for .data-table
@@ -3109,7 +3110,7 @@ filechooserbutton:drop(active) {
 stacksidebar {
   //not a regular list
   list.separators:not(.horizontal) > row:not(.separator) {
-    border-bottom: none;
+    //border-bottom: none;
   }
   row {
     padding: 10px 4px;
@@ -3148,7 +3149,7 @@ separator.sidebar {
     min-height: 36px;
     padding: 0 8px;
     border-radius: $button_radius; //$menu-margin;
-    margin: 0 $menu-margin 2px;
+    //margin: 0 $menu-margin 2px;
     @include focus-ring($focus-state: 'focus-visible:focus-within');
 
   }
@@ -3728,38 +3729,42 @@ menubutton {
 }
 
 tabbox {
-    background-color: $bg_color;
-    & > tabboxchild > tab {
-        @extend %button_basic;
-        border-radius: 0px;
-        @include button(normal);
+    //background-color: $bg_color;
+    & > tabboxchild {
+    
+        border-radius: $button_radius;
+        & > tab {
+            @extend %button_basic;
+            border-radius: $button_radius;
+            @include button(normal);
 
-        @include focus-ring();
+            @include focus-ring();
 
-        &:hover {
-          @include button(hover);
-          -gtk-icon-filter: brightness(1.2);
-        }
+            &:hover {
+              @include button(hover);
+              -gtk-icon-filter: brightness(1.2);
+            }
 
-        &.keyboard-activating,
-        &:active {
-          @include button(active);
+            &.keyboard-activating,
+            &:active {
+              @include button(active);
 
-          transition-duration: 50ms;
-        }
+              transition-duration: 50ms;
+            }
 
-        &:selected:hover:not(:active) { @include button(checked-hover); }
-        &:selected, &:selected:active { @include button(checked-active); }
+            &:selected:hover:not(:active) { @include button(checked-hover); }
+            &:selected, &:selected:active { @include button(checked-active); }
 
-        //removed backdrop
+            //removed backdrop
 
-        &:disabled {
-          @include button(insensitive);
-          -gtk-icon-filter: opacity(0.5);
-          filter: none; //for libadwaita
+            &:disabled {
+              @include button(insensitive);
+              -gtk-icon-filter: opacity(0.5);
+              filter: none; //for libadwaita
 
-          &:active,
-          &:selected { @include button(insensitive-active); }
+              &:active,
+              &:selected { @include button(insensitive-active); }
+            }
         }
     }
 }
@@ -3767,12 +3772,12 @@ tabbox {
 splitbutton {
     @extend %button_basic;
     border-radius: 0px;
-    padding: 0px;
+    padding: 1px; //$border_width;
     @include button(normal);
     &:disabled {
           @include button(insensitive);}
     & > separator {border: none;}
-    & > button, menubutton { margin: $border_width;}
+    & button, menubutton, arrow {margin: 0; padding: 0; min-width: 1.7em; min-height: 1.5em;}
 }
 
 .floating-bar {

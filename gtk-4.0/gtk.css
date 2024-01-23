@@ -630,7 +630,7 @@ windowcontrols button.minimize:disabled { border-width: 2px; color: #7c675a; bac
 windowcontrols button.minimize:backdrop { border-width: 2px; color: #EDF0F5; background-color: #4e584d; border-left-color: #878e87; border-top-color: #878e87; border-right-color: #343a33; border-bottom-color: #343a33; }
 
 /*************** Header bars * */
-.titlebar:not(headerbar), headerbar { padding: 0 6px; min-height: 2.5em; border-radius: 0; border: none; background-color: #507800; color: #d1ff96; /* Darken switchbuttons for headerbars. issue #1588 */ }
+.titlebar:not(headerbar), headerbar { padding: 4px; min-height: 2.5em; border-radius: 0; border: none; background-color: #507800; color: #d1ff96; /* Darken switchbuttons for headerbars. issue #1588 */ }
 
 .titlebar:backdrop:not(headerbar), headerbar:backdrop { background-color: #3f3e3e; color: #EDF0F5; transition: none; }
 
@@ -649,8 +649,6 @@ windowcontrols button.minimize:backdrop { border-width: 2px; color: #EDF0F5; bac
 .solid-csd .titlebar:dir(rtl):not(headerbar), .solid-csd .titlebar:dir(ltr):not(headerbar), .solid-csd headerbar:backdrop:dir(rtl), .solid-csd headerbar:backdrop:dir(ltr), .solid-csd headerbar:dir(rtl), .solid-csd headerbar:dir(ltr) { margin-left: -1px; margin-right: -1px; margin-top: -1px; border-radius: 0; box-shadow: none; }
 
 headerbar > windowhandle > box, headerbar > windowhandle > box > box.start, headerbar > windowhandle > box > box.end { border-spacing: 6px; }
-
-headerbar entry, headerbar spinbutton, headerbar separator:not(.sidebar), headerbar button, headerbar menubutton { margin-top: 6px; margin-bottom: 6px; }
 
 headerbar menubutton > button { margin-top: 0px; margin-bottom: 0px; }
 
@@ -1283,11 +1281,9 @@ row:selected { outline-color: rgba(255, 255, 255, 0.3); }
 
 columnview > listview > row { padding: 0; }
 
-columnview > listview > row > cell { padding: 8px 6px; }
+columnview > listview > row > cell { padding: 2px; }
 
 columnview > listview > row > cell:not(:first-child) { border-left: 1px solid transparent; }
-
-columnview.column-separators > listview > row > cell { border-left-color: #575859; }
 
 columnview.data-table > listview > row > cell { padding-top: 2px; padding-bottom: 2px; }
 
@@ -1382,8 +1378,6 @@ filechooserbutton:drop(active) { box-shadow: inset 0 0 0 1px #33d17a; }
 
 paned .sidebar.left, paned .sidebar.right, paned .sidebar.left:dir(rtl), paned .sidebar:dir(rtl), paned .sidebar:dir(ltr), paned .sidebar { border-style: none; }
 
-stacksidebar list.separators:not(.horizontal) > row:not(.separator) { border-bottom: none; }
-
 stacksidebar row { padding: 10px 4px; transition-property: outline, outline-width, outline-offset, outline-color; transition-duration: 300ms; animation-timing-function: ease-in-out; }
 
 stacksidebar row { outline: 0 solid transparent; outline-offset: 4px; }
@@ -1401,7 +1395,7 @@ separator.sidebar { background-color: #252525; }
 
 .navigation-sidebar > separator { margin: 1px; }
 
-.navigation-sidebar > row { min-height: 36px; padding: 0 8px; border-radius: 0px; margin: 0 1px 2px; transition-property: outline, outline-width, outline-offset, outline-color; transition-duration: 300ms; animation-timing-function: ease-in-out; }
+.navigation-sidebar > row { min-height: 36px; padding: 0 8px; border-radius: 0px; transition-property: outline, outline-width, outline-offset, outline-color; transition-duration: 300ms; animation-timing-function: ease-in-out; }
 
 .navigation-sidebar > row { outline: 0 solid transparent; outline-offset: 4px; }
 
@@ -1629,7 +1623,7 @@ menubutton arrow.right { -gtk-icon-source: -gtk-icontheme("pan-end-symbolic"); }
 
 .card { border-radius: 0px; background-color: #3c3c3c; color: #EDF0F5; border: 2px; border-style: solid; background-color: #3c3c3c; border-left-color: #6a6a6a; border-top-color: #6a6a6a; border-right-color: #252525; border-bottom-color: #252525; box-shadow: none; }
 
-tabbox { background-color: #3f3e3e; }
+tabbox > tabboxchild { border-radius: 0px; }
 
 tabbox > tabboxchild > tab { border-radius: 0px; border-width: 2px; color: #EDF0F5; background-color: #4e584d; border-left-color: #878e87; border-top-color: #878e87; border-right-color: #343a33; border-bottom-color: #343a33; transition-property: outline, outline-width, outline-offset, outline-color; transition-duration: 300ms; animation-timing-function: ease-in-out; }
 
@@ -1649,13 +1643,13 @@ tabbox > tabboxchild > tab:disabled { border-width: 2px; color: #7c675a; backgro
 
 tabbox > tabboxchild > tab:disabled:active, tabbox > tabboxchild > tab:disabled:selected { border-width: 2px; color: #7c675a; background-color: #4d4c2f; border-left-color: #302f1d; border-top-color: #302f1d; border-right-color: #787862; border-bottom-color: #787862; }
 
-splitbutton { border-radius: 0px; padding: 0px; border-width: 2px; color: #EDF0F5; background-color: #4e584d; border-left-color: #878e87; border-top-color: #878e87; border-right-color: #343a33; border-bottom-color: #343a33; }
+splitbutton { border-radius: 0px; padding: 1px; border-width: 2px; color: #EDF0F5; background-color: #4e584d; border-left-color: #878e87; border-top-color: #878e87; border-right-color: #343a33; border-bottom-color: #343a33; }
 
 splitbutton:disabled { border-width: 2px; color: #7c675a; background-color: #493e37; border-left-color: #776e69; border-top-color: #776e69; border-right-color: #2e2722; border-bottom-color: #2e2722; }
 
 splitbutton > separator { border: none; }
 
-splitbutton > button, splitbutton menubutton { margin: 2px; }
+splitbutton button, splitbutton menubutton, splitbutton arrow { margin: 0; padding: 0; min-width: 1.7em; min-height: 1.5em; }
 
 .floating-bar { border: 2px solid; border-radius: 0px; background-color: #203d79; border-left-color: #6377a1; border-top-color: #6377a1; border-right-color: #15284f; border-bottom-color: #15284f; color: #66cbec; }
 
@@ -1688,6 +1682,20 @@ XfdesktopIconView.view:active { text-shadow: none; color: #d1ff96; background-co
 #XfceNotifyWindow button:active { border-width: 2px; color: #66cbec; background-color: #25478d; border-left-color: #19305f; border-top-color: #19305f; border-right-color: #7288b5; border-bottom-color: #7288b5; }
 
 .nemo-desktop-window notebook { border: none; }
+
+.nautilus-window .top-bar { background-color: #507800; color: #d1ff96; }
+
+.nautilus-window .top-bar:backdrop { background-color: #3f3e3e; color: #EDF0F5; transition: none; }
+
+.nautilus-window .top-bar .collapse-spacing { padding: 0; }
+
+.nautilus-window .nautilus-list-view columnview, .nautilus-window .nautilus-list-view listview, .nautilus-window .nautilus-list-view cell { padding: 0; margin: 0; }
+
+.nautilus-window .nautilus-list-view row { margin: 0; }
+
+#NautilusPathBar button, #NautilusPathBar menubutton { margin: 0; }
+
+windowhandle > box { padding: 0; }
 
 /* GTK NAMED COLORS ---------------- use responsibly! */
 /*

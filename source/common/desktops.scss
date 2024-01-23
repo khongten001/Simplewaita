@@ -37,6 +37,43 @@ XfdesktopIconView.view:active {
 
   }
   
+
 .nemo-desktop-window notebook {
 	border: none;
+}
+
+.nautilus-window {
+    .top-bar {
+    background-color: $titlebar_active_bg;
+    color: $titlebar_active_fg;
+    
+    &:backdrop {
+        background-color: $titlebar_backdrop_bg;
+        color: $titlebar_backdrop_fg;
+        transition: none;//$backdrop_transition;
+    }
+    .collapse-spacing {
+        padding: 0;
+    }
+  }
+  .nautilus-list-view {
+    columnview, listview, cell {
+            padding: 0;
+            margin: 0;
+    }
+    row {
+        margin: 0;
+    }
+    
+  }
+}
+
+#NautilusPathBar {
+    button, menubutton {
+        margin: 0;
+    }
+}
+
+windowhandle > box {
+padding: 0;
 }

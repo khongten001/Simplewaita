@@ -458,7 +458,7 @@ searchbar > revealer > box { margin: -6px; padding: 6px; }
 .inline-toolbar, searchbar > revealer > box, .location-bar { border-style: solid; background-color: #373636; }
 
 /*************** Header bars * */
-.titlebar:not(headerbar), headerbar { padding: 0 6px; min-height: 2.5em; border: none; border-radius: 0px; background-color: #507800; color: #d1ff96; border: none; /* Darken switchbuttons for headerbars. issue #1588 */ /* hide the close button separator */ }
+.titlebar:not(headerbar), headerbar { padding: 4px; min-height: 2.5em; border: none; border-radius: 0px; background-color: #507800; color: #d1ff96; border: none; /* Darken switchbuttons for headerbars. issue #1588 */ /* hide the close button separator */ }
 
 .titlebar:backdrop:not(headerbar), headerbar:backdrop { background-color: #3f3e3e; color: #EDF0F5; transition: none; }
 
@@ -519,10 +519,6 @@ searchbar > revealer > box { margin: -6px; padding: 6px; }
 .titlebar:not(headerbar) separator.titlebutton, headerbar separator.titlebutton { opacity: 0; }
 
 .solid-csd .titlebar:dir(rtl):not(headerbar), .solid-csd .titlebar:dir(ltr):not(headerbar), .solid-csd headerbar:backdrop:dir(rtl), .solid-csd headerbar:backdrop:dir(ltr), .solid-csd headerbar:dir(rtl), .solid-csd headerbar:dir(ltr) { margin-left: -1px; margin-right: -1px; margin-top: -1px; border-radius: 0; box-shadow: none; }
-
-headerbar entry, headerbar spinbutton, headerbar separator:not(.sidebar), headerbar button { margin-top: 5px; margin-bottom: 5px; }
-
-headerbar switch { margin-top: 7px; margin-bottom: 7px; }
 
 headerbar.titlebar headerbar:not(.titlebar) { background: none; box-shadow: none; }
 
@@ -1533,6 +1529,20 @@ XfdesktopIconView.view:active { text-shadow: none; color: #d1ff96; background-co
 #XfceNotifyWindow button:active { border-width: 2px; color: #66cbec; background-color: #25478d; border-left-color: #19305f; border-top-color: #19305f; border-right-color: #7288b5; border-bottom-color: #7288b5; }
 
 .nemo-desktop-window notebook { border: none; }
+
+.nautilus-window .top-bar { background-color: #507800; color: #d1ff96; }
+
+.nautilus-window .top-bar:backdrop { background-color: #3f3e3e; color: #EDF0F5; transition: none; }
+
+.nautilus-window .top-bar .collapse-spacing { padding: 0; }
+
+.nautilus-window .nautilus-list-view columnview, .nautilus-window .nautilus-list-view listview, .nautilus-window .nautilus-list-view cell { padding: 0; margin: 0; }
+
+.nautilus-window .nautilus-list-view row { margin: 0; }
+
+#NautilusPathBar button, #NautilusPathBar menubutton { margin: 0; }
+
+windowhandle > box { padding: 0; }
 
 /* GTK NAMED COLORS ---------------- use responsibly! */
 /*

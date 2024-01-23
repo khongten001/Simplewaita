@@ -1416,7 +1416,7 @@ searchbar > revealer > box {
  ***************/
 %titlebar,
 headerbar {
-  padding: 0 6px;
+  padding: 4px;
   min-height: $_headerbar_height;
   border: none;
   border-radius: 0px;
@@ -1623,12 +1623,12 @@ headerbar {
   spinbutton,
   separator:not(.sidebar),
   button {
-    margin-top: $_hb_btn_pad;
-    margin-bottom: $_hb_btn_pad;
+    //margin-top: $_hb_btn_pad;
+    //margin-bottom: $_hb_btn_pad;
   }
   switch {
-    margin-top: $_switch_margin;
-    margin-bottom: $_switch_margin;
+    //margin-top: $_switch_margin;
+    //margin-bottom: $_switch_margin;
   }
 
   &.titlebar headerbar:not(.titlebar) {
