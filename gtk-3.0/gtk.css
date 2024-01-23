@@ -9,8 +9,6 @@ label:disabled selection, .selection-mode button.titlebutton:disabled, label:dis
 
 .selection-mode button.titlebutton:backdrop, label:backdrop:selected, calendar:backdrop:selected, row:backdrop:selected, treeview.view:backdrop:selected, modelbutton.flat:backdrop:selected, .menuitem.button.flat:backdrop:selected, .entry:backdrop:selected, spinbutton:not(.vertical) selection:backdrop, entry selection:backdrop, flowbox flowboxchild:backdrop:selected, .view text selection:backdrop, iconview text selection:backdrop, textview text selection:backdrop:focus, textview text selection:backdrop, .view:backdrop:selected, iconview:backdrop:selected, .view text:backdrop:selected, iconview text:backdrop:selected, textview text:backdrop:selected { color: #d1ff96; background-color: #669900; }
 
-.nemo-desktop-window stack { background: none; border: none; }
-
 * { padding: 0; -GtkToolButton-icon-spacing: 4; -GtkTextView-error-underline-color: #CC0000; -GtkScrolledWindow-scrollbar-spacing: 0; -GtkToolItemGroup-expander-size: 11; -GtkWidget-text-handle-width: 20; -GtkWidget-text-handle-height: 24; -GtkDialog-button-spacing: 4; -GtkDialog-action-area-border: 0; outline-color: alpha(currentColor,0.3); outline-style: dashed; outline-offset: -3px; outline-width: 1px; -gtk-outline-radius: 0px; -gtk-secondary-caret-color: #669900; }
 
 /*************** Base States * */
@@ -1530,6 +1528,8 @@ XfdesktopIconView.view:active { text-shadow: none; color: #d1ff96; background-co
 
 .nemo-desktop-window notebook { border: none; }
 
+.nemo-desktop-window stack { background: none; border: none; }
+
 .nautilus-window .top-bar { background-color: #507800; color: #d1ff96; }
 
 .nautilus-window .top-bar:backdrop { background-color: #3f3e3e; color: #EDF0F5; transition: none; }
@@ -1537,6 +1537,8 @@ XfdesktopIconView.view:active { text-shadow: none; color: #d1ff96; background-co
 .nautilus-window .top-bar .collapse-spacing { padding: 0; }
 
 .nautilus-window .nautilus-list-view columnview, .nautilus-window .nautilus-list-view listview, .nautilus-window .nautilus-list-view cell { padding: 0; margin: 0; }
+
+.nautilus-window .nautilus-list-view scrolledwindow columnview { padding-right: 1em; }
 
 .nautilus-window .nautilus-list-view row { margin: 0; }
 

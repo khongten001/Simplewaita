@@ -16,8 +16,6 @@ label:disabled > selection, label:disabled:selected, calendar > grid > label.day
 
 label:backdrop:selected, calendar > grid > label.day-number:backdrop:selected, row:backdrop:selected, columnview.view:backdrop:selected, treeview.view:backdrop:selected, modelbutton.flat:backdrop:selected, modelbutton.flat:backdrop:hover:not(.osd):not(:checked):not(:active):not(:disabled):not(:backdrop), modelbutton.flat:backdrop:focus:not(.osd):not(:checked):not(:active):not(:disabled):not(:backdrop), .entry:backdrop:selected, gridview > child:backdrop:selected, flowbox > flowboxchild:backdrop:selected, .view:backdrop:selected, iconview:backdrop:selected, textview > text:backdrop:selected { color: #d1ff96; background-color: #669900; }
 
-.nemo-desktop-window stack { background: none; border: none; }
-
 /*************** Base States * */
 .background { color: #EDF0F5; background-color: #3f3e3e; }
 
@@ -934,7 +932,7 @@ notebook:focus:focus-visible > header > tabs > tab:checked { outline-color: tran
 /************** Scrollbars * */
 scrollbar { border: 2px solid; background-color: #393838; border-left-color: #232222; border-top-color: #232222; border-right-color: #656464; border-bottom-color: #656464; transition: none; }
 
-scrollbar > range > trough > slider { padding: 0; background-image: none; min-width: 10px; min-height: 10px; border: 2px solid; border-radius: 0px; outline: none; background-color: #4e584d; border-left-color: #878e87; border-top-color: #878e87; border-right-color: #343a33; border-bottom-color: #343a33; }
+scrollbar > range > trough > slider { padding: 0; margin: 0; background-image: none; min-width: 10px; min-height: 10px; border: 2px solid; border-radius: 0px; outline: none; background-color: #4e584d; border-left-color: #878e87; border-top-color: #878e87; border-right-color: #343a33; border-bottom-color: #343a33; }
 
 scrollbar > range > trough > slider:hover { background-color: #5e675e; border-left-color: #9ca29c; border-top-color: #9ca29c; border-right-color: #414741; border-bottom-color: #414741; }
 
@@ -942,7 +940,7 @@ scrollbar > range > trough > slider:hover:active { background-color: #88cc00; bo
 
 scrollbar > range > trough > slider:disabled { background-color: #493e37; border-left-color: #776e69; border-top-color: #776e69; border-right-color: #2e2722; border-bottom-color: #2e2722; }
 
-scrollbar > range > trough { outline: none; }
+scrollbar > range > trough { outline: none; margin: 0; padding: 0; }
 
 scrollbar > range { outline: none; }
 
@@ -1259,6 +1257,8 @@ listview > row.expander .row-header, list > row.expander .row-header { padding: 
 
 listview.horizontal row.separator, list.horizontal row.separator { border-left: 1px solid #575859; }
 
+scrolledwindow listview, scrolledwindow list { padding-right: 1em; }
+
 row { transition-property: outline, outline-width, outline-offset, outline-color; transition-duration: 300ms; animation-timing-function: ease-in-out; }
 
 row { outline: 0 solid transparent; outline-offset: 4px; }
@@ -1280,10 +1280,6 @@ row.activatable:selected.has-open-popup, row.activatable:selected:hover { backgr
 row:selected { outline-color: rgba(255, 255, 255, 0.3); }
 
 columnview > listview > row { padding: 0; }
-
-columnview > listview > row > cell { padding: 2px; }
-
-columnview > listview > row > cell:not(:first-child) { border-left: 1px solid transparent; }
 
 columnview.data-table > listview > row > cell { padding-top: 2px; padding-bottom: 2px; }
 
@@ -1391,7 +1387,7 @@ stacksidebar row.needs-attention > label { background-size: 6px 6px, 0 0; }
 separator.sidebar { background-color: #252525; }
 
 /********************** Navigation Sidebar * */
-.navigation-sidebar { padding: 1px 0; }
+.navigation-sidebar { padding-top: 1px; padding-bottom: 1px; }
 
 .navigation-sidebar > separator { margin: 1px; }
 
@@ -1683,6 +1679,8 @@ XfdesktopIconView.view:active { text-shadow: none; color: #d1ff96; background-co
 
 .nemo-desktop-window notebook { border: none; }
 
+.nemo-desktop-window stack { background: none; border: none; }
+
 .nautilus-window .top-bar { background-color: #507800; color: #d1ff96; }
 
 .nautilus-window .top-bar:backdrop { background-color: #3f3e3e; color: #EDF0F5; transition: none; }
@@ -1690,6 +1688,8 @@ XfdesktopIconView.view:active { text-shadow: none; color: #d1ff96; background-co
 .nautilus-window .top-bar .collapse-spacing { padding: 0; }
 
 .nautilus-window .nautilus-list-view columnview, .nautilus-window .nautilus-list-view listview, .nautilus-window .nautilus-list-view cell { padding: 0; margin: 0; }
+
+.nautilus-window .nautilus-list-view scrolledwindow columnview { padding-right: 1em; }
 
 .nautilus-window .nautilus-list-view row { margin: 0; }
 

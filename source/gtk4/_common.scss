@@ -2012,7 +2012,7 @@ scrollbar {
   border: $border_width solid;
   @include relief($scrollbar_bg_color, sunken);
   
-  transition: $_scrollbar_transition;
+  transition: none;
 
   // scrollbar border
   //&.top { border-bottom: 1px solid $borders_color; }
@@ -2023,6 +2023,7 @@ scrollbar {
   > range > trough > slider {
     //@extend %button_basic;
     padding: 0;
+    margin: 0;
     background-image: none;
     
     min-width: $_slider_width;
@@ -2042,7 +2043,11 @@ scrollbar {
 
     &:disabled { @include relief($insensitive_bg_color); }
   }
-  > range > trough {outline: none;} //cancelling libadwaita
+  > range > trough {
+    outline: none;
+    margin: 0;
+    padding: 0;
+    } //cancelling libadwaita
   > range {outline: none;} //cancelling libadwaita
   > range.fine-tune {
     > trough > slider {
@@ -2787,6 +2792,9 @@ list {
   &.separators:not(.horizontal) > row:not(.separator) {
     //border-bottom: 1px solid $_treeview_borders_color;
   }
+  scrolledwindow & {
+    padding-right: 1em;
+  }
 
 }
 
@@ -2828,13 +2836,16 @@ columnview {
 
     // align horizontal sizing with header buttons
     > cell {
-      padding: 2px;
+      //padding: 2px;
 
       &:not(:first-child) {
-        border-left: 1px solid transparent;
+        //border-left: 1px solid transparent;
       }
     }
   }
+ // scrolledwindow & {
+ //   padding-right: 1em;
+ // }
 
   // make column separators visible when :show-column-separators is true
   &.column-separators > listview > row > cell {
@@ -3139,8 +3150,8 @@ separator.sidebar {
  **********************/
 
 .navigation-sidebar {
-  padding: $menu-margin 0; //only vertical padding. horizontal row size would clip
-
+  padding-top: $menu-margin; //only vertical padding. horizontal row size would clip
+  padding-bottom: $menu-margin;
   > separator {
     margin: $menu-margin;
   }

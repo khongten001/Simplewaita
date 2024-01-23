@@ -37,11 +37,17 @@ XfdesktopIconView.view:active {
 
   }
   
-
+// To avoid a frame around the desktop in Cinnamon desktop
 .nemo-desktop-window notebook {
 	border: none;
 }
+.nemo-desktop-window stack {
+	background: none;
+	border: none;
+}
 
+
+// Nautilus improvements
 .nautilus-window {
     .top-bar {
     background-color: $titlebar_active_bg;
@@ -60,6 +66,9 @@ XfdesktopIconView.view:active {
     columnview, listview, cell {
             padding: 0;
             margin: 0;
+    }
+    scrolledwindow columnview {
+        padding-right: 1em;
     }
     row {
         margin: 0;
