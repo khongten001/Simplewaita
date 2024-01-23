@@ -2781,9 +2781,15 @@ separator {
  *********/
  
 // this is to prevent transient scrollbars to appear on top of content (or even controls!)
-scrolledwindow > viewport {
-padding-right: 1em;
+scrolledwindow {
+	& > list, & > columnview, & > listview, & > treeview,
+	& > viewport > list, & > viewport > listview, & > viewport > columnview, & > viewport > treeview {
+		$padding: $_slider_width + 4 * $border_width;
+	 	&:dir(ltr) {padding: 0 $padding 0 0;}
+	 	&:dir(rtl) {padding: 0 0 0 $padding;}
+	}
 }
+
 
 listview,
 list {
@@ -2974,6 +2980,12 @@ expander-widget {
   &:not(decoration):not(window):drop(active) {
     box-shadow: none;
   }
+}
+
+.navigation-sidebar,
+placessidebar {
+	background-color: $base_color;
+	color: $text_color;
 }
 
 

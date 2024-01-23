@@ -1536,7 +1536,9 @@ XfdesktopIconView.view:active { text-shadow: none; color: #d1ff96; background-co
 
 .nautilus-window .top-bar .collapse-spacing { padding: 0; }
 
-.nautilus-window .nautilus-list-view columnview, .nautilus-window .nautilus-list-view listview, .nautilus-window .nautilus-list-view cell { padding: 0; margin: 0; }
+.nautilus-window .nautilus-list-view columnview, .nautilus-window .nautilus-list-view listview, .nautilus-window .nautilus-list-view cell { margin: 0; }
+
+.nautilus-window .nautilus-list-view cell { padding: 0; }
 
 .nautilus-window .nautilus-list-view row { margin: 0; }
 

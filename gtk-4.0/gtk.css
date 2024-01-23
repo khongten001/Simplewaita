@@ -1261,7 +1261,9 @@ button separator { background-color: #4e584d; border-left-color: #878e87; border
 button:checked separator { background-color: #669900; border-left-color: #94b84d; border-top-color: #94b84d; border-right-color: #426300; border-bottom-color: #426300; }
 
 /********* Lists * */
-scrolledwindow > viewport { padding-right: 1em; }
+scrolledwindow > list:dir(ltr), scrolledwindow > columnview:dir(ltr), scrolledwindow > listview:dir(ltr), scrolledwindow > treeview:dir(ltr), scrolledwindow > viewport > list:dir(ltr), scrolledwindow > viewport > listview:dir(ltr), scrolledwindow > viewport > columnview:dir(ltr), scrolledwindow > viewport > treeview:dir(ltr) { padding: 0 18px 0 0; }
+
+scrolledwindow > list:dir(rtl), scrolledwindow > columnview:dir(rtl), scrolledwindow > listview:dir(rtl), scrolledwindow > treeview:dir(rtl), scrolledwindow > viewport > list:dir(rtl), scrolledwindow > viewport > listview:dir(rtl), scrolledwindow > viewport > columnview:dir(rtl), scrolledwindow > viewport > treeview:dir(rtl) { padding: 0 0 0 18px; }
 
 listview, list { color: #EDF0F5; background-color: #323232; border-color: #252525; border-radius: 0; box-shadow: none; }
 
@@ -1342,6 +1344,8 @@ expander-widget > box > title { transition: none; border-radius: 0px; }
 expander-widget > box > title:hover > expander { color: white; }
 
 .navigation-sidebar:not(decoration):not(window):drop(active):focus, .navigation-sidebar:not(decoration):not(window):drop(active), placessidebar:not(decoration):not(window):drop(active):focus, placessidebar:not(decoration):not(window):drop(active), stackswitcher:not(decoration):not(window):drop(active):focus, stackswitcher:not(decoration):not(window):drop(active), expander-widget:not(decoration):not(window):drop(active):focus, expander-widget:not(decoration):not(window):drop(active) { box-shadow: none; }
+
+.navigation-sidebar, placessidebar { background-color: #323232; color: #EDF0F5; }
 
 /************ Calendar * */
 calendar { color: #EDF0F5; border: 2px solid; background-color: #323232; border-left-color: #1e1e1e; border-top-color: #1e1e1e; border-right-color: #5a5a5a; border-bottom-color: #5a5a5a; font-feature-settings: "tnum"; }
@@ -1703,7 +1707,9 @@ XfdesktopIconView.view:active { text-shadow: none; color: #d1ff96; background-co
 
 .nautilus-window .top-bar .collapse-spacing { padding: 0; }
 
-.nautilus-window .nautilus-list-view columnview, .nautilus-window .nautilus-list-view listview, .nautilus-window .nautilus-list-view cell { padding: 0; margin: 0; }
+.nautilus-window .nautilus-list-view columnview, .nautilus-window .nautilus-list-view listview, .nautilus-window .nautilus-list-view cell { margin: 0; }
+
+.nautilus-window .nautilus-list-view cell { padding: 0; }
 
 .nautilus-window .nautilus-list-view row { margin: 0; }
 

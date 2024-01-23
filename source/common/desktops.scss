@@ -64,12 +64,11 @@ XfdesktopIconView.view:active {
   }
   .nautilus-list-view {
     columnview, listview, cell {
-            padding: 0;
             margin: 0;
     }
-    row {
-        margin: 0;
-    }
+    cell {padding: 0;}
+    
+    row {margin: 0;}
     
   }
 }
