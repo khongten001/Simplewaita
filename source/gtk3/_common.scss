@@ -892,7 +892,7 @@ toolbar.inline-toolbar toolbutton {
 }
 
 %linked_middle {
-  border-right-style: none;
+  border-right-style: solid;
   border-radius: 0;
   -gtk-outline-radius: 0;
 }
@@ -946,9 +946,9 @@ toolbar.inline-toolbar toolbutton {
 }
 
 %linked_vertical_middle {
-  border-style: solid solid none solid;
-  border-radius: 0;
-  -gtk-outline-radius: 0;
+  border-style: solid;
+  border-radius: $button_radius;;
+  -gtk-outline-radius: $button_radius;;
 }
 
 %linked_vertical_top {
@@ -3012,6 +3012,10 @@ scrolledwindow {
   }
 }
 
+/**********************
+ * Separators
+ **********************/
+
 //vbox and hbox separators
 separator {
   //background: transparentize(black, 0.9);
@@ -3021,7 +3025,7 @@ separator {
   min-width: 0px;
   min-height: 0px;
   statusbar &, .osd &, osd & {@include relief($hint_bg);}
-  .titlebar:not(:backdrop) & {@include relief($titlebar_active_bg);}
+  .titlebar:not(:backdrop) &, headerbar:not(:backdrop) & {@include relief($titlebar_active_bg);}
   button & {@include relief($button_bg);}
   :disabled & {@include relief($insensitive_bg_color);}
   button:checked & {@include relief($button_checked_bg);}
@@ -3031,6 +3035,18 @@ separator {
 /*********
  * Lists *
  *********/
+
+// this is to prevent transient scrollbars to appear on top of content (or even controls!)
+scrolledwindow {
+	& > list, & > columnview, & > listview, & > treeview,
+	& > viewport > list, & > viewport > listview, & > viewport > columnview, & > viewport > treeview {
+		$padding: $_slider_width + 4 * $border_width;
+	 	&:dir(ltr) {padding: 0 $padding 0 0;}
+	 	&:dir(rtl) {padding: 0 0 0 $padding;}
+	}
+}
+
+
 list {
   color: $text_color;
   background-color: $base_color;
@@ -3083,8 +3099,9 @@ row {
   @extend %osd;
 
   padding: 10px;
-  border-radius: 0 0 5px 5px;
+  border-radius: 0 0 $button_radius $button_radius;
   background-color: $osd_bg_color;
+  color: $osd_fg_color;
   //background-image: linear-gradient(to bottom, transparentize(black, 0.8),
   //                                             transparent 2px);
   background-clip: padding-box;

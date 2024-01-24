@@ -312,7 +312,7 @@ stacksidebar row.needs-attention > label:dir(rtl), .stack-switcher > calendar.ne
 
 .inline-toolbar toolbutton > button:disabled:active, .inline-toolbar toolbutton > button:disabled:checked { border-width: 2px; color: #7c675a; background-color: #4d4c2f; border-left-color: #302f1d; border-top-color: #302f1d; border-right-color: #787862; border-bottom-color: #787862; }
 
-.linked:not(.vertical) > combobox > box > button.combo, filechooser .path-bar.linked > button, .inline-toolbar calendar.button, .inline-toolbar button, .linked > calendar.button, .linked > button, toolbar.inline-toolbar toolbutton > button.flat { border-right-style: none; border-radius: 0; -gtk-outline-radius: 0; }
+.linked:not(.vertical) > combobox > box > button.combo, filechooser .path-bar.linked > button, .inline-toolbar calendar.button, .inline-toolbar button, .linked > calendar.button, .linked > button, toolbar.inline-toolbar toolbutton > button.flat { border-right-style: solid; border-radius: 0; -gtk-outline-radius: 0; }
 
 .linked:not(.vertical) > combobox:first-child > box > button.combo, combobox.linked button:nth-child(2):dir(rtl), filechooser .path-bar.linked > button:dir(rtl):last-child, filechooser .path-bar.linked > button:dir(ltr):first-child, .inline-toolbar calendar.button:first-child, .inline-toolbar button:first-child, .linked > calendar.button:first-child, .linked > button:first-child, toolbar.inline-toolbar toolbutton:first-child > button.flat { border-top-left-radius: 0px; border-bottom-left-radius: 0px; -gtk-outline-top-left-radius: 0px; -gtk-outline-bottom-left-radius: 0px; }
 
@@ -320,7 +320,7 @@ stacksidebar row.needs-attention > label:dir(rtl), .stack-switcher > calendar.ne
 
 .linked:not(.vertical) > combobox:only-child > box > button.combo, filechooser .path-bar.linked > button:only-child, .inline-toolbar calendar.button:only-child, .inline-toolbar button:only-child, .linked > calendar.button:only-child, .linked > button:only-child, toolbar.inline-toolbar toolbutton:only-child > button.flat { border-style: solid; border-radius: 0px; -gtk-outline-radius: 0px; }
 
-.linked.vertical > combobox > box > button.combo, .linked.vertical > calendar.button, .linked.vertical > button { border-style: solid solid none solid; border-radius: 0; -gtk-outline-radius: 0; }
+.linked.vertical > combobox > box > button.combo, .linked.vertical > calendar.button, .linked.vertical > button { border-style: solid; border-radius: 0px; -gtk-outline-radius: 0px; }
 
 .linked.vertical > combobox:first-child > box > button.combo, .linked.vertical > calendar.button:first-child, .linked.vertical > button:first-child { border-top-left-radius: 0px; border-top-right-radius: 0px; -gtk-outline-top-left-radius: 0px; -gtk-outline-top-right-radius: 0px; }
 
@@ -1090,11 +1090,12 @@ scrolledwindow junction { border-color: transparent; border-image: linear-gradie
 
 scrolledwindow junction:dir(rtl) { border-image-slice: 0 1 0 0; }
 
+/********************** Separators */
 separator { border-width: 2px; border-style: solid; background-color: #3f3e3e; border-left-color: #6e6d6d; border-top-color: #6e6d6d; border-right-color: #272727; border-bottom-color: #272727; min-width: 0px; min-height: 0px; }
 
 statusbar separator, .osd separator, osd separator { background-color: #203d79; border-left-color: #6377a1; border-top-color: #6377a1; border-right-color: #15284f; border-bottom-color: #15284f; }
 
-.titlebar:not(:backdrop) separator { background-color: #507800; border-left-color: #79983c; border-top-color: #79983c; border-right-color: #314a00; border-bottom-color: #314a00; }
+.titlebar:not(:backdrop) separator, headerbar:not(:backdrop) separator { background-color: #507800; border-left-color: #79983c; border-top-color: #79983c; border-right-color: #314a00; border-bottom-color: #314a00; }
 
 button separator { background-color: #4e584d; border-left-color: #878e87; border-top-color: #878e87; border-right-color: #343a33; border-bottom-color: #343a33; }
 
@@ -1103,6 +1104,10 @@ button separator { background-color: #4e584d; border-left-color: #878e87; border
 button:checked separator { background-color: #669900; border-left-color: #94b84d; border-top-color: #94b84d; border-right-color: #426300; border-bottom-color: #426300; }
 
 /********* Lists * */
+scrolledwindow > list:dir(ltr), scrolledwindow > columnview:dir(ltr), scrolledwindow > listview:dir(ltr), scrolledwindow > treeview:dir(ltr), scrolledwindow > viewport > list:dir(ltr), scrolledwindow > viewport > listview:dir(ltr), scrolledwindow > viewport > columnview:dir(ltr), scrolledwindow > viewport > treeview:dir(ltr) { padding: 0 18px 0 0; }
+
+scrolledwindow > list:dir(rtl), scrolledwindow > columnview:dir(rtl), scrolledwindow > listview:dir(rtl), scrolledwindow > treeview:dir(rtl), scrolledwindow > viewport > list:dir(rtl), scrolledwindow > viewport > listview:dir(rtl), scrolledwindow > viewport > columnview:dir(rtl), scrolledwindow > viewport > treeview:dir(rtl) { padding: 0 0 0 18px; }
+
 list { color: #EDF0F5; background-color: #323232; border-color: #252525; }
 
 list row { padding: 2px; }
@@ -1122,7 +1127,7 @@ row.activatable:selected:active { background-color: #669900; border-left-color: 
 row.activatable:selected.has-open-popup, row.activatable:selected:hover { background-color: #71a30f; border-left-color: #a3c363; border-top-color: #a3c363; border-right-color: #4c6e0a; border-bottom-color: #4c6e0a; }
 
 /********************* App Notifications * */
-.app-notification, .app-notification.frame { padding: 10px; border-radius: 0 0 5px 5px; background-color: #203d79; background-clip: padding-box; }
+.app-notification, .app-notification.frame { padding: 10px; border-radius: 0 0 0px 0px; background-color: #203d79; color: #66cbec; background-clip: padding-box; }
 
 .app-notification border, .app-notification.frame border { border: none; }
 
@@ -1498,7 +1503,7 @@ popover.emoji-completion .emoji:hover { background: #4c4b4b; }
 
 statusbar { padding: 2px 5px 2px 5px; border-width: 2px; border-style: solid; color: #66cbec; background-color: #203d79; border-left-color: #15284f; border-top-color: #15284f; border-right-color: #6377a1; border-bottom-color: #6377a1; }
 
-undershoot { background-repeat: no-repeat; background-clip: border-box; background-image: image(alpha(#4384b3,0.3)); }
+undershoot { background-repeat: no-repeat; background-clip: border-box; background-image: image(alpha(#4384b3,0.3)); border: none; border-radius: 0; }
 
 undershoot.top { background-size: 100% 0.5em; background-position: top; }
 

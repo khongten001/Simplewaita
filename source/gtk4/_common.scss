@@ -1416,7 +1416,8 @@ headerbar { //.top-bar is for Nautilus. This is not included in '../common/deskt
   border: none;
   background-color: $titlebar_active_bg;
   color: $titlebar_active_fg;
-  
+  margin: 0; //override libadwaita
+  transition: none;
   
   //@include headerbar_fill(darken($bg_color, 10%));
 
@@ -2769,7 +2770,7 @@ separator {
   min-width: 0px;
   min-height: 0px;
   statusbar &, .osd &, osd & {@include relief($hint_bg);}
-  .titlebar:not(:backdrop) & {@include relief($titlebar_active_bg);}
+  .titlebar:not(:backdrop) &, headerbar:not(:backdrop) & {@include relief($titlebar_active_bg);}
   button & {@include relief($button_bg);}
   :disabled & {@include relief($insensitive_bg_color);}
   button:checked & {@include relief($button_checked_bg);}
@@ -2933,8 +2934,9 @@ columnview row:not(:selected) cell editablelabel.editing text selection {
 
   padding: 10px;
   border-spacing: 10px;
-  border-radius: 0 0 5px 5px;
+  border-radius: 0 0 $button_radius $button_radius;
   background-color: $osd_bg_color;
+  color: $osd_fg_color;
   //background-image: linear-gradient(to bottom, transparentize(black, 0.8),
   //                                             transparent 2px);
   background-clip: padding-box;

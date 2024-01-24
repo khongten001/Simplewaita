@@ -4,6 +4,8 @@ undershoot {
 	background-repeat: no-repeat;
 	background-clip: border-box;
 	background-image: image(gtkalpha($undershoot_color, 0.3));
+	border: none; //override libadwaita
+	border-radius: 0; // override libadwaita
 	&.top {
 		//background-image: linear-gradient(to bottom, gtkalpha(currentColor, 0.5), gtkalpha(currentColor, 0.2), gtkalpha(currentColor, 0));
 		background-size: 100% 0.5em;

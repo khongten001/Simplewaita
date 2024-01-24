@@ -644,7 +644,7 @@ windowcontrols button.minimize:disabled { border-width: 2px; color: #7c675a; bac
 windowcontrols button.minimize:backdrop { border-width: 2px; color: #EDF0F5; background-color: #4e584d; border-left-color: #878e87; border-top-color: #878e87; border-right-color: #343a33; border-bottom-color: #343a33; }
 
 /*************** Header bars * */
-.titlebar:not(headerbar), headerbar { padding: 4px; min-height: 2.5em; border-radius: 0; border: none; background-color: #507800; color: #d1ff96; /* Darken switchbuttons for headerbars. issue #1588 */ }
+.titlebar:not(headerbar), headerbar { padding: 4px; min-height: 2.5em; border-radius: 0; border: none; background-color: #507800; color: #d1ff96; margin: 0; transition: none; /* Darken switchbuttons for headerbars. issue #1588 */ }
 
 .titlebar:backdrop:not(headerbar), headerbar:backdrop { background-color: #3f3e3e; color: #EDF0F5; transition: none; }
 
@@ -1252,7 +1252,7 @@ separator { border-width: 2px; border-style: solid; background-color: #3f3e3e; b
 
 statusbar separator, .osd separator, osd separator { background-color: #203d79; border-left-color: #6377a1; border-top-color: #6377a1; border-right-color: #15284f; border-bottom-color: #15284f; }
 
-.titlebar:not(:backdrop) separator { background-color: #507800; border-left-color: #79983c; border-top-color: #79983c; border-right-color: #314a00; border-bottom-color: #314a00; }
+.titlebar:not(:backdrop) separator, headerbar:not(:backdrop) separator { background-color: #507800; border-left-color: #79983c; border-top-color: #79983c; border-right-color: #314a00; border-bottom-color: #314a00; }
 
 button separator { background-color: #4e584d; border-left-color: #878e87; border-top-color: #878e87; border-right-color: #343a33; border-bottom-color: #343a33; }
 
@@ -1320,7 +1320,7 @@ columnview row:not(:selected) cell editablelabel.editing text selection:focus-wi
 .rich-list > row > box { border-spacing: 12px; }
 
 /********************* App Notifications * */
-.app-notification { padding: 10px; border-spacing: 10px; border-radius: 0 0 5px 5px; background-color: #203d79; background-clip: padding-box; }
+.app-notification { padding: 10px; border-spacing: 10px; border-radius: 0 0 0px 0px; background-color: #203d79; color: #66cbec; background-clip: padding-box; }
 
 .app-notification border { border: none; }
 
@@ -1669,7 +1669,7 @@ splitbutton button, splitbutton menubutton, splitbutton arrow { margin: 0; paddi
 
 .floating-bar { border: 2px solid; border-radius: 0px; background-color: #203d79; border-left-color: #6377a1; border-top-color: #6377a1; border-right-color: #15284f; border-bottom-color: #15284f; color: #66cbec; }
 
-undershoot { background-repeat: no-repeat; background-clip: border-box; background-image: image(alpha(#4384b3,0.3)); }
+undershoot { background-repeat: no-repeat; background-clip: border-box; background-image: image(alpha(#4384b3,0.3)); border: none; border-radius: 0; }
 
 undershoot.top { background-size: 100% 0.5em; background-position: top; }
 
